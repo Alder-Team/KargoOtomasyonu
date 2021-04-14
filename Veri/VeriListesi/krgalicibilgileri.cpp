@@ -1,0 +1,90 @@
+#include "krgalicibilgileri.h"
+
+KRGAliciBilgileri::KRGAliciBilgileri(QObject *parent) : QObject(parent)
+{
+
+}
+
+Metin KRGAliciBilgileri::getAliciAdi() const
+{
+    return aliciAdi;
+}
+
+void KRGAliciBilgileri::setAliciAdi(const Metin &value)
+{
+    if (value == aliciAdi){
+        return;
+    }
+    aliciAdi = value;
+    emit aliciAdiDegisti(aliciAdi);
+}
+
+Metin KRGAliciBilgileri::getAliciSoyadi() const
+{
+    return aliciSoyadi;
+}
+
+void KRGAliciBilgileri::setAliciSoyadi(const Metin &value)
+{
+    if (value == aliciSoyadi){
+        return;
+    }
+    aliciSoyadi = value;
+    emit aliciSoyadiDegisti(aliciSoyadi);
+}
+
+Metin KRGAliciBilgileri::getAliciAdresi() const
+{
+    return aliciAdresi;
+}
+
+void KRGAliciBilgileri::setAliciAdresi(const Metin &value)
+{
+    if (value == aliciAdresi){
+        return;
+    }
+    aliciAdresi = value;
+    emit aliciAdresiDegisti(aliciAdresi);
+}
+
+Metin KRGAliciBilgileri::getAliciTelNo() const
+{
+    return aliciTelNo;
+}
+
+void KRGAliciBilgileri::setAliciTelNo(const Metin &value)
+{
+    if (value == aliciTelNo){
+        return;
+    }
+    aliciTelNo = value;
+    emit aliciTelNoDegisti(aliciTelNo);
+}
+
+Metin KRGAliciBilgileri::getAliciEmail() const
+{
+    return aliciEmail;
+}
+
+void KRGAliciBilgileri::setAliciEmail(const Metin &value)
+{
+    if (value == aliciEmail){
+        return;
+    }
+    aliciEmail = value;
+    emit aliciEmailDegisti(aliciEmail);
+}
+
+IdTuru KRGAliciBilgileri::getAliciFaturaId() const
+{
+    return aliciFaturaId;
+}
+
+void KRGAliciBilgileri::setAliciFaturaId(const IdTuru &value)
+{
+    if (value == aliciFaturaId){
+        return;
+    }
+    aliciFaturaId = value;
+    emit aliciFaturaIdDegisti(aliciFaturaId);
+}
