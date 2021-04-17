@@ -27,7 +27,7 @@ public:
 
     // 3-kargoyu listeden siler
 
-    void sil(IdTuru kargoId);
+    Ptr sil(IdTuru kargoId);
     void sil(Ptr kargo);
 
     // 4-kargonun kopyasını oluşturur
