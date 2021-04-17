@@ -23,6 +23,7 @@ HEADERS += \
     Veri/VeriListesi/krgkargobilgileri.h \
     Veri/VeriListesi/krgsubebilgileri.h \
     Veri/VeriYonetisi/krgkargobilgileriyoneticisi.h \
+    Veri/VeriYonetisi/temel_veri_yoneticisi.h \
     Veri/tanimlar.h \
     mainwindow.h
 

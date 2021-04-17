@@ -10,7 +10,7 @@ class KRGKargoBilgileri : public QObject
 public:
     explicit KRGKargoBilgileri(QObject *parent = nullptr);
 
-    Q_PROPERTY(IdTuru kargoId READ getKargoId WRITE setKargoId NOTIFY kargoIdDegisti)
+    Q_PROPERTY(IdTuru id READ getId WRITE setId NOTIFY idDegisti)
     Q_PROPERTY(Tarih kargoTarihi READ getKargoTarihi WRITE setKargoTarihi NOTIFY kargoTarihiDegisti)
     Q_PROPERTY(KargoTuru kargoTuru READ getKargoTuru WRITE setKargoTuru NOTIFY kargoTuruDegisti)
     Q_PROPERTY(OdemeTuru odemeTuru READ getOdemeTuru WRITE setOdemeTuru NOTIFY odemeTuruDegisti)
@@ -18,7 +18,7 @@ public:
     Q_PROPERTY(Metin aliciSube READ getAliciSube WRITE setAliciSube NOTIFY aliciSubeDegisti)
     Q_PROPERTY(ParaBirimi kargoUcreti READ getKargoUcreti WRITE setKargoUcreti NOTIFY kargoUcretiDegisti)
 
-    IdTuru getKargoId() const;
+    IdTuru getId() const;
     Tarih getKargoTarihi() const;
     KargoTuru getKargoTuru() const;
     OdemeTuru getOdemeTuru() const;
@@ -27,7 +27,7 @@ public:
     ParaBirimi getKargoUcreti() const;
 
 signals:
-    void kargoIdDegisti(const IdTuru &value);
+    void idDegisti(const IdTuru &value);
     void kargoTarihiDegisti(const Tarih &value);
     void kargoTuruDegisti(const KargoTuru &value);
     void odemeTuruDegisti(const OdemeTuru &value);
@@ -36,7 +36,7 @@ signals:
     void kargoUcretiDegisti(const ParaBirimi &value);
 
 public slots:
-    void setKargoId(const IdTuru &value);
+    void setId(const IdTuru &value);
     void setKargoTarihi(const Tarih &value);
     void setKargoTuru(const KargoTuru &value);
     void setOdemeTuru(const OdemeTuru &value);
@@ -46,7 +46,7 @@ public slots:
 
 private:
 
-    IdTuru kargoId;
+    IdTuru id;
     Tarih kargoTarihi;
     KargoTuru kargoTuru;
     OdemeTuru odemeTuru;

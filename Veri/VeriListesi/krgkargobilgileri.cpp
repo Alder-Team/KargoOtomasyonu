@@ -5,18 +5,18 @@ KRGKargoBilgileri::KRGKargoBilgileri(QObject *parent) : QObject(parent)
 
 }
 
-IdTuru KRGKargoBilgileri::getKargoId() const
+IdTuru KRGKargoBilgileri::getId() const
 {
-    return kargoId;
+    return id;
 }
 
-void KRGKargoBilgileri::setKargoId(const IdTuru &value)
+void KRGKargoBilgileri::setId(const IdTuru &value)
 {
-    if (value == kargoId){
+    if (value == id){
         return;
     }
-    kargoId = value;
-    emit kargoIdDegisti(kargoId);
+    id = value;
+    emit idDegisti(id);
 }
 
 Tarih KRGKargoBilgileri::getKargoTarihi() const

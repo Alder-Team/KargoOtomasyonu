@@ -75,16 +75,16 @@ void KRGGondericiBilgileri::setGonderenEmail(const Metin &value)
     emit gonderenEmailDegisti(gonderenEmail);
 }
 
-IdTuru KRGGondericiBilgileri::getGonderenFaturaId() const
+IdTuru KRGGondericiBilgileri::getId() const
 {
-    return gonderenFaturaId;
+    return id;
 }
 
-void KRGGondericiBilgileri::setGonderenFaturaId(const IdTuru &value)
+void KRGGondericiBilgileri::setId(const IdTuru &value)
 {
-    if (value == gonderenFaturaId){
+    if (value == id){
         return;
     }
-    gonderenFaturaId = value;
-    emit gonderenFaturaIdDegisti(gonderenFaturaId);
+    id = value;
+    emit idDegisti(id);
 }

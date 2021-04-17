@@ -15,14 +15,14 @@ public:
     Q_PROPERTY(Metin gonderenAdresi READ getGonderenAdresi WRITE setGonderenAdresi NOTIFY gonderenAdresiDegisti)
     Q_PROPERTY(Metin gonderenTelNo READ getGonderenTelNo WRITE setGonderenTelNo NOTIFY gonderenTelNoDegisti)
     Q_PROPERTY(Metin gonderenEmail READ getGonderenEmail WRITE setGonderenEmail NOTIFY gonderenEmailDegisti)
-    Q_PROPERTY(IdTuru gonderenFaturaId READ getGonderenFaturaId WRITE setGonderenFaturaId NOTIFY gonderenFaturaIdDegisti)
+    Q_PROPERTY(IdTuru id READ getId WRITE setId NOTIFY idDegisti)
 
     Metin getGonderenAdi() const;
     Metin getGonderenSoyadi() const;
     Metin getGonderenAdresi() const;
     Metin getGonderenTelNo() const;
     Metin getGonderenEmail() const;
-    IdTuru getGonderenFaturaId() const;
+    IdTuru getId() const;
 
 signals:
     void gonderenAdiDegisti(const Metin &value);
@@ -30,7 +30,7 @@ signals:
     void gonderenAdresiDegisti(const Metin &value);
     void gonderenTelNoDegisti(const Metin &value);
     void gonderenEmailDegisti(const Metin &value);
-    void gonderenFaturaIdDegisti(const IdTuru &value);
+    void idDegisti(const IdTuru &value);
 
 public slots:
     void setGonderenAdi(const Metin &value);
@@ -38,7 +38,7 @@ public slots:
     void setGonderenAdresi(const Metin &value);
     void setGonderenTelNo(const Metin &value);
     void setGonderenEmail(const Metin &value);
-    void setGonderenFaturaId(const IdTuru &value);
+    void setId(const IdTuru &value);
 
 
 private:
@@ -47,7 +47,7 @@ private:
     Metin gonderenAdresi;
     Metin gonderenTelNo;
     Metin gonderenEmail;
-    IdTuru gonderenFaturaId;
+    IdTuru id;
 
 };
 

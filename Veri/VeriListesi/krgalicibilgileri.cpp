@@ -75,16 +75,16 @@ void KRGAliciBilgileri::setAliciEmail(const Metin &value)
     emit aliciEmailDegisti(aliciEmail);
 }
 
-IdTuru KRGAliciBilgileri::getAliciFaturaId() const
+IdTuru KRGAliciBilgileri::getId() const
 {
-    return aliciFaturaId;
+    return id;
 }
 
-void KRGAliciBilgileri::setAliciFaturaId(const IdTuru &value)
+void KRGAliciBilgileri::setId(const IdTuru &value)
 {
-    if (value == aliciFaturaId){
+    if (value == id){
         return;
     }
-    aliciFaturaId = value;
-    emit aliciFaturaIdDegisti(aliciFaturaId);
+    id = value;
+    emit idDegisti(id);
 }

@@ -5,18 +5,18 @@ KRGSubeBilgileri::KRGSubeBilgileri(QObject *parent) : QObject(parent)
 
 }
 
-IdTuru KRGSubeBilgileri::getSubeId() const
+IdTuru KRGSubeBilgileri::getId() const
 {
-    return subeId;
+    return id;
 }
 
-void KRGSubeBilgileri::setSubeId(const IdTuru &value)
+void KRGSubeBilgileri::setId(const IdTuru &value)
 {
-    if (value == subeId){
+    if (value == id){
         return;
     }
-    subeId = value;
-    emit subeIdDegisti(subeId);
+    id = value;
+    emit idDegisti(id);
 }
 
 Metin KRGSubeBilgileri::getSubeAdi() const

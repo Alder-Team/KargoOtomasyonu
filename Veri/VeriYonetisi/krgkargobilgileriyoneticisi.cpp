@@ -3,40 +3,18 @@
 
 KRGKargoBilgileriYoneticisi::KRGKargoBilgileriYoneticisi(QObject *parent) : QObject(parent)
 {
-    enSonId = 0;
+
 }
 
-KRGKargoBilgileriYoneticisi::Ptr KRGKargoBilgileriYoneticisi::yeni() const
+KRGKargoBilgileriYoneticisi::Ptr KRGKargoBilgileriYoneticisi::kopyaOlustur(KRGKargoBilgileriYoneticisi::Ptr kaynak)
 {
-    Ptr yeni = std::make_shared<KRGKargoBilgileri>();
-    return yeni;
+    Ptr kopya = yeni();
+    kopya->setId(kaynak->getId());
+    kopya->setKargoTarihi(kaynak->getKargoTarihi());
+    kopya->setKargoTuru(kaynak->getKargoTuru());
+    kopya->setOdemeTuru(kaynak->getOdemeTuru());
+    kopya->setGonderenSube(kaynak->getGonderenSube());
+    kopya->setAliciSube(kaynak->getAliciSube());
+    kopya->setKargoUcreti(kaynak->getKargoUcreti());
+    return kopya;
 }
-
-void KRGKargoBilgileriYoneticisi::ekle(KRGKargoBilgileriYoneticisi::Ptr kargo)
-{
-    kargo->setKargoId(enSonId++);
-    veriler.append(kargo);
-}
-
-KRGKargoBilgileriYoneticisi::Ptr KRGKargoBilgileriYoneticisi::sil(IdTuru kargoId)
-{
-    for (int i=0; i<veriler.size(); i++) {
-        if (veriler[i]->getKargoId() == kargoId) {
-            Ptr sonuc = veriler.takeAt(i);
-            return sonuc;
-        }
-    }
-    throw tr("Aranılan kargo bulunamadı! Silme işlemi iptal edildi");
-}
-
-/* void KRGKargoBilgileriYoneticisi::sil(IdTuru kargoId)
-{
-    for (int i=0; i<veriler.size(); i++) {
-        if (veriler[i]->getKargoId() == kargoId) {
-            Ptr sonuc = veriler.takeAt(i);
-            return sonuc;
-        }
-    }
-    throw tr("Aranılan kargo bulunamadı! Silme işlemi iptal edildi");
-}
-*/
