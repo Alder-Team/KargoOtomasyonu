@@ -19,7 +19,7 @@ public:
     // 1-yeni kargo oluşturur
 
     Ptr yeni() const{
-        Ptr yeni = std::make_shared<KRGKargoBilgileri>();
+        Ptr yeni = std::make_shared<Veri>();
         return yeni;
     }
 

@@ -15,4 +15,6 @@ KRGGondericiBilgileriYoneticisi::Ptr KRGGondericiBilgileriYoneticisi::kopyaOlust
     kopya->setGonderenAdresi(kaynak->getGonderenAdresi());
     kopya->setGonderenTelNo(kaynak->getGonderenTelNo());
     kopya->setGonderenEmail(kaynak->getGonderenEmail());
+
+    return kopya;
 }
