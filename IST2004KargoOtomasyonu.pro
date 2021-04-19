@@ -13,7 +13,10 @@ SOURCES += \
     Veri/VeriListesi/krggondericibilgileri.cpp \
     Veri/VeriListesi/krgkargobilgileri.cpp \
     Veri/VeriListesi/krgsubebilgileri.cpp \
+    Veri/VeriYonetisi/krgalicibilgileriyoneticisi.cpp \
+    Veri/VeriYonetisi/krggondericibilgileriyoneticisi.cpp \
     Veri/VeriYonetisi/krgkargobilgileriyoneticisi.cpp \
+    Veri/VeriYonetisi/krgsubebilgileriyoneticisi.cpp \
     main.cpp \
     mainwindow.cpp
 
@@ -22,7 +25,10 @@ HEADERS += \
     Veri/VeriListesi/krggondericibilgileri.h \
     Veri/VeriListesi/krgkargobilgileri.h \
     Veri/VeriListesi/krgsubebilgileri.h \
+    Veri/VeriYonetisi/krgalicibilgileriyoneticisi.h \
+    Veri/VeriYonetisi/krggondericibilgileriyoneticisi.h \
     Veri/VeriYonetisi/krgkargobilgileriyoneticisi.h \
+    Veri/VeriYonetisi/krgsubebilgileriyoneticisi.h \
     Veri/VeriYonetisi/temel_veri_yoneticisi.h \
     Veri/tanimlar.h \
     mainwindow.h
