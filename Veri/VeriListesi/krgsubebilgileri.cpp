@@ -74,3 +74,9 @@ void KRGSubeBilgileri::setSubeYetkilisi(const Metin &value)
     subeYetkilisi = value;
     emit subeYetkilisiDegisti(subeYetkilisi);
 }
+
+QDataStream &yaz(QDataStream &a, KRGSubeBilgileriPtr &b)
+{
+    a << b->getId() << b->getSubeAdi() << b->getSubeAdresi() << b->getSubeTelNo() << b->getSubeYetkilisi();
+    return a;
+}
