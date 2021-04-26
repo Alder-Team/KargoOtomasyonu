@@ -102,3 +102,9 @@ void KRGKargoBilgileri::setKargoUcreti(const ParaBirimi &value)
     kargoUcreti = value;
     emit kargoUcretiDegisti(kargoUcreti);
 }
+
+QDataStream &yaz(QDataStream &a, KRGKargoBilgileriPtr &b)
+{
+    a << b->getId() << b->getKargoTarihi() << b->getKargoTuru() << b->getOdemeTuru() << b->getGonderenSube() << b->getAliciSube() << b->getKargoUcreti();
+    return a;
+}
