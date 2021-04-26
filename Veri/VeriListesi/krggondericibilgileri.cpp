@@ -92,5 +92,6 @@ void KRGGondericiBilgileri::setId(const IdTuru &value)
 QDataStream &yaz(QDataStream &a, KRGGondericiBilgileriPtr &b)
 {
     a << b->getGonderenAdi() << b->getGonderenSoyadi() << b->getGonderenAdresi() << b->getGonderenTelNo() << b->getGonderenEmail() << b->getId();
+
     return a;
 }
