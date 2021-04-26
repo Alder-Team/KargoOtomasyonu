@@ -88,3 +88,9 @@ void KRGAliciBilgileri::setId(const IdTuru &value)
     id = value;
     emit idDegisti(id);
 }
+
+QDataStream &yaz(QDataStream &a, KRGAliciBilgileriPtr &b)
+{
+    a << b->getAliciAdi() << b->getAliciSoyadi() << b->getAliciAdresi() << b->getAliciTelNo() << b->getAliciEmail() << b->getId();
+    return a;
+}
