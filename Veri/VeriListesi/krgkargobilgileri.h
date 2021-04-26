@@ -3,6 +3,7 @@
 
 #include <QObject>
 #include <Veri/tanimlar.h>
+#include <QDataStream>
 
 class KRGKargoBilgileri : public QObject
 {
@@ -56,5 +57,7 @@ private:
 
 
 };
+
+QDataStream &yaz(QDataStream &a, KRGKargoBilgileriPtr &b);
 
 #endif // KRGKARGOBILGILERI_H

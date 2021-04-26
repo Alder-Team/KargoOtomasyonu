@@ -3,6 +3,7 @@
 
 #include <QObject>
 #include <Veri/tanimlar.h>
+#include <QDataStream>
 
 class KRGAliciBilgileri : public QObject
 {
@@ -50,5 +51,7 @@ private:
     IdTuru id;
 
 };
+
+QDataStream &yaz(QDataStream &a, KRGAliciBilgileriPtr &b);
 
 #endif // KRGALICIBILGILERI_H

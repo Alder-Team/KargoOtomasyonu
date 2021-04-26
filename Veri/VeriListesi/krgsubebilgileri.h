@@ -3,6 +3,7 @@
 
 #include <QObject>
 #include <Veri/tanimlar.h>
+#include <QDataStream>
 
 class KRGSubeBilgileri : public QObject
 {
@@ -46,5 +47,7 @@ private:
     // Her biri arasındaki uzaklık (eklenecek)
 
 };
+
+QDataStream &yaz(QDataStream &a, KRGSubeBilgileriPtr &b);
 
 #endif // KRGSUBEBILGILERI_H
