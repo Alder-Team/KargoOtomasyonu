@@ -31,3 +31,15 @@ KRGSubeBilgileriYoneticisi &KRGGenelVeriYoneticisi::getSubeBilgileri()
     return subeBilgileri;
 }
 
+QDataStream &operator<<(QDataStream &a, KRGGenelVeriYoneticisi &b)
+{
+    a << b.subeBilgileri << b.aliciBilgileri << b.gondericiBilgileri << b.kargoBilgileri;
+    return a;
+
+}
+
+QDataStream &operator>>(QDataStream &a, KRGGenelVeriYoneticisi &b)
+{
+    a >> b.subeBilgileri >> b.aliciBilgileri >> b.gondericiBilgileri >> b.kargoBilgileri;
+    return a;
+}

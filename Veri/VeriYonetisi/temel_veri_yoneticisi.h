@@ -80,6 +80,28 @@ protected:
     VeriListesi veriler;
     IdTuru enSonId;
 
+    template<class a1, class b1>
+    friend QDataStream &operator<<(QDataStream &stream, TemelVeriYonetici<a1, b1> &veri);
+
+    template<class a2, class b2>
+    friend QDataStream &operator>>(QDataStream &stream, TemelVeriYonetici<a2, b2> &veri);
+
+
+
 };
+
+template<class V, class P>
+QDataStream &operator<<(QDataStream &stream, TemelVeriYonetici<V, P> &veri)
+{
+    stream << veri.enSonId << veri.veriler;
+    return stream;
+}
+
+template<class V, class P>
+QDataStream &operator>>(QDataStream &stream, TemelVeriYonetici<V, P> &veri)
+{
+    stream >> veri.enSonId >> veri.veriler;
+    return stream;
+}
 
 #endif // TEMEL_VERI_YONETICISI_H

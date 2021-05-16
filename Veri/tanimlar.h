@@ -45,4 +45,19 @@ typedef std::shared_ptr<KRGAliciBilgileri> KRGAliciBilgileriPtr;
 typedef std::shared_ptr<KRGSubeBilgileri> KRGSubeBilgileriPtr;
 
 
+QDataStream &operator<<(QDataStream &a, const KRGAliciBilgileriPtr &b);
+QDataStream &operator>>(QDataStream &a, KRGAliciBilgileriPtr &b);
+
+
+QDataStream &operator<<(QDataStream &a, const KRGGondericiBilgileriPtr &b);
+QDataStream &operator>>(QDataStream &a, KRGGondericiBilgileriPtr &b);
+
+
+QDataStream &operator<<(QDataStream &a, const KRGKargoBilgileriPtr &b);
+QDataStream &operator>>(QDataStream &a, KRGKargoBilgileriPtr &b);
+
+
+QDataStream &operator<<(QDataStream &a, const KRGSubeBilgileriPtr &b);
+QDataStream &operator>>(QDataStream &a, KRGSubeBilgileriPtr &b);
+
 #endif // TANIMLAR_H

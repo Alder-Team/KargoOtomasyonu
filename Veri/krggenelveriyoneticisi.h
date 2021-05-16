@@ -2,6 +2,7 @@
 #define KRGGENELVERIYONETICISI_H
 
 #include <QObject>
+
 #include <Veri/VeriYonetisi/krgalicibilgileriyoneticisi.h>
 #include <Veri/VeriYonetisi/krggondericibilgileriyoneticisi.h>
 #include <Veri/VeriYonetisi/krgkargobilgileriyoneticisi.h>
@@ -37,7 +38,7 @@ private:
 
 };
 
-QDataStream &operator<<(QDataStream a, KRGGenelVeriYoneticisi &b);
+QDataStream &operator<<(QDataStream &a, KRGGenelVeriYoneticisi &b);
 QDataStream &operator>>(QDataStream &a, KRGGenelVeriYoneticisi &b);
 
 #endif // KRGGENELVERIYONETICISI_H
