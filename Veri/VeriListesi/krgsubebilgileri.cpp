@@ -75,8 +75,26 @@ void KRGSubeBilgileri::setSubeYetkilisi(const Metin &value)
     emit subeYetkilisiDegisti(subeYetkilisi);
 }
 
-QDataStream &yaz(QDataStream &a, KRGSubeBilgileriPtr &b)
+QDataStream &operator<<(QDataStream &a, const KRGSubeBilgileriPtr &b)
 {
     a << b->getId() << b->getSubeAdi() << b->getSubeAdresi() << b->getSubeTelNo() << b->getSubeYetkilisi();
+    return a;
+}
+
+QDataStream &operator>>(QDataStream &a, KRGSubeBilgileriPtr &b)
+{
+    IdTuru id;
+    Metin subeAdi, subeAdresi, subeTelNo, subeYetkilisi;
+
+    a >> id >> subeAdi >> subeAdresi >> subeTelNo >> subeYetkilisi;
+
+    b = std::make_shared<KRGSubeBilgileri>();
+
+    b->setId(id);
+    b->setSubeAdi(subeAdi);
+    b->setSubeAdresi(subeAdresi);
+    b->setSubeTelNo(subeTelNo);
+    b->setSubeYetkilisi(subeYetkilisi);
+
     return a;
 }

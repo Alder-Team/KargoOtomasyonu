@@ -103,8 +103,34 @@ void KRGKargoBilgileri::setKargoUcreti(const ParaBirimi &value)
     emit kargoUcretiDegisti(kargoUcreti);
 }
 
-QDataStream &yaz(QDataStream &a, KRGKargoBilgileriPtr &b)
+QDataStream &operator<<(QDataStream &a, const KRGKargoBilgileriPtr &b)
 {
     a << b->getId() << b->getKargoTarihi() << b->getKargoTuru() << b->getOdemeTuru() << b->getGonderenSube() << b->getAliciSube() << b->getKargoUcreti();
+    return a;
+}
+
+
+QDataStream &operator>>(QDataStream &a, KRGKargoBilgileriPtr &b)
+{
+    IdTuru id;
+    Tarih kargoTarihi;
+    KargoTuru kargoTuru;
+    OdemeTuru odemeTuru;
+    Metin gonderenSube;
+    Metin aliciSube;
+    ParaBirimi kargoUcreti;
+
+    a >> id >> kargoTarihi >> kargoTuru >> odemeTuru >> gonderenSube >> aliciSube >> kargoUcreti;
+
+    b = std::make_shared<KRGKargoBilgileri>();
+
+    b->setId(id);
+    b->setKargoTarihi(kargoTarihi);
+    b->setKargoTuru(kargoTuru);
+    b->setOdemeTuru(odemeTuru);
+    b->setGonderenSube(gonderenSube);
+    b->setAliciSube(aliciSube);
+    b->setKargoUcreti(kargoUcreti);
+
     return a;
 }

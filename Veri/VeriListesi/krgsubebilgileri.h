@@ -48,6 +48,7 @@ private:
 
 };
 
-QDataStream &yaz(QDataStream &a, KRGSubeBilgileriPtr &b);
+QDataStream &operator<<(QDataStream &a, const KRGSubeBilgileriPtr &b);
+QDataStream &operator>>(QDataStream &a, KRGSubeBilgileriPtr &b);
 
 #endif // KRGSUBEBILGILERI_H

@@ -52,6 +52,7 @@ private:
 
 };
 
-QDataStream &yaz(QDataStream &a, KRGAliciBilgileriPtr &b);
+QDataStream &operator<<(QDataStream &a, const KRGAliciBilgileriPtr &b);
+QDataStream &operator>>(QDataStream &a, KRGAliciBilgileriPtr &b);
 
 #endif // KRGALICIBILGILERI_H

@@ -51,6 +51,7 @@ private:
     IdTuru id;
 
 };
-QDataStream &yaz(QDataStream &a, KRGGondericiBilgileriPtr &b);
+QDataStream &operator<<(QDataStream &a, const KRGGondericiBilgileriPtr &b);
+QDataStream &operator>>(QDataStream &a, KRGGondericiBilgileriPtr &b);
 
 #endif // KRGGONDERICIBILGILERI_H

@@ -89,9 +89,29 @@ void KRGGondericiBilgileri::setId(const IdTuru &value)
     emit idDegisti(id);
 }
 
-QDataStream &yaz(QDataStream &a, KRGGondericiBilgileriPtr &b)
+QDataStream &operator<<(QDataStream &a, const KRGGondericiBilgileriPtr &b)
 {
     a << b->getGonderenAdi() << b->getGonderenSoyadi() << b->getGonderenAdresi() << b->getGonderenTelNo() << b->getGonderenEmail() << b->getId();
+
+    return a;
+}
+
+
+QDataStream &operator>>(QDataStream &a, KRGGondericiBilgileriPtr &b)
+{
+    Metin gonderenAdi, gonderenSoyadi, gonderenAdresi, gonderenTelNo, gonderenEmail;
+    IdTuru id;
+
+    a >> gonderenAdi >> gonderenSoyadi >> gonderenAdresi >> gonderenTelNo >> gonderenEmail >> id;
+
+    b = std::make_shared<KRGGondericiBilgileri>();
+
+    b->setGonderenAdi(gonderenAdi);
+    b->setGonderenSoyadi(gonderenSoyadi);
+    b->setGonderenAdresi(gonderenAdresi);
+    b->setGonderenTelNo(gonderenTelNo);
+    b->setGonderenEmail(gonderenEmail);
+    b->setId(id);
 
     return a;
 }

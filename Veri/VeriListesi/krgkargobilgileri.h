@@ -58,6 +58,7 @@ private:
 
 };
 
-QDataStream &yaz(QDataStream &a, KRGKargoBilgileriPtr &b);
+QDataStream &operator<<(QDataStream &a, const KRGKargoBilgileriPtr &b);
+QDataStream &operator>>(QDataStream &a, KRGKargoBilgileriPtr &b);
 
 #endif // KRGKARGOBILGILERI_H

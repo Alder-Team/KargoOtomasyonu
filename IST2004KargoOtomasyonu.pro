@@ -17,6 +17,7 @@ SOURCES += \
     Veri/VeriYonetisi/krggondericibilgileriyoneticisi.cpp \
     Veri/VeriYonetisi/krgkargobilgileriyoneticisi.cpp \
     Veri/VeriYonetisi/krgsubebilgileriyoneticisi.cpp \
+    Veri/krggenelveriyoneticisi.cpp \
     main.cpp \
     mainwindow.cpp
 
@@ -30,6 +31,7 @@ HEADERS += \
     Veri/VeriYonetisi/krgkargobilgileriyoneticisi.h \
     Veri/VeriYonetisi/krgsubebilgileriyoneticisi.h \
     Veri/VeriYonetisi/temel_veri_yoneticisi.h \
+    Veri/krggenelveriyoneticisi.h \
     Veri/tanimlar.h \
     mainwindow.h
 
