@@ -9,6 +9,10 @@ CONFIG += c++11
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    UI/ListeFormlari/krgkargolistesi.cpp \
+    UI/ListeFormlari/krgsubelistesi.cpp \
+    UI/VeriFormlari/krgsubebilgileriekle.cpp \
+    UI/VeriFormlari/krgyenikargoekle.cpp \
     Veri/VeriListesi/krgalicibilgileri.cpp \
     Veri/VeriListesi/krggondericibilgileri.cpp \
     Veri/VeriListesi/krgkargobilgileri.cpp \
@@ -22,6 +26,10 @@ SOURCES += \
     mainwindow.cpp
 
 HEADERS += \
+    UI/ListeFormlari/krgkargolistesi.h \
+    UI/ListeFormlari/krgsubelistesi.h \
+    UI/VeriFormlari/krgsubebilgileriekle.h \
+    UI/VeriFormlari/krgyenikargoekle.h \
     Veri/VeriListesi/krgalicibilgileri.h \
     Veri/VeriListesi/krggondericibilgileri.h \
     Veri/VeriListesi/krgkargobilgileri.h \
@@ -36,6 +44,10 @@ HEADERS += \
     mainwindow.h
 
 FORMS += \
+    UI/ListeFormlari/krgkargolistesi.ui \
+    UI/ListeFormlari/krgsubelistesi.ui \
+    UI/VeriFormlari/krgsubebilgileriekle.ui \
+    UI/VeriFormlari/krgyenikargoekle.ui \
     mainwindow.ui
 
 TRANSLATIONS += \
