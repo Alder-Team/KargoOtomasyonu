@@ -18,6 +18,11 @@ public:
     Q_PROPERTY(Metin gonderenSube READ getGonderenSube WRITE setGonderenSube NOTIFY gonderenSubeDegisti)
     Q_PROPERTY(Metin aliciSube READ getAliciSube WRITE setAliciSube NOTIFY aliciSubeDegisti)
     Q_PROPERTY(ParaBirimi kargoUcreti READ getKargoUcreti WRITE setKargoUcreti NOTIFY kargoUcretiDegisti)
+    Q_PROPERTY(ReelSayi kargoEn READ getKargoEn WRITE setKargoEn NOTIFY kargoEnDegisti)
+    Q_PROPERTY(ReelSayi kargoBoy READ getKargoBoy WRITE setKargoBoy NOTIFY kargoBoyDegisti)
+    Q_PROPERTY(ReelSayi kargoYukseklik READ getKargoYukseklik WRITE setKargoYukseklik NOTIFY kargoYukseklikDegisti)
+    Q_PROPERTY(ReelSayi kargoAgirlik READ getKargoAgirlik WRITE setKargoAgirlik NOTIFY kargoAgirlikDegisti)
+    Q_PROPERTY(ReelSayi kargoDesi READ getKargoDesi WRITE setKargoDesi NOTIFY kargoDesiDegisti)
 
     IdTuru getId() const;
     Tarih getKargoTarihi() const;
@@ -26,8 +31,14 @@ public:
     Metin getGonderenSube() const;
     Metin getAliciSube() const;
     ParaBirimi getKargoUcreti() const;
+    ReelSayi getKargoEn() const;
+    ReelSayi getKargoBoy() const;
+    ReelSayi getKargoYukseklik() const;
+    ReelSayi getKargoDesi() const;
+    ReelSayi getKargoAgirlik() const;
 
 signals:
+
     void idDegisti(const IdTuru &value);
     void kargoTarihiDegisti(const Tarih &value);
     void kargoTuruDegisti(const KargoTuru &value);
@@ -35,8 +46,14 @@ signals:
     void gonderenSubeDegisti(const Metin &value);
     void aliciSubeDegisti(const Metin &value);
     void kargoUcretiDegisti(const ParaBirimi &value);
+    void kargoEnDegisti(const ReelSayi &value);
+    void kargoBoyDegisti(const ReelSayi &value);
+    void kargoYukseklikDegisti(const ReelSayi &value);
+    void kargoDesiDegisti(const ReelSayi &value);
+    void kargoAgirlikDegisti(const ReelSayi &value);
 
 public slots:
+
     void setId(const IdTuru &value);
     void setKargoTarihi(const Tarih &value);
     void setKargoTuru(const KargoTuru &value);
@@ -44,6 +61,11 @@ public slots:
     void setGonderenSube(const Metin &value);
     void setAliciSube(const Metin &value);
     void setKargoUcreti(const ParaBirimi &value);
+    void setKargoEn(const ReelSayi &value);
+    void setKargoBoy(const ReelSayi &value);
+    void setKargoYukseklik(const ReelSayi &value);
+    void setKargoDesi(const ReelSayi &value);
+    void setKargoAgirlik(const ReelSayi &value);
 
 private:
 
@@ -54,6 +76,12 @@ private:
     Metin gonderenSube;
     Metin aliciSube;
     ParaBirimi kargoUcreti;
+
+    ReelSayi kargoEn;
+    ReelSayi kargoBoy;
+    ReelSayi kargoYukseklik;
+    ReelSayi kargoAgirlik;
+    ReelSayi kargoDesi;
 
 
 };

@@ -16,5 +16,11 @@ KRGKargoBilgileriYoneticisi::Ptr KRGKargoBilgileriYoneticisi::kopyaOlustur(KRGKa
     kopya->setGonderenSube(kaynak->getGonderenSube());
     kopya->setAliciSube(kaynak->getAliciSube());
     kopya->setKargoUcreti(kaynak->getKargoUcreti());
+    kopya->setKargoEn(kaynak->getKargoEn());
+    kopya->setKargoBoy(kaynak->getKargoBoy());
+    kopya->setKargoYukseklik(kaynak->getKargoYukseklik());
+    kopya->setKargoAgirlik(kaynak->getKargoAgirlik());
+    kopya->setKargoDesi(kaynak->getKargoDesi());
+
     return kopya;
 }

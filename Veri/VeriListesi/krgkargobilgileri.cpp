@@ -103,9 +103,79 @@ void KRGKargoBilgileri::setKargoUcreti(const ParaBirimi &value)
     emit kargoUcretiDegisti(kargoUcreti);
 }
 
+ReelSayi KRGKargoBilgileri::getKargoAgirlik() const
+{
+    return kargoAgirlik;
+}
+
+void KRGKargoBilgileri::setKargoAgirlik(const ReelSayi &value)
+{
+    if (value == kargoAgirlik) {
+        return;
+    }
+    kargoAgirlik = value;
+    emit kargoAgirlikDegisti(kargoAgirlik);
+}
+
+ReelSayi KRGKargoBilgileri::getKargoDesi() const
+{
+    return kargoDesi;
+}
+
+void KRGKargoBilgileri::setKargoDesi(const ReelSayi &value)
+{
+    if (value == kargoDesi){
+        return;
+    }
+    kargoDesi = value;
+    emit kargoDesiDegisti(kargoDesi);
+}
+
+ReelSayi KRGKargoBilgileri::getKargoYukseklik() const
+{
+    return kargoYukseklik;
+}
+
+void KRGKargoBilgileri::setKargoYukseklik(const ReelSayi &value)
+{
+    if(value == kargoYukseklik){
+        return;
+    }
+    kargoYukseklik = value;
+    emit kargoYukseklikDegisti(kargoYukseklik);
+}
+
+ReelSayi KRGKargoBilgileri::getKargoBoy() const
+{
+    return kargoBoy;
+}
+
+void KRGKargoBilgileri::setKargoBoy(const ReelSayi &value)
+{
+    if (value == kargoBoy){
+        return;
+    }
+    kargoBoy = value;
+    emit kargoBoyDegisti(kargoBoy);
+}
+
+ReelSayi KRGKargoBilgileri::getKargoEn() const
+{
+    return kargoEn;
+}
+
+void KRGKargoBilgileri::setKargoEn(const ReelSayi &value)
+{
+    if (value == kargoEn){
+        return;
+    }
+    kargoEn = value;
+    emit kargoEnDegisti(kargoEn);
+}
+
 QDataStream &operator<<(QDataStream &a, const KRGKargoBilgileriPtr &b)
 {
-    a << b->getId() << b->getKargoTarihi() << b->getKargoTuru() << b->getOdemeTuru() << b->getGonderenSube() << b->getAliciSube() << b->getKargoUcreti();
+    a << b->getId() << b->getKargoTarihi() << b->getKargoTuru() << b->getOdemeTuru() << b->getGonderenSube() << b->getAliciSube() << b->getKargoUcreti() << b->getKargoEn() << b->getKargoBoy() << b->getKargoYukseklik() << b->getKargoAgirlik() << b->getKargoDesi();
     return a;
 }
 
@@ -120,7 +190,13 @@ QDataStream &operator>>(QDataStream &a, KRGKargoBilgileriPtr &b)
     Metin aliciSube;
     ParaBirimi kargoUcreti;
 
-    a >> id >> kargoTarihi >> kargoTuru >> odemeTuru >> gonderenSube >> aliciSube >> kargoUcreti;
+    ReelSayi kargoEn;
+    ReelSayi kargoBoy;
+    ReelSayi kargoYukseklik;
+    ReelSayi kargoAgirlik;
+    ReelSayi kargoDesi;
+
+    a >> id >> kargoTarihi >> kargoTuru >> odemeTuru >> gonderenSube >> aliciSube >> kargoUcreti >> kargoEn >> kargoBoy >> kargoYukseklik >> kargoAgirlik >> kargoDesi;
 
     b = std::make_shared<KRGKargoBilgileri>();
 
@@ -131,6 +207,11 @@ QDataStream &operator>>(QDataStream &a, KRGKargoBilgileriPtr &b)
     b->setGonderenSube(gonderenSube);
     b->setAliciSube(aliciSube);
     b->setKargoUcreti(kargoUcreti);
+    b->setKargoEn(kargoEn);
+    b->setKargoBoy(kargoBoy);
+    b->setKargoYukseklik(kargoYukseklik);
+    b->setKargoAgirlik(kargoAgirlik);
+    b->setKargoDesi(kargoDesi);
 
     return a;
 }
