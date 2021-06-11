@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>900</width>
-    <height>600</height>
+    <height>625</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -15,7 +15,7 @@
   </property>
   <layout class="QGridLayout" name="gridLayout_6">
    <item row="0" column="0">
-    <layout class="QVBoxLayout" name="verticalLayout_10">
+    <layout class="QVBoxLayout" name="verticalLayout_9">
      <item>
       <widget class="QLabel" name="lblYeniKargo">
        <property name="font">
@@ -31,9 +31,9 @@
       </widget>
      </item>
      <item>
-      <layout class="QHBoxLayout" name="horizontalLayout_22">
+      <layout class="QHBoxLayout" name="horizontalLayout_17">
        <item>
-        <layout class="QVBoxLayout" name="verticalLayout_9" stretch="2,5,3">
+        <layout class="QVBoxLayout" name="verticalLayout_7">
          <item>
           <widget class="QGroupBox" name="groupBoxOdemeTuru">
            <property name="title">
@@ -68,7 +68,7 @@
            </property>
            <layout class="QGridLayout" name="gridLayout">
             <item row="0" column="0">
-             <layout class="QVBoxLayout" name="verticalLayout">
+             <layout class="QVBoxLayout" name="verticalLayout" stretch="1,1,1,1,1">
               <item>
                <layout class="QHBoxLayout" name="horizontalLayout_3" stretch="2,3">
                 <item>
@@ -168,7 +168,7 @@
            </property>
            <layout class="QGridLayout" name="gridLayout_5">
             <item row="0" column="0">
-             <layout class="QVBoxLayout" name="verticalLayout_7">
+             <layout class="QVBoxLayout" name="verticalLayout_6">
               <item>
                <layout class="QHBoxLayout" name="horizontalLayout_8" stretch="2,3">
                 <item>
@@ -211,6 +211,19 @@
                 </item>
                </layout>
               </item>
+              <item>
+               <spacer name="verticalSpacer">
+                <property name="orientation">
+                 <enum>Qt::Vertical</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>20</width>
+                  <height>40</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
              </layout>
             </item>
            </layout>
@@ -231,56 +244,56 @@
               <item>
                <layout class="QHBoxLayout" name="horizontalLayout_13" stretch="2,3">
                 <item>
-                 <widget class="QLabel" name="label_15">
+                 <widget class="QLabel" name="lblAliciAdi">
                   <property name="text">
                    <string>Alıcı Adı</string>
                   </property>
                  </widget>
                 </item>
                 <item>
-                 <widget class="QLineEdit" name="lineEdit_5"/>
+                 <widget class="QLineEdit" name="lineEditAliciAdi"/>
                 </item>
                </layout>
               </item>
               <item>
                <layout class="QVBoxLayout" name="verticalLayout_3" stretch="0,0">
                 <item>
-                 <widget class="QLabel" name="label_14">
+                 <widget class="QLabel" name="lblAliciAdresi">
                   <property name="text">
                    <string>Alıcı Adresi</string>
                   </property>
                  </widget>
                 </item>
                 <item>
-                 <widget class="QPlainTextEdit" name="plainTextEdit_2"/>
+                 <widget class="QPlainTextEdit" name="plainTextEditAliciAdresi"/>
                 </item>
                </layout>
               </item>
               <item>
                <layout class="QHBoxLayout" name="horizontalLayout_12" stretch="2,3">
                 <item>
-                 <widget class="QLabel" name="label_13">
+                 <widget class="QLabel" name="lblAliciTelefonNumarasi">
                   <property name="text">
                    <string>Telefon Numarası:</string>
                   </property>
                  </widget>
                 </item>
                 <item>
-                 <widget class="QLineEdit" name="lineEdit_7"/>
+                 <widget class="QLineEdit" name="lineEditAliciTelefonNumarasi"/>
                 </item>
                </layout>
               </item>
               <item>
                <layout class="QHBoxLayout" name="horizontalLayout_10" stretch="2,3">
                 <item>
-                 <widget class="QLabel" name="label_17">
+                 <widget class="QLabel" name="lblAliciEmail">
                   <property name="text">
                    <string>Email:</string>
                   </property>
                  </widget>
                 </item>
                 <item>
-                 <widget class="QLineEdit" name="lineEdit_8"/>
+                 <widget class="QLineEdit" name="lineEditAliciEmail"/>
                 </item>
                </layout>
               </item>
@@ -300,56 +313,56 @@
               <item>
                <layout class="QHBoxLayout" name="horizontalLayout_14" stretch="2,3">
                 <item>
-                 <widget class="QLabel" name="label_18">
+                 <widget class="QLabel" name="lblGondericiAdi">
                   <property name="text">
                    <string>Gönderici Adı</string>
                   </property>
                  </widget>
                 </item>
                 <item>
-                 <widget class="QLineEdit" name="lineEdit_9"/>
+                 <widget class="QLineEdit" name="lineEditGondericiAdi"/>
                 </item>
                </layout>
               </item>
               <item>
                <layout class="QVBoxLayout" name="verticalLayout_5" stretch="0,0">
                 <item>
-                 <widget class="QLabel" name="label_19">
+                 <widget class="QLabel" name="lblGondericiAdresi">
                   <property name="text">
                    <string>Gönderici Adresi</string>
                   </property>
                  </widget>
                 </item>
                 <item>
-                 <widget class="QPlainTextEdit" name="plainTextEdit_3"/>
+                 <widget class="QPlainTextEdit" name="plainTextEditGondericiAdresi"/>
                 </item>
                </layout>
               </item>
               <item>
                <layout class="QHBoxLayout" name="horizontalLayout_15" stretch="2,3">
                 <item>
-                 <widget class="QLabel" name="label_20">
+                 <widget class="QLabel" name="lblGondericiTelefonNumarasi">
                   <property name="text">
                    <string>Telefon Numarası:</string>
                   </property>
                  </widget>
                 </item>
                 <item>
-                 <widget class="QLineEdit" name="lineEdit_10"/>
+                 <widget class="QLineEdit" name="lineEditGondericiTelefonNumarasi"/>
                 </item>
                </layout>
               </item>
               <item>
                <layout class="QHBoxLayout" name="horizontalLayout_16" stretch="2,3">
                 <item>
-                 <widget class="QLabel" name="label_21">
+                 <widget class="QLabel" name="lblGondericiEmail">
                   <property name="text">
                    <string>Email:</string>
                   </property>
                  </widget>
                 </item>
                 <item>
-                 <widget class="QLineEdit" name="lineEdit_11"/>
+                 <widget class="QLineEdit" name="lineEditGondericiEmail"/>
                 </item>
                </layout>
               </item>
@@ -365,14 +378,14 @@
      <item>
       <layout class="QHBoxLayout" name="horizontalLayout_2" stretch="0,0,6,1,1">
        <item>
-        <widget class="QLabel" name="label_9">
+        <widget class="QLabel" name="lblTutarSonucOncekiLabel">
          <property name="text">
           <string>Tutar:</string>
          </property>
         </widget>
        </item>
        <item>
-        <widget class="QLabel" name="label_10">
+        <widget class="QLabel" name="lblTutarSonuc">
          <property name="text">
           <string>20</string>
          </property>
@@ -392,14 +405,14 @@
         </spacer>
        </item>
        <item>
-        <widget class="QPushButton" name="pushButton_2">
+        <widget class="QPushButton" name="pushButtonIptal">
          <property name="text">
           <string>İptal</string>
          </property>
         </widget>
        </item>
        <item>
-        <widget class="QPushButton" name="pushButton">
+        <widget class="QPushButton" name="pushButtonKaydet">
          <property name="text">
           <string>Kaydet</string>
          </property>

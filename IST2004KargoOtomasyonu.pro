@@ -10,6 +10,7 @@ CONFIG += c++11
 
 SOURCES += \
     UI/ListeFormlari/krgkargolistesi.cpp \
+    UI/ListeFormlari/krgkayitlimusteriler.cpp \
     UI/ListeFormlari/krgsubelistesi.cpp \
     UI/VeriFormlari/krgsubebilgileriekle.cpp \
     UI/VeriFormlari/krgyenikargoekle.cpp \
@@ -27,6 +28,7 @@ SOURCES += \
 
 HEADERS += \
     UI/ListeFormlari/krgkargolistesi.h \
+    UI/ListeFormlari/krgkayitlimusteriler.h \
     UI/ListeFormlari/krgsubelistesi.h \
     UI/VeriFormlari/krgsubebilgileriekle.h \
     UI/VeriFormlari/krgyenikargoekle.h \
@@ -45,6 +47,7 @@ HEADERS += \
 
 FORMS += \
     UI/ListeFormlari/krgkargolistesi.ui \
+    UI/ListeFormlari/krgkayitlimusteriler.ui \
     UI/ListeFormlari/krgsubelistesi.ui \
     UI/VeriFormlari/krgsubebilgileriekle.ui \
     UI/VeriFormlari/krgyenikargoekle.ui \

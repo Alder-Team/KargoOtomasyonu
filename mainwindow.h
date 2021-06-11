@@ -24,6 +24,8 @@ private slots:
 
     void on_btnSubeAra_clicked();
 
+    void on_btnKayitliMusteriler_clicked();
+
 private:
     Ui::MainWindow *ui;
 };

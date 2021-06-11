@@ -4,6 +4,7 @@
 #include <UI/VeriFormlari/krgsubebilgileriekle.h>
 #include <UI/ListeFormlari/krgsubelistesi.h>
 #include <UI/ListeFormlari/krgkargolistesi.h>
+#include <UI/ListeFormlari/krgkayitlimusteriler.h>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -45,3 +46,9 @@ void MainWindow::on_btnSubeAra_clicked()
     form.exec();
 }
 
+
+void MainWindow::on_btnKayitliMusteriler_clicked()
+{
+    KRGKayitliMusteriler form;
+    form.exec();
+}

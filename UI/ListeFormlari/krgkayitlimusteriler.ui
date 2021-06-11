@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>KRGKargoListesi</class>
- <widget class="QDialog" name="KRGKargoListesi">
+ <class>KRGKayitliMusteriler</class>
+ <widget class="QDialog" name="KRGKayitliMusteriler">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -11,13 +11,13 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Kargo Ara</string>
+   <string>Kayıtlı Müşteriler</string>
   </property>
   <layout class="QGridLayout" name="gridLayout_2">
    <item row="0" column="0">
     <layout class="QVBoxLayout" name="verticalLayout_2">
      <item>
-      <widget class="QLabel" name="lblKargoAra">
+      <widget class="QLabel" name="lblKayitliMusteriler">
        <property name="font">
         <font>
          <pointsize>16</pointsize>
@@ -26,7 +26,7 @@
         </font>
        </property>
        <property name="text">
-        <string>Kargo Ara</string>
+        <string>Kayıtlı Müşteriler</string>
        </property>
       </widget>
      </item>
@@ -41,14 +41,14 @@
           <item>
            <layout class="QHBoxLayout" name="horizontalLayout_2" stretch="2,3">
             <item>
-             <widget class="QLabel" name="lblKargoIdGiriniz">
+             <widget class="QLabel" name="lblAdiSoyadi">
               <property name="text">
-               <string>Kargo ID Giriniz</string>
+               <string>Adı Soyadı</string>
               </property>
              </widget>
             </item>
             <item>
-             <widget class="QLineEdit" name="lineEditKargoIdGiriniz"/>
+             <widget class="QLineEdit" name="lineEditAdiSoyadi"/>
             </item>
            </layout>
           </item>
@@ -89,7 +89,7 @@
       </widget>
      </item>
      <item>
-      <widget class="QTableWidget" name="tableWidgetKargoListesi"/>
+      <widget class="QTableWidget" name="tableWidgetMusteriListesi"/>
      </item>
     </layout>
    </item>

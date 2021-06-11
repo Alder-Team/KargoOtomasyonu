@@ -16,7 +16,7 @@
   <widget class="QWidget" name="centralwidget">
    <layout class="QGridLayout" name="gridLayout">
     <item row="0" column="0">
-     <layout class="QVBoxLayout" name="verticalLayout" stretch="2,1,2,2,2,2,2,0,10">
+     <layout class="QVBoxLayout" name="verticalLayout" stretch="2,1,2,2,2,2,2,10">
       <item>
        <widget class="QLabel" name="baslik">
         <property name="font">
@@ -73,16 +73,9 @@
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="btnAlicilar">
+       <widget class="QPushButton" name="btnKayitliMusteriler">
         <property name="text">
-         <string>Kayıtlı Alıcılar</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QPushButton" name="btnGondericiler">
-        <property name="text">
-         <string>Kayıtlı Göndericiler</string>
+         <string>Kayıtlı Müşteriler</string>
         </property>
        </widget>
       </item>
