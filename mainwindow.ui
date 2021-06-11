@@ -6,16 +6,136 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
-    <height>600</height>
+    <width>960</width>
+    <height>640</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>Kargo Otomasyonu</string>
   </property>
-  <widget class="QWidget" name="centralwidget"/>
-  <widget class="QMenuBar" name="menubar"/>
-  <widget class="QStatusBar" name="statusbar"/>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="0" column="0">
+     <layout class="QVBoxLayout" name="verticalLayout" stretch="2,1,2,2,2,2,2,0,10">
+      <item>
+       <widget class="QLabel" name="baslik">
+        <property name="font">
+         <font>
+          <pointsize>16</pointsize>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="text">
+         <string>Kargo Otomasyonu</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <spacer name="verticalSpacer_2">
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>20</width>
+          <height>10</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
+       <widget class="QPushButton" name="btnKargoEkle">
+        <property name="text">
+         <string>Kargo Ekle</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="btnKargoAra">
+        <property name="text">
+         <string>Kargo Ara</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="btnSubeEkle">
+        <property name="text">
+         <string>Şube Ekle</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="btnSubeAra">
+        <property name="text">
+         <string>Şube Ara</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="btnAlicilar">
+        <property name="text">
+         <string>Kayıtlı Alıcılar</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="btnGondericiler">
+        <property name="text">
+         <string>Kayıtlı Göndericiler</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <spacer name="verticalSpacer">
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>20</width>
+          <height>40</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+     </layout>
+    </item>
+    <item row="0" column="1">
+     <widget class="QTableWidget" name="tableWidget"/>
+    </item>
+   </layout>
+  </widget>
+  <action name="actionKargo_Ekle">
+   <property name="text">
+    <string>Kargo Ekle</string>
+   </property>
+  </action>
+  <action name="actionKargo_Ara">
+   <property name="text">
+    <string>Kargo Ara</string>
+   </property>
+  </action>
+  <action name="actionG_nderici_Bilgileri">
+   <property name="text">
+    <string>Gönderici Bilgileri</string>
+   </property>
+  </action>
+  <action name="actionAl_c_ube">
+   <property name="text">
+    <string>Alıcı Şube</string>
+   </property>
+  </action>
+  <action name="action_ube_Ekle">
+   <property name="text">
+    <string>Şube Ekle</string>
+   </property>
+  </action>
+  <action name="action_ube_Ara">
+   <property name="text">
+    <string>Şube Ara</string>
+   </property>
+  </action>
  </widget>
  <resources/>
  <connections/>

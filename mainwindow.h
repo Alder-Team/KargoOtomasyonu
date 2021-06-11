@@ -15,6 +15,15 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
+private slots:
+    void on_btnKargoEkle_clicked();
+
+    void on_btnKargoAra_clicked();
+
+    void on_btnSubeEkle_clicked();
+
+    void on_btnSubeAra_clicked();
+
 private:
     Ui::MainWindow *ui;
 };
