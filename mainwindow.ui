@@ -16,7 +16,7 @@
   <widget class="QWidget" name="centralwidget">
    <layout class="QGridLayout" name="gridLayout">
     <item row="0" column="0">
-     <layout class="QVBoxLayout" name="verticalLayout" stretch="2,1,2,2,2,2,2,10">
+     <layout class="QVBoxLayout" name="verticalLayout" stretch="0,1,1,1,1,1,4">
       <item>
        <widget class="QLabel" name="baslik">
         <property name="font">
@@ -32,22 +32,12 @@
        </widget>
       </item>
       <item>
-       <spacer name="verticalSpacer_2">
-        <property name="orientation">
-         <enum>Qt::Vertical</enum>
-        </property>
-        <property name="sizeHint" stdset="0">
-         <size>
-          <width>20</width>
-          <height>10</height>
-         </size>
-        </property>
-       </spacer>
-      </item>
-      <item>
        <widget class="QPushButton" name="btnKargoEkle">
         <property name="text">
          <string>Kargo Ekle</string>
+        </property>
+        <property name="flat">
+         <bool>false</bool>
         </property>
        </widget>
       </item>
@@ -56,12 +46,18 @@
         <property name="text">
          <string>Kargo Ara</string>
         </property>
+        <property name="flat">
+         <bool>false</bool>
+        </property>
        </widget>
       </item>
       <item>
        <widget class="QPushButton" name="btnSubeEkle">
         <property name="text">
          <string>Şube Ekle</string>
+        </property>
+        <property name="flat">
+         <bool>false</bool>
         </property>
        </widget>
       </item>
@@ -70,12 +66,18 @@
         <property name="text">
          <string>Şube Ara</string>
         </property>
+        <property name="flat">
+         <bool>false</bool>
+        </property>
        </widget>
       </item>
       <item>
        <widget class="QPushButton" name="btnKayitliMusteriler">
         <property name="text">
          <string>Kayıtlı Müşteriler</string>
+        </property>
+        <property name="flat">
+         <bool>false</bool>
         </property>
        </widget>
       </item>
