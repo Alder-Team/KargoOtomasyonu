@@ -70,14 +70,25 @@ void KRGYeniKargoEkle::setVeriKargo(const KRGKargoBilgileriPtr &value)
 
 KRGGondericiBilgileriPtr KRGYeniKargoEkle::getVeriGonderici() const
 {
+
+    veriGonderici->setGonderenAdi(ui->lineEditGondericiAdi->text());
+    veriGonderici->setGonderenAdresi(ui->plainTextEditGondericiAdresi->toPlainText());
+    veriGonderici->setGonderenEmail(ui->lineEditGondericiEmail->text());
+    veriGonderici->setGonderenTelNo(ui->lineEditGondericiTelefonNumarasi->text());
     return veriGonderici;
 }
 
 void KRGYeniKargoEkle::setVeriGonderici(const KRGGondericiBilgileriPtr &value)
 {
+    ui->lineEditGondericiAdi->setText(veriGonderici->getGonderenAdi());
+    ui->plainTextEditGondericiAdresi->setPlainText(veriGonderici->getGonderenAdresi());
+    ui->lineEditGondericiEmail->setText(veriGonderici->getGonderenEmail());
+    ui->lineEditGondericiTelefonNumarasi->setText(veriGonderici->getGonderenTelNo());
     veriGonderici = value;
 }
 
+
+// Gülnur
 KRGAliciBilgileriPtr KRGYeniKargoEkle::getVeriAlici() const
 {
     return veriAlici;
@@ -87,34 +98,3 @@ void KRGYeniKargoEkle::setVeriAlici(const KRGAliciBilgileriPtr &value)
 {
     veriAlici = value;
 }
-
-//KRGKargoBilgileriPtr KRGYeniKargoEkle::getVeri() const
-//{
-//    if (ui->radiobtnAliciOdemeli->isChecked()) {
-//        veri->setOdemeTuru(OTAliciOdemeli);
-//    } else {
-//        veri->setOdemeTuru(OTGondericiOdemeli);
-//    }
-
-//    veri->setKargoEn(ui->dspinboxDesiEn->value());
-//    veri->setKargoBoy(ui->dspinboxDesiBoy->value());
-//    veri->setKargoYukseklik(ui->dspinboxDesiYukseklik->value());
-//    veri->setKargoAgirlik(ui->dspinboxDesiAgirlik->value());    //Değişebilir
-
-//    veri->setKargoDesi(ui->lblDesiSonucSayi->text().toDouble());
-
-//    veri->setGonderenSube(ui->comboboxGondericiSube->currentText());
-//    // ID alabiliriz
-//    veri->setAliciSube(ui->comboboxAliciSube->currentText());
-
-//    veri->setKargoTarihi(ui->dateEditTarih->date());
-
-//    veri->setKargoUcreti(ui->lblTutarSonuc->text().toDouble());
-
-//    return veri;
-//}
-
-//void KRGYeniKargoEkle::setVeri(const KRGKargoBilgileriPtr &value)
-//{
-//    veri = value;
-//}
