@@ -45,6 +45,9 @@
               <property name="text">
                <string>Şube Adı</string>
               </property>
+              <property name="buddy">
+               <cstring>lineEditSubeAdi</cstring>
+              </property>
              </widget>
             </item>
             <item>
@@ -58,6 +61,9 @@
              <widget class="QLabel" name="lblSubeTelefonNumarasi">
               <property name="text">
                <string>Telefon Numarası</string>
+              </property>
+              <property name="buddy">
+               <cstring>lineEditSubeTelefonNumarasi</cstring>
               </property>
              </widget>
             </item>
@@ -73,6 +79,9 @@
               <property name="text">
                <string>Şube Yetkilisi</string>
               </property>
+              <property name="buddy">
+               <cstring>lineEditSubeYetkilisi</cstring>
+              </property>
              </widget>
             </item>
             <item>
@@ -86,6 +95,9 @@
              <widget class="QLabel" name="lblSubeAdresi">
               <property name="text">
                <string>Şube Adresi</string>
+              </property>
+              <property name="buddy">
+               <cstring>plainTextEditSubeAdresi</cstring>
               </property>
              </widget>
             </item>
@@ -135,5 +147,38 @@
   </layout>
  </widget>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>pushButtonKaydet</sender>
+   <signal>clicked()</signal>
+   <receiver>KRGSubeBilgileriEkle</receiver>
+   <slot>accept()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>820</x>
+     <y>581</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>552</x>
+     <y>570</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButtonIptal</sender>
+   <signal>clicked()</signal>
+   <receiver>KRGSubeBilgileriEkle</receiver>
+   <slot>reject()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>740</x>
+     <y>585</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>427</x>
+     <y>565</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
 </ui>
