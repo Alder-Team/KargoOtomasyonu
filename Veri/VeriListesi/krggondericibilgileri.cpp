@@ -19,20 +19,6 @@ void KRGGondericiBilgileri::setGonderenAdi(const Metin &value)
     emit gonderenAdiDegisti(gonderenAdi);
 }
 
-Metin KRGGondericiBilgileri::getGonderenSoyadi() const
-{
-    return gonderenSoyadi;
-}
-
-void KRGGondericiBilgileri::setGonderenSoyadi(const Metin &value)
-{
-    if (value == gonderenSoyadi){
-        return;
-    }
-    gonderenSoyadi = value;
-    emit gonderenSoyadiDegisti(gonderenSoyadi);
-}
-
 Metin KRGGondericiBilgileri::getGonderenAdresi() const
 {
     return gonderenAdresi;
@@ -91,7 +77,7 @@ void KRGGondericiBilgileri::setId(const IdTuru &value)
 
 QDataStream &operator<<(QDataStream &a, const KRGGondericiBilgileriPtr &b)
 {
-    a << b->getGonderenAdi() << b->getGonderenSoyadi() << b->getGonderenAdresi() << b->getGonderenTelNo() << b->getGonderenEmail() << b->getId();
+    a << b->getGonderenAdi() << b->getGonderenAdresi() << b->getGonderenTelNo() << b->getGonderenEmail() << b->getId();
 
     return a;
 }
@@ -99,15 +85,14 @@ QDataStream &operator<<(QDataStream &a, const KRGGondericiBilgileriPtr &b)
 
 QDataStream &operator>>(QDataStream &a, KRGGondericiBilgileriPtr &b)
 {
-    Metin gonderenAdi, gonderenSoyadi, gonderenAdresi, gonderenTelNo, gonderenEmail;
+    Metin gonderenAdi, gonderenAdresi, gonderenTelNo, gonderenEmail;
     IdTuru id;
 
-    a >> gonderenAdi >> gonderenSoyadi >> gonderenAdresi >> gonderenTelNo >> gonderenEmail >> id;
+    a >> gonderenAdi >> gonderenAdresi >> gonderenTelNo >> gonderenEmail >> id;
 
     b = std::make_shared<KRGGondericiBilgileri>();
 
     b->setGonderenAdi(gonderenAdi);
-    b->setGonderenSoyadi(gonderenSoyadi);
     b->setGonderenAdresi(gonderenAdresi);
     b->setGonderenTelNo(gonderenTelNo);
     b->setGonderenEmail(gonderenEmail);

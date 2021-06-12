@@ -19,20 +19,6 @@ void KRGAliciBilgileri::setAliciAdi(const Metin &value)
     emit aliciAdiDegisti(aliciAdi);
 }
 
-Metin KRGAliciBilgileri::getAliciSoyadi() const
-{
-    return aliciSoyadi;
-}
-
-void KRGAliciBilgileri::setAliciSoyadi(const Metin &value)
-{
-    if (value == aliciSoyadi){
-        return;
-    }
-    aliciSoyadi = value;
-    emit aliciSoyadiDegisti(aliciSoyadi);
-}
-
 Metin KRGAliciBilgileri::getAliciAdresi() const
 {
     return aliciAdresi;
@@ -91,21 +77,20 @@ void KRGAliciBilgileri::setId(const IdTuru &value)
 
 QDataStream &operator<<(QDataStream &a, const KRGAliciBilgileriPtr &b)
 {
-    a << b->getAliciAdi() << b->getAliciSoyadi() << b->getAliciAdresi() << b->getAliciTelNo() << b->getAliciEmail() << b->getId();
+    a << b->getAliciAdi() << b->getAliciAdresi() << b->getAliciTelNo() << b->getAliciEmail() << b->getId();
     return a;
 }
 
 QDataStream &operator>>(QDataStream &a, KRGAliciBilgileriPtr &b)
 {
-    Metin aliciAdi, aliciSoyadi, aliciAdresi, aliciTelNo, aliciEmail;
+    Metin aliciAdi, aliciAdresi, aliciTelNo, aliciEmail;
     IdTuru id;
 
-    a >> aliciAdi >> aliciSoyadi >> aliciAdresi >> aliciTelNo >> aliciEmail >> id;
+    a >> aliciAdi >> aliciAdresi >> aliciTelNo >> aliciEmail >> id;
 
     b = std::make_shared<KRGAliciBilgileri>();
 
     b->setAliciAdi(aliciAdi);
-    b->setAliciSoyadi(aliciSoyadi);
     b->setAliciAdresi(aliciAdresi);
     b->setAliciTelNo(aliciTelNo);
     b->setAliciEmail(aliciEmail);

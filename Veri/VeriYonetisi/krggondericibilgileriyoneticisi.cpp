@@ -11,7 +11,6 @@ KRGGondericiBilgileriYoneticisi::Ptr KRGGondericiBilgileriYoneticisi::kopyaOlust
     Ptr kopya = yeni();
     kopya->setId(kaynak->getId());
     kopya->setGonderenAdi(kaynak->getGonderenAdi());
-    kopya->setGonderenSoyadi(kaynak->getGonderenSoyadi());
     kopya->setGonderenAdresi(kaynak->getGonderenAdresi());
     kopya->setGonderenTelNo(kaynak->getGonderenTelNo());
     kopya->setGonderenEmail(kaynak->getGonderenEmail());
