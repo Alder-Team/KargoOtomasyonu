@@ -23,6 +23,8 @@ public:
     Q_PROPERTY(ReelSayi kargoYukseklik READ getKargoYukseklik WRITE setKargoYukseklik NOTIFY kargoYukseklikDegisti)
     Q_PROPERTY(ReelSayi kargoAgirlik READ getKargoAgirlik WRITE setKargoAgirlik NOTIFY kargoAgirlikDegisti)
     Q_PROPERTY(ReelSayi kargoDesi READ getKargoDesi WRITE setKargoDesi NOTIFY kargoDesiDegisti)
+    Q_PROPERTY(IdTuru aliciId READ getAliciId WRITE setAliciId NOTIFY aliciIdDegisti)
+    Q_PROPERTY(IdTuru gondericiId READ getGondericiId WRITE setGondericiId NOTIFY gondericiIdDegisti)
 
     IdTuru getId() const;
     Tarih getKargoTarihi() const;
@@ -36,6 +38,8 @@ public:
     ReelSayi getKargoYukseklik() const;
     ReelSayi getKargoDesi() const;
     ReelSayi getKargoAgirlik() const;
+    IdTuru getAliciId() const;
+    IdTuru getGondericiId() const;
 
 signals:
 
@@ -51,6 +55,8 @@ signals:
     void kargoYukseklikDegisti(const ReelSayi &value);
     void kargoDesiDegisti(const ReelSayi &value);
     void kargoAgirlikDegisti(const ReelSayi &value);
+    void aliciIdDegisti(const IdTuru &value);
+    void gondericiIdDegisti(const IdTuru &value);
 
 public slots:
 
@@ -66,10 +72,14 @@ public slots:
     void setKargoYukseklik(const ReelSayi &value);
     void setKargoDesi(const ReelSayi &value);
     void setKargoAgirlik(const ReelSayi &value);
+    void setAliciId(const IdTuru &value);
+    void setGondericiId(const IdTuru &value);
 
 private:
 
     IdTuru id;
+    IdTuru aliciId;
+    IdTuru gondericiId;
     Tarih kargoTarihi;
     KargoTuru kargoTuru;
     OdemeTuru odemeTuru;

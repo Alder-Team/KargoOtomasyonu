@@ -21,6 +21,8 @@ KRGKargoBilgileriYoneticisi::Ptr KRGKargoBilgileriYoneticisi::kopyaOlustur(KRGKa
     kopya->setKargoYukseklik(kaynak->getKargoYukseklik());
     kopya->setKargoAgirlik(kaynak->getKargoAgirlik());
     kopya->setKargoDesi(kaynak->getKargoDesi());
+    kopya->setAliciId(kaynak->getAliciId());
+    kopya->setGondericiId(kaynak->getGondericiId());
 
     return kopya;
 }
