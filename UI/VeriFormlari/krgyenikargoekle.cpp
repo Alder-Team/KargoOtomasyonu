@@ -88,13 +88,20 @@ void KRGYeniKargoEkle::setVeriGonderici(const KRGGondericiBilgileriPtr &value)
 }
 
 
-// Gülnur
 KRGAliciBilgileriPtr KRGYeniKargoEkle::getVeriAlici() const
 {
+    veriAlici->setAliciAdi(ui->lineEditAliciAdi->text());
+    veriAlici->setAliciAdresi(ui->plainTextEditAliciAdresi->toPlainText());
+    veriAlici->setAliciEmail(ui->lineEditAliciEmail->text());
+    veriAlici->setAliciTelNo(ui->lineEditAliciTelefonNumarasi->text());
     return veriAlici;
 }
 
 void KRGYeniKargoEkle::setVeriAlici(const KRGAliciBilgileriPtr &value)
 {
     veriAlici = value;
+    ui->lineEditAliciAdi->setText(veriAlici->getAliciAdi());
+    ui->plainTextEditAliciAdresi->setPlainText(veriAlici->getAliciAdresi());
+    ui->lineEditAliciEmail->setText(veriAlici->getAliciEmail());
+    ui->lineEditAliciTelefonNumarasi->setText(veriAlici->getAliciTelNo());
 }
