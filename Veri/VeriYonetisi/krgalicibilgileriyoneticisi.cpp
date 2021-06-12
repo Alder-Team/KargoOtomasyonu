@@ -12,7 +12,6 @@ KRGAliciBilgileriYoneticisi::Ptr KRGAliciBilgileriYoneticisi::kopyaOlustur(Temel
 
     kopya->setId(kaynak->getId());
     kopya->setAliciAdi(kaynak->getAliciAdi());
-    kopya->setAliciSoyadi(kaynak->getAliciSoyadi());
     kopya->setAliciAdresi(kaynak->getAliciAdresi());
     kopya->setAliciTelNo(kaynak->getAliciTelNo());
     kopya->setAliciEmail(kaynak->getAliciEmail());
