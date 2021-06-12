@@ -47,6 +47,9 @@
                 <property name="text">
                  <string>Alıcı Ödemeli</string>
                 </property>
+                <property name="checked">
+                 <bool>true</bool>
+                </property>
                </widget>
               </item>
               <item>
@@ -76,6 +79,9 @@
                   <property name="text">
                    <string>En</string>
                   </property>
+                  <property name="buddy">
+                   <cstring>dspinboxDesiEn</cstring>
+                  </property>
                  </widget>
                 </item>
                 <item>
@@ -89,6 +95,9 @@
                  <widget class="QLabel" name="lblDesiBoy">
                   <property name="text">
                    <string>Boy</string>
+                  </property>
+                  <property name="buddy">
+                   <cstring>dspinboxDesiBoy</cstring>
                   </property>
                  </widget>
                 </item>
@@ -104,6 +113,9 @@
                   <property name="text">
                    <string>Yükseklik</string>
                   </property>
+                  <property name="buddy">
+                   <cstring>dspinboxDesiYukseklik</cstring>
+                  </property>
                  </widget>
                 </item>
                 <item>
@@ -117,6 +129,9 @@
                  <widget class="QLabel" name="lblDesiAgirlik">
                   <property name="text">
                    <string>Ağırlık</string>
+                  </property>
+                  <property name="buddy">
+                   <cstring>dspinboxDesiAgirlik</cstring>
                   </property>
                  </widget>
                 </item>
@@ -176,6 +191,9 @@
                   <property name="text">
                    <string>Gönderici Şube</string>
                   </property>
+                  <property name="buddy">
+                   <cstring>comboboxGondericiSube</cstring>
+                  </property>
                  </widget>
                 </item>
                 <item>
@@ -189,6 +207,9 @@
                  <widget class="QLabel" name="lblAliciSube">
                   <property name="text">
                    <string>Alıcı Şube</string>
+                  </property>
+                  <property name="buddy">
+                   <cstring>comboboxAliciSube</cstring>
                   </property>
                  </widget>
                 </item>
@@ -204,10 +225,17 @@
                   <property name="text">
                    <string>Tarih</string>
                   </property>
+                  <property name="buddy">
+                   <cstring>dateEditTarih</cstring>
+                  </property>
                  </widget>
                 </item>
                 <item>
-                 <widget class="QDateEdit" name="dateEditTarih"/>
+                 <widget class="QDateEdit" name="dateEditTarih">
+                  <property name="calendarPopup">
+                   <bool>true</bool>
+                  </property>
+                 </widget>
                 </item>
                </layout>
               </item>
@@ -248,6 +276,9 @@
                   <property name="text">
                    <string>Alıcı Adı</string>
                   </property>
+                  <property name="buddy">
+                   <cstring>lineEditAliciAdi</cstring>
+                  </property>
                  </widget>
                 </item>
                 <item>
@@ -261,6 +292,9 @@
                  <widget class="QLabel" name="lblAliciAdresi">
                   <property name="text">
                    <string>Alıcı Adresi</string>
+                  </property>
+                  <property name="buddy">
+                   <cstring>plainTextEditAliciAdresi</cstring>
                   </property>
                  </widget>
                 </item>
@@ -276,6 +310,9 @@
                   <property name="text">
                    <string>Telefon Numarası:</string>
                   </property>
+                  <property name="buddy">
+                   <cstring>lineEditAliciTelefonNumarasi</cstring>
+                  </property>
                  </widget>
                 </item>
                 <item>
@@ -289,6 +326,9 @@
                  <widget class="QLabel" name="lblAliciEmail">
                   <property name="text">
                    <string>Email:</string>
+                  </property>
+                  <property name="buddy">
+                   <cstring>lineEditAliciEmail</cstring>
                   </property>
                  </widget>
                 </item>
@@ -317,6 +357,9 @@
                   <property name="text">
                    <string>Gönderici Adı</string>
                   </property>
+                  <property name="buddy">
+                   <cstring>lineEditGondericiAdi</cstring>
+                  </property>
                  </widget>
                 </item>
                 <item>
@@ -330,6 +373,9 @@
                  <widget class="QLabel" name="lblGondericiAdresi">
                   <property name="text">
                    <string>Gönderici Adresi</string>
+                  </property>
+                  <property name="buddy">
+                   <cstring>plainTextEditGondericiAdresi</cstring>
                   </property>
                  </widget>
                 </item>
@@ -345,6 +391,9 @@
                   <property name="text">
                    <string>Telefon Numarası:</string>
                   </property>
+                  <property name="buddy">
+                   <cstring>lineEditGondericiTelefonNumarasi</cstring>
+                  </property>
                  </widget>
                 </item>
                 <item>
@@ -358,6 +407,9 @@
                  <widget class="QLabel" name="lblGondericiEmail">
                   <property name="text">
                    <string>Email:</string>
+                  </property>
+                  <property name="buddy">
+                   <cstring>lineEditGondericiEmail</cstring>
                   </property>
                  </widget>
                 </item>
@@ -425,5 +477,38 @@
   </layout>
  </widget>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>pushButtonKaydet</sender>
+   <signal>clicked()</signal>
+   <receiver>KRGYeniKargoEkle</receiver>
+   <slot>accept()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>808</x>
+     <y>601</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>582</x>
+     <y>589</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButtonIptal</sender>
+   <signal>clicked()</signal>
+   <receiver>KRGYeniKargoEkle</receiver>
+   <slot>reject()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>713</x>
+     <y>603</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>627</x>
+     <y>597</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
 </ui>
