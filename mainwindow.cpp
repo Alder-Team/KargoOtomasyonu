@@ -5,17 +5,49 @@
 #include <UI/ListeFormlari/krgsubelistesi.h>
 #include <UI/ListeFormlari/krgkargolistesi.h>
 #include <UI/ListeFormlari/krgkayitlimusteriler.h>
+#include <Veri/krggenelveriyoneticisi.h>
+
+#include <QDir>
+#include <QFile>
+#include <QDataStream>
+#include <QStandardPaths>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+
+    QString dosya_yolu = QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation);
+    QDir dosya_klasoru(dosya_yolu);
+
+    if (dosya_klasoru.exists("KargoOtomasyonu.krg")) {
+        QFile dosya(dosya_yolu + "/KargoOtomasyonu.krg");
+
+        if (dosya.open(QIODevice::ReadOnly)) {
+            QDataStream oku(&dosya);
+
+            oku >> KRGGenelVeriYoneticisi::db();
+
+            dosya.close();
+        }
+    }
 }
 
 MainWindow::~MainWindow()
 {
     delete ui;
+
+    QString dosya_yolu = QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation);
+
+    QFile dosya(dosya_yolu + "/KargoOtomasyonu.krg");
+    if (dosya.open(QIODevice::WriteOnly)) {
+        QDataStream yaz(&dosya);
+
+        yaz << KRGGenelVeriYoneticisi::db();
+
+        dosya.close();
+    }
 }
 
 
