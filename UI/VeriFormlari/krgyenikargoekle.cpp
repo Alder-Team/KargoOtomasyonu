@@ -80,11 +80,12 @@ KRGGondericiBilgileriPtr KRGYeniKargoEkle::getVeriGonderici() const
 
 void KRGYeniKargoEkle::setVeriGonderici(const KRGGondericiBilgileriPtr &value)
 {
+    veriGonderici = value;
     ui->lineEditGondericiAdi->setText(veriGonderici->getGonderenAdi());
     ui->plainTextEditGondericiAdresi->setPlainText(veriGonderici->getGonderenAdresi());
     ui->lineEditGondericiEmail->setText(veriGonderici->getGonderenEmail());
     ui->lineEditGondericiTelefonNumarasi->setText(veriGonderici->getGonderenTelNo());
-    veriGonderici = value;
+
 }
 
 

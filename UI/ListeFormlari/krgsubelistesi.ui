@@ -45,6 +45,9 @@
               <property name="text">
                <string>Şube Adı Giriniz</string>
               </property>
+              <property name="buddy">
+               <cstring>lineEditSubeAdiGiriniz</cstring>
+              </property>
              </widget>
             </item>
             <item>

@@ -1,8 +1,14 @@
 #ifndef TEMEL_VERI_YONETICISI_H
 #define TEMEL_VERI_YONETICISI_H
 
-#include <Veri/tanimlar.h>
+
 #include <QObject>
+#include <Veri/tanimlar.h>
+#include <Veri/VeriListesi/krgalicibilgileri.h>
+#include <Veri/VeriListesi/krggondericibilgileri.h>
+#include <Veri/VeriListesi/krgkargobilgileri.h>
+#include <Veri/VeriListesi/krgsubebilgileri.h>
+
 
 template <class V, class P>
 
