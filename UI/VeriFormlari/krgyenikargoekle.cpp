@@ -10,6 +10,14 @@ KRGYeniKargoEkle::KRGYeniKargoEkle(QWidget *parent) :
     ui(new Ui::KRGYeniKargoEkle)
 {
     ui->setupUi(this);
+
+    // connect(ui->dspinboxDesiYukseklik, static_cast<void(QDoubleSpinBox::*)(double)>(&QDoubleSpinBox::valueChanged), this, &KRGYeniKargoEkle::calcDesi);
+    // this->calcDesi();
+    connect(ui->dspinboxDesiEn, static_cast<void(QDoubleSpinBox::*)(double)>(&QDoubleSpinBox::valueChanged), this, &KRGYeniKargoEkle::desiHesapla);
+    connect(ui->dspinboxDesiBoy, static_cast<void(QDoubleSpinBox::*)(double)>(&QDoubleSpinBox::valueChanged), this, &KRGYeniKargoEkle::desiHesapla);
+    connect(ui->dspinboxDesiYukseklik, static_cast<void(QDoubleSpinBox::*)(double)>(&QDoubleSpinBox::valueChanged), this, &KRGYeniKargoEkle::desiHesapla);
+    this->desiHesapla();
+
 }
 
 KRGYeniKargoEkle::~KRGYeniKargoEkle()
@@ -28,7 +36,6 @@ KRGKargoBilgileriPtr KRGYeniKargoEkle::getVeriKargo() const
     veriKargo->setKargoEn(ui->dspinboxDesiEn->value());
     veriKargo->setKargoBoy(ui->dspinboxDesiBoy->value());
     veriKargo->setKargoYukseklik(ui->dspinboxDesiYukseklik->value());
-    veriKargo->setKargoAgirlik(ui->dspinboxDesiAgirlik->value());    //Değişebilir
 
     veriKargo->setKargoDesi(ui->lblDesiSonucSayi->text().toDouble());
 
@@ -58,7 +65,6 @@ void KRGYeniKargoEkle::setVeriKargo(const KRGKargoBilgileriPtr &value)
     ui->dspinboxDesiEn->setValue(veriKargo->getKargoEn());
     ui->dspinboxDesiBoy->setValue(veriKargo->getKargoBoy());
     ui->dspinboxDesiYukseklik->setValue(veriKargo->getKargoYukseklik());
-    ui->dspinboxDesiAgirlik->setValue(veriKargo->getKargoAgirlik());
     ui->lblDesiSonucSayi->setText(tr("%1").arg(veriKargo->getKargoDesi()));
 
     ui->comboboxGondericiSube->setCurrentText(veriKargo->getGonderenSube());
@@ -105,4 +111,10 @@ void KRGYeniKargoEkle::setVeriAlici(const KRGAliciBilgileriPtr &value)
     ui->plainTextEditAliciAdresi->setPlainText(veriAlici->getAliciAdresi());
     ui->lineEditAliciEmail->setText(veriAlici->getAliciEmail());
     ui->lineEditAliciTelefonNumarasi->setText(veriAlici->getAliciTelNo());
+}
+
+void KRGYeniKargoEkle::desiHesapla()
+{
+    auto desi = ui->dspinboxDesiBoy->value() * ui->dspinboxDesiEn->value() * ui->dspinboxDesiYukseklik->value() / 3000;
+    ui->lblDesiSonucSayi->setText(QString::number(desi));
 }

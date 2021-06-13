@@ -71,7 +71,7 @@
            </property>
            <layout class="QGridLayout" name="gridLayout">
             <item row="0" column="0">
-             <layout class="QVBoxLayout" name="verticalLayout" stretch="1,1,1,1,1">
+             <layout class="QVBoxLayout" name="verticalLayout" stretch="1,1,1,1">
               <item>
                <layout class="QHBoxLayout" name="horizontalLayout_3" stretch="2,3">
                 <item>
@@ -120,23 +120,6 @@
                 </item>
                 <item>
                  <widget class="QDoubleSpinBox" name="dspinboxDesiYukseklik"/>
-                </item>
-               </layout>
-              </item>
-              <item>
-               <layout class="QHBoxLayout" name="horizontalLayout_6" stretch="2,3">
-                <item>
-                 <widget class="QLabel" name="lblDesiAgirlik">
-                  <property name="text">
-                   <string>Ağırlık</string>
-                  </property>
-                  <property name="buddy">
-                   <cstring>dspinboxDesiAgirlik</cstring>
-                  </property>
-                 </widget>
-                </item>
-                <item>
-                 <widget class="QDoubleSpinBox" name="dspinboxDesiAgirlik"/>
                 </item>
                </layout>
               </item>
@@ -316,7 +299,11 @@
                  </widget>
                 </item>
                 <item>
-                 <widget class="QLineEdit" name="lineEditAliciTelefonNumarasi"/>
+                 <widget class="QLineEdit" name="lineEditAliciTelefonNumarasi">
+                  <property name="inputMask">
+                   <string>\0 (D99) 999 99 99</string>
+                  </property>
+                 </widget>
                 </item>
                </layout>
               </item>
@@ -333,7 +320,11 @@
                  </widget>
                 </item>
                 <item>
-                 <widget class="QLineEdit" name="lineEditAliciEmail"/>
+                 <widget class="QLineEdit" name="lineEditAliciEmail">
+                  <property name="inputMethodHints">
+                   <set>Qt::ImhEmailCharactersOnly</set>
+                  </property>
+                 </widget>
                 </item>
                </layout>
               </item>
@@ -397,7 +388,11 @@
                  </widget>
                 </item>
                 <item>
-                 <widget class="QLineEdit" name="lineEditGondericiTelefonNumarasi"/>
+                 <widget class="QLineEdit" name="lineEditGondericiTelefonNumarasi">
+                  <property name="inputMask">
+                   <string>\0 (D99) 999 99 99</string>
+                  </property>
+                 </widget>
                 </item>
                </layout>
               </item>
@@ -414,7 +409,14 @@
                  </widget>
                 </item>
                 <item>
-                 <widget class="QLineEdit" name="lineEditGondericiEmail"/>
+                 <widget class="QLineEdit" name="lineEditGondericiEmail">
+                  <property name="inputMethodHints">
+                   <set>Qt::ImhEmailCharactersOnly</set>
+                  </property>
+                  <property name="inputMask">
+                   <string/>
+                  </property>
+                 </widget>
                 </item>
                </layout>
               </item>

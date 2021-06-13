@@ -28,6 +28,10 @@ public:
     KRGAliciBilgileriPtr getVeriAlici() const;
     void setVeriAlici(const KRGAliciBilgileriPtr &value);
 
+public slots:
+    void desiHesapla();
+
+
 private:
     Ui::KRGYeniKargoEkle *ui;
 
