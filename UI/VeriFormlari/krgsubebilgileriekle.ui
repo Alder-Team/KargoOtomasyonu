@@ -116,7 +116,397 @@
               </item>
               <item>
                <property name="text">
-                <string>New Item</string>
+                <string>Afyonkarahisar</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Ağrı</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Amasya</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Ankara</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Antalya</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Artvin</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Aydın</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Balıkesir</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Bilecik</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Bingöl</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Bitlis</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Bolu</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Burdur</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Bursa</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Çanakkale</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Çankırı</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Çorum</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Denizli</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Diyarbakır</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Edirne</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Elazığ</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Erzincan</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Erzurum</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Eskişehir</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Gaziantep</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Giresun</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Gümüşhane</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Hakkari</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Hatay</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Isparta</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Mersin</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>İstanbul</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>İzmir</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Kars</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Kastamonu</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Kayseri</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Kırklareli</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Kırşehir</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Kocaeli</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Konya</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Kütahya</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Malatya</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Manisa</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Kahraman Maraş</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Mardin</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Muğla</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Muş</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Nevşehir</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Niğde</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Ordu</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Rize</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Sakarya</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Samsun</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Siirt</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Sinop</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Sivas</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Tekirdağ</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Tokat</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Trabzon</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Tunceli</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Şanlıurfa</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Uşak</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Van </string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Yozgat</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Zonguldak</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Aksaray</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Bayburt</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Karaman</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Kırıkkale</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Batman</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Şırnak</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Bartın</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Ardahan</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Iğdır</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Yalova</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Karabük</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Kilis</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Osmaniye</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Düzce</string>
                </property>
               </item>
              </widget>
