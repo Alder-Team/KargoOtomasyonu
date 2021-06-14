@@ -117,4 +117,5 @@ void KRGYeniKargoEkle::desiHesapla()
 {
     auto desi = ui->dspinboxDesiBoy->value() * ui->dspinboxDesiEn->value() * ui->dspinboxDesiYukseklik->value() / 3000;
     ui->lblDesiSonucSayi->setText(QString::number(desi));
+
 }
