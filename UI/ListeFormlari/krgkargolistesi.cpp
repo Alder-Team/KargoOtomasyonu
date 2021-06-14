@@ -139,7 +139,7 @@ void KRGKargoListesi::listeGuncelle()
 
     ui->tableWidgetAliciListesi->clear();
     ui->tableWidgetAliciListesi->setRowCount(listeAlici.length());
-    ui->tableWidgetAliciListesi->setColumnCount(5);
+    ui->tableWidgetAliciListesi->setColumnCount(7);
 
 
     QStringList basliklarAlici;
@@ -168,11 +168,42 @@ void KRGKargoListesi::listeGuncelle()
         hucre->setText(tr("%1").arg(listeAlici[i]->getAliciAdresi()));
         ui->tableWidgetAliciListesi->setItem(i,4,hucre);
 
+        QPushButton *silmeButonu = new QPushButton();
+        silmeButonu->setText(tr("Gönderi Sil"));
+        ui->tableWidgetAliciListesi->setCellWidget(i,5,silmeButonu);
+
+        QPushButton *duzenlemeButonu = new QPushButton();
+        duzenlemeButonu->setText(tr("Gönderi Düzenleme"));
+        ui->tableWidgetAliciListesi->setCellWidget(i,6,duzenlemeButonu);
+
+
+        auto veri_i = listeAlici[i];
+
+        connect(silmeButonu, &QPushButton::clicked, [veri_i,this]() {
+            auto cevap = QMessageBox::question(nullptr, tr("Silme Onayı"), tr("%1 isimli alıcıyı silmek istediğinize emin misiniz?").arg(veri_i->getId()));
+            if (cevap == QMessageBox::Yes) {
+                KRGGenelVeriYoneticisi::db().getAliciBilgileri().sil(veri_i->getId());
+                QMessageBox::information(nullptr, tr("Kayıt Silindi"), tr("Kayıt silme işlemi tamamlandı!"));
+                this->ara();
+            }
+        });
+
+        connect(duzenlemeButonu, &QPushButton::clicked, [veri_i,this]() {
+            KRGAliciDuzenleme form;
+            form.setVeri(veri_i);
+            form.setWindowTitle(tr("%1 Alıcıyı Düzenle").arg(veri_i->getId()));
+
+            if (form.exec() == QDialog::Accepted) {
+                form.getVeri();
+                this->listeGuncelle();
+            }
+        });
+
     }
 
     ui->tableWidgetGondericiListesi->clear();
     ui->tableWidgetGondericiListesi->setRowCount(listeGonderici.length());
-    ui->tableWidgetGondericiListesi->setColumnCount(5);
+    ui->tableWidgetGondericiListesi->setColumnCount(7);
 
     QStringList basliklarGonderici;
     basliklarGonderici << tr("id") << tr("Gonderici Adı") << tr("Telefon Numarası") << tr("Mail") << tr("Adresi");
@@ -199,6 +230,37 @@ void KRGKargoListesi::listeGuncelle()
         hucre = new QTableWidgetItem();
         hucre->setText(tr("%1").arg(listeGonderici[i]->getGonderenAdresi()));
         ui->tableWidgetGondericiListesi->setItem(i,4,hucre);
+
+        QPushButton *silmeButonu = new QPushButton();
+        silmeButonu->setText(tr("Gönderi Sil"));
+        ui->tableWidgetGondericiListesi->setCellWidget(i,5,silmeButonu);
+
+        QPushButton *duzenlemeButonu = new QPushButton();
+        duzenlemeButonu->setText(tr("Gönderi Düzenleme"));
+        ui->tableWidgetGondericiListesi->setCellWidget(i,6,duzenlemeButonu);
+
+
+        auto veri_i = listeGonderici[i];
+
+        connect(silmeButonu, &QPushButton::clicked, [veri_i,this]() {
+            auto cevap = QMessageBox::question(nullptr, tr("Silme Onayı"), tr("%1 isimli göndericiyi silmek istediğinize emin misiniz?").arg(veri_i->getId()));
+            if (cevap == QMessageBox::Yes) {
+                KRGGenelVeriYoneticisi::db().getGondericiBilgileri().sil(veri_i->getId());
+                QMessageBox::information(nullptr, tr("Kayıt Silindi"), tr("Kayıt silme işlemi tamamlandı!"));
+                this->ara();
+            }
+        });
+
+        connect(duzenlemeButonu, &QPushButton::clicked, [veri_i,this]() {
+            KRGGondericiDuzenleme form;
+            form.setVeri(veri_i);
+            form.setWindowTitle(tr("%1 Göndericiyi Düzenle").arg(veri_i->getId()));
+
+            if (form.exec() == QDialog::Accepted) {
+                form.getVeri();
+                this->listeGuncelle();
+            }
+        });
 
     }
 
