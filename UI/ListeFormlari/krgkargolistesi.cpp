@@ -4,12 +4,15 @@
 #include <Veri/VeriListesi/krgkargobilgileri.h>
 #include <Veri/VeriListesi/krgalicibilgileri.h>
 #include <Veri/VeriListesi/krggondericibilgileri.h>
-
+#include <UI/VeriFormlari/krgyenikargoekle.h>
 #include <Veri/krggenelveriyoneticisi.h>
 
 #include<QStringList>
 #include <QTableWidgetItem>
 #include <QDebug>
+#include <QPushButton>
+#include <QMessageBox>
+
 
 
 KRGKargoListesi::KRGKargoListesi(QWidget *parent) :
@@ -29,10 +32,10 @@ void KRGKargoListesi::listeGuncelle()
 {
     ui->tableWidgetKargoListesi->clear();
     ui->tableWidgetKargoListesi->setRowCount(listeKargo.length());
-    ui->tableWidgetKargoListesi->setColumnCount(12);
+    ui->tableWidgetKargoListesi->setColumnCount(14);
 
     QStringList basliklar;
-    basliklar <<tr("ID") << tr("Alıcı İd") << tr("Gönderici Id") << tr("Tarih") << tr("Ödeme Türü") << tr("En") << tr("Boy") << tr("Yükseklik") << tr("Desi") << tr("Gönderen Şube") << tr("Alıcı Şube") << tr("Tutar");
+    basliklar <<tr("ID") << tr("Alıcı İd") << tr("Gönderici Id") << tr("Tarih") << tr("Ödeme Türü") << tr("En") << tr("Boy") << tr("Yükseklik") << tr("Desi") << tr("Gönderen Şube") << tr("Alıcı Şube") << tr("Tutar") <<tr("Gönderi Silme") << tr("Gönderi Düzenleme");
     ui->tableWidgetKargoListesi->setHorizontalHeaderLabels(basliklar);
 
 
@@ -97,6 +100,37 @@ void KRGKargoListesi::listeGuncelle()
         hucre = new QTableWidgetItem();
         hucre->setText(tr("%1").arg(listeKargo[i]->getKargoUcreti()));
         ui->tableWidgetKargoListesi->setItem(i,11,hucre);
+
+        QPushButton *silmeButonu = new QPushButton();
+        silmeButonu->setText(tr("Gönderi Sil"));
+        ui->tableWidgetKargoListesi->setCellWidget(i,12,silmeButonu);
+
+        QPushButton *duzenlemeButonu = new QPushButton();
+        duzenlemeButonu->setText(tr("Gönderi Düzenleme"));
+        ui->tableWidgetKargoListesi->setCellWidget(i,13,duzenlemeButonu);
+
+
+        auto veri_i = listeKargo[i];
+
+        connect(silmeButonu, &QPushButton::clicked, [veri_i,this]() {
+            auto cevap = QMessageBox::question(nullptr, tr("Silme Onayı"), tr("%1 isimli gönderiyi silmek istediğinize emin misiniz?").arg(veri_i->getId()));
+            if (cevap == QMessageBox::Yes) {
+                KRGGenelVeriYoneticisi::db().getKargoBilgileri().sil(veri_i->getId());
+                QMessageBox::information(nullptr, tr("Kayıt Silindi"), tr("Kayıt silme işlemi tamamlandı!"));
+                this->ara();
+            }
+        });
+
+        connect(duzenlemeButonu, &QPushButton::clicked, [veri_i,this]() {
+            KRGYeniKargoEkle form;
+            form.setVeriKargo(veri_i);
+            form.setWindowTitle(tr("%1 Id'li Gönderiyi Düzenle").arg(veri_i->getId()));
+
+            if (form.exec() == QDialog::Accepted) {
+                form.getVeriKargo();
+                this->listeGuncelle();
+            }
+        });
 
 
 
