@@ -84,7 +84,14 @@ void MainWindow::on_btnKargoAra_clicked()
 void MainWindow::on_btnSubeEkle_clicked()
 {
     KRGSubeBilgileriEkle form;
-    form.exec();
+    auto veri = KRGGenelVeriYoneticisi::db().getSubeBilgileri().yeni();
+
+    form.setVeri(veri);
+
+    if (form.exec() == QDialog::Accepted) {
+        form.getVeri();
+        KRGGenelVeriYoneticisi::db().getSubeBilgileri().ekle(veri);
+    }
 }
 
 
