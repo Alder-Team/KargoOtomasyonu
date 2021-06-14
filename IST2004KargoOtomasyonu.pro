@@ -17,6 +17,7 @@ SOURCES += \
     UI/VeriDuzenleme/krgkargoduzenleme.cpp \
     UI/VeriFormlari/krgsubebilgileriekle.cpp \
     UI/VeriFormlari/krgyenikargoekle.cpp \
+    Veri/Csv/krgcsvreadclass.cpp \
     Veri/VeriListesi/krgalicibilgileri.cpp \
     Veri/VeriListesi/krggondericibilgileri.cpp \
     Veri/VeriListesi/krgkargobilgileri.cpp \
@@ -38,6 +39,7 @@ HEADERS += \
     UI/VeriDuzenleme/krgkargoduzenleme.h \
     UI/VeriFormlari/krgsubebilgileriekle.h \
     UI/VeriFormlari/krgyenikargoekle.h \
+    Veri/Csv/krgcsvreadclass.h \
     Veri/VeriListesi/krgalicibilgileri.h \
     Veri/VeriListesi/krggondericibilgileri.h \
     Veri/VeriListesi/krgkargobilgileri.h \
@@ -69,3 +71,6 @@ TRANSLATIONS += \
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+RESOURCES += \
+    Dosyalar.qrc

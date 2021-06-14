@@ -81,6 +81,7 @@ void KRGYeniKargoEkle::setVeriKargo(const KRGKargoBilgileriPtr &value)
     ui->dspinboxDesiYukseklik->setValue(veriKargo->getKargoYukseklik());
     ui->lblDesiSonucSayi->setText(tr("%1").arg(veriKargo->getKargoDesi()));
 
+    ui->comboboxAliciSube->currentIndex();
     ui->comboboxGondericiSube->setCurrentText(veriKargo->getGonderenSube());
     ui->comboboxAliciSube->setCurrentText(veriKargo->getAliciSube());
 
