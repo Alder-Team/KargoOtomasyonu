@@ -2,6 +2,9 @@
 #include "ui_krgkargolistesi.h"
 
 #include <Veri/VeriListesi/krgkargobilgileri.h>
+#include <Veri/VeriListesi/krgalicibilgileri.h>
+#include <Veri/VeriListesi/krggondericibilgileri.h>
+
 #include <Veri/krggenelveriyoneticisi.h>
 
 #include<QStringList>
@@ -29,7 +32,7 @@ void KRGKargoListesi::listeGuncelle()
     ui->tableWidgetKargoListesi->setColumnCount(12);
 
     QStringList basliklar;
-    basliklar <<tr("ID") << tr("Tarih") << tr("Ödeme Türü") << tr("En") << tr("Boy") << tr("Yükseklik") << tr("Desi") << tr("Gönderen Şube") << tr("Alıcı Şube") << tr("Gönderen Müşteri Id") << tr("Alan Müşteri Id")<< tr("Tutar");
+    basliklar <<tr("ID") << tr("Alıcı İd") << tr("Gönderici Id") << tr("Tarih") << tr("Ödeme Türü") << tr("En") << tr("Boy") << tr("Yükseklik") << tr("Desi") << tr("Gönderen Şube") << tr("Alıcı Şube") << tr("Tutar");
     ui->tableWidgetKargoListesi->setHorizontalHeaderLabels(basliklar);
 
 
@@ -40,10 +43,18 @@ void KRGKargoListesi::listeGuncelle()
         hucre->setText(tr("%1").arg(listeKargo[i]->getId()));
         ui->tableWidgetKargoListesi->setItem(i,0,hucre);
 
+        hucre = new QTableWidgetItem();
+        hucre->setText(tr("%1").arg(listeKargo[i]->getKargoUcreti()));
+        ui->tableWidgetKargoListesi->setItem(i,1,hucre);
+
+        hucre = new QTableWidgetItem();
+        hucre->setText(tr("%1").arg(listeKargo[i]->getKargoUcreti()));
+        ui->tableWidgetKargoListesi->setItem(i,2,hucre);
 
         hucre = new QTableWidgetItem();
         hucre->setText(listeKargo[i]->getKargoTarihi().toString("yyyy.MM.dd"));
-        ui->tableWidgetKargoListesi->setItem(i,1,hucre);
+        ui->tableWidgetKargoListesi->setItem(i,3,hucre);
+
 
 
         hucre = new QTableWidgetItem();
@@ -54,47 +65,108 @@ void KRGKargoListesi::listeGuncelle()
         default:
             hucre->setText("Alıcı Ödemeli");
         }
-        ui->tableWidgetKargoListesi->setItem(i, 2, hucre);
+        ui->tableWidgetKargoListesi->setItem(i, 4, hucre);
 
 
 
         hucre = new QTableWidgetItem();
         hucre->setText(tr("%1").arg(listeKargo[i]->getKargoEn()));
-        ui->tableWidgetKargoListesi->setItem(i,3,hucre);
-
-        hucre = new QTableWidgetItem();
-        hucre->setText(tr("%1").arg(listeKargo[i]->getKargoBoy()));
-        ui->tableWidgetKargoListesi->setItem(i,4,hucre);
-
-        hucre = new QTableWidgetItem();
-        hucre->setText(tr("%1").arg(listeKargo[i]->getKargoYukseklik()));
         ui->tableWidgetKargoListesi->setItem(i,5,hucre);
 
         hucre = new QTableWidgetItem();
-        hucre->setText(tr("%1").arg(listeKargo[i]->getKargoDesi()));
+        hucre->setText(tr("%1").arg(listeKargo[i]->getKargoBoy()));
         ui->tableWidgetKargoListesi->setItem(i,6,hucre);
 
         hucre = new QTableWidgetItem();
-        hucre->setText(listeKargo[i]->getGonderenSube());
+        hucre->setText(tr("%1").arg(listeKargo[i]->getKargoYukseklik()));
         ui->tableWidgetKargoListesi->setItem(i,7,hucre);
 
         hucre = new QTableWidgetItem();
-        hucre->setText(listeKargo[i]->getAliciSube());
+        hucre->setText(tr("%1").arg(listeKargo[i]->getKargoDesi()));
         ui->tableWidgetKargoListesi->setItem(i,8,hucre);
 
         hucre = new QTableWidgetItem();
-        hucre->setText(tr("%1").arg(listeKargo[i]->getGondericiId()));
+        hucre->setText(listeKargo[i]->getGonderenSube());
         ui->tableWidgetKargoListesi->setItem(i,9,hucre);
 
         hucre = new QTableWidgetItem();
-        hucre->setText(tr("%1").arg(listeKargo[i]->getAliciId()));
+        hucre->setText(listeKargo[i]->getAliciSube());
         ui->tableWidgetKargoListesi->setItem(i,10,hucre);
+
 
         hucre = new QTableWidgetItem();
         hucre->setText(tr("%1").arg(listeKargo[i]->getKargoUcreti()));
         ui->tableWidgetKargoListesi->setItem(i,11,hucre);
 
+
+
     }
+
+    ui->tableWidgetAliciListesi->clear();
+    ui->tableWidgetAliciListesi->setRowCount(listeAlici.length());
+    ui->tableWidgetAliciListesi->setColumnCount(5);
+
+
+    QStringList basliklarAlici;
+    basliklarAlici << tr("id") << tr("Alıcı Adı") << tr("Telefon Numarası") << tr("Mail") << tr("Adresi");
+    ui->tableWidgetAliciListesi->setHorizontalHeaderLabels(basliklarAlici);
+
+    for (int i = 0; i < listeAlici.length(); i++) {
+
+        QTableWidgetItem *hucre = new QTableWidgetItem();
+        hucre->setText(tr("%1").arg(listeAlici[i]->getId()));
+        ui->tableWidgetAliciListesi->setItem(i,0,hucre);
+
+        hucre = new QTableWidgetItem();
+        hucre->setText(listeAlici[i]->getAliciAdi());
+        ui->tableWidgetAliciListesi->setItem(i,1,hucre);
+
+        hucre = new QTableWidgetItem();
+        hucre->setText(listeAlici[i]->getAliciTelNo());
+        ui->tableWidgetAliciListesi->setItem(i,2,hucre);
+
+        hucre = new QTableWidgetItem();
+        hucre->setText(tr("%1").arg(listeAlici[i]->getAliciEmail()));
+        ui->tableWidgetAliciListesi->setItem(i,3,hucre);
+
+        hucre = new QTableWidgetItem();
+        hucre->setText(tr("%1").arg(listeAlici[i]->getAliciAdresi()));
+        ui->tableWidgetAliciListesi->setItem(i,4,hucre);
+
+    }
+
+    ui->tableWidgetGondericiListesi->clear();
+    ui->tableWidgetGondericiListesi->setRowCount(listeGonderici.length());
+    ui->tableWidgetGondericiListesi->setColumnCount(5);
+
+    QStringList basliklarGonderici;
+    basliklarGonderici << tr("id") << tr("Gonderici Adı") << tr("Telefon Numarası") << tr("Mail") << tr("Adresi");
+    ui->tableWidgetGondericiListesi->setHorizontalHeaderLabels(basliklarGonderici);
+
+    for (int i = 0; i < listeGonderici.length(); i++) {
+
+        QTableWidgetItem *hucre = new QTableWidgetItem();
+        hucre->setText(tr("%1").arg(listeGonderici[i]->getId()));
+        ui->tableWidgetGondericiListesi->setItem(i,0,hucre);
+
+        hucre = new QTableWidgetItem();
+        hucre->setText(listeGonderici[i]->getGonderenAdi());
+        ui->tableWidgetGondericiListesi->setItem(i,1,hucre);
+
+        hucre = new QTableWidgetItem();
+        hucre->setText(listeGonderici[i]->getGonderenTelNo());
+        ui->tableWidgetGondericiListesi->setItem(i,2,hucre);
+
+        hucre = new QTableWidgetItem();
+        hucre->setText(tr("%1").arg(listeGonderici[i]->getGonderenEmail()));
+        ui->tableWidgetGondericiListesi->setItem(i,3,hucre);
+
+        hucre = new QTableWidgetItem();
+        hucre->setText(tr("%1").arg(listeGonderici[i]->getGonderenAdresi()));
+        ui->tableWidgetGondericiListesi->setItem(i,4,hucre);
+
+    }
+
 
 }
 
@@ -110,7 +182,7 @@ void KRGKargoListesi::listeGuncelle()
 
 void KRGKargoListesi::ara()
 {
-
+    // quint64 aramaAliciId;
     auto ekran = this->ui;
     listeKargo = KRGGenelVeriYoneticisi::db().getKargoBilgileri().tumunuBul(
         [ekran](KRGKargoBilgileriYoneticisi::Ptr veri)->bool {
@@ -120,11 +192,23 @@ void KRGKargoListesi::ara()
             auto iter = QString::number(veri->getId());
             if (ekran->lineEditKargoIdGiriniz->text()!=""){
                 if(iter != ekran->lineEditKargoIdGiriniz->text()){
+                    // aramaAliciId = veri->getAliciId();
                     return false;
                 }
             }
             return true;
         });
+    listeAlici = KRGGenelVeriYoneticisi::db().getAliciBilgileri().tumunuBul(
+        [](KRGAliciBilgileriYoneticisi::Ptr veri)->bool{
+            return true;
+            }
+        );
+
+    listeGonderici = KRGGenelVeriYoneticisi::db().getGondericiBilgileri().tumunuBul(
+        [](KRGGondericiBilgileriYoneticisi::Ptr veri)->bool {
+            return true;
+            }
+        );
     listeGuncelle();
 }
 

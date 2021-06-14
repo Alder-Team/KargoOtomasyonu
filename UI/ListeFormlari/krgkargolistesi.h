@@ -3,6 +3,8 @@
 
 #include <QDialog>
 #include <Veri/VeriYonetisi/krgkargobilgileriyoneticisi.h>
+#include <Veri/VeriYonetisi/krgalicibilgileriyoneticisi.h>
+#include <Veri/VeriYonetisi/krggondericibilgileriyoneticisi.h>
 
 namespace Ui {
 class KRGKargoListesi;
@@ -27,6 +29,8 @@ private:
     Ui::KRGKargoListesi *ui;
 
     KRGKargoBilgileriYoneticisi::VeriListesi listeKargo;
+    KRGAliciBilgileriYoneticisi::VeriListesi listeAlici;
+    KRGGondericiBilgileriYoneticisi::VeriListesi listeGonderici;
 };
 
 #endif // KRGKARGOLISTESI_H
