@@ -114,7 +114,7 @@ void KRGKargoListesi::listeGuncelle()
         auto veri_i = listeKargo[i];
 
         connect(silmeButonu, &QPushButton::clicked, [veri_i,this]() {
-            auto cevap = QMessageBox::question(nullptr, tr("Silme Onayı"), tr("%1 isimli gönderiyi silmek istediğinize emin misiniz?").arg(veri_i->getId()));
+            auto cevap = QMessageBox::question(nullptr, tr("Silme Onayı"), tr("%1 Id'li gönderiyi silmek istediğinize emin misiniz?").arg(veri_i->getId()));
             if (cevap == QMessageBox::Yes) {
                 KRGGenelVeriYoneticisi::db().getKargoBilgileri().sil(veri_i->getId());
                 QMessageBox::information(nullptr, tr("Kayıt Silindi"), tr("Kayıt silme işlemi tamamlandı!"));
@@ -180,7 +180,7 @@ void KRGKargoListesi::listeGuncelle()
         auto veri_i = listeAlici[i];
 
         connect(silmeButonu, &QPushButton::clicked, [veri_i,this]() {
-            auto cevap = QMessageBox::question(nullptr, tr("Silme Onayı"), tr("%1 isimli alıcıyı silmek istediğinize emin misiniz?").arg(veri_i->getId()));
+            auto cevap = QMessageBox::question(nullptr, tr("Silme Onayı"), tr("%1 isimli alıcıyı silmek istediğinize emin misiniz?").arg(veri_i->getAliciAdi()));
             if (cevap == QMessageBox::Yes) {
                 KRGGenelVeriYoneticisi::db().getAliciBilgileri().sil(veri_i->getId());
                 QMessageBox::information(nullptr, tr("Kayıt Silindi"), tr("Kayıt silme işlemi tamamlandı!"));
@@ -191,7 +191,7 @@ void KRGKargoListesi::listeGuncelle()
         connect(duzenlemeButonu, &QPushButton::clicked, [veri_i,this]() {
             KRGAliciDuzenleme form;
             form.setVeri(veri_i);
-            form.setWindowTitle(tr("%1 Alıcıyı Düzenle").arg(veri_i->getId()));
+            form.setWindowTitle(tr("%1 isimli Alıcıyı Düzenle").arg(veri_i->getAliciAdi()));
 
             if (form.exec() == QDialog::Accepted) {
                 form.getVeri();
@@ -243,7 +243,7 @@ void KRGKargoListesi::listeGuncelle()
         auto veri_i = listeGonderici[i];
 
         connect(silmeButonu, &QPushButton::clicked, [veri_i,this]() {
-            auto cevap = QMessageBox::question(nullptr, tr("Silme Onayı"), tr("%1 isimli göndericiyi silmek istediğinize emin misiniz?").arg(veri_i->getId()));
+            auto cevap = QMessageBox::question(nullptr, tr("Silme Onayı"), tr("%1 isimli göndericiyi silmek istediğinize emin misiniz?").arg(veri_i->getGonderenAdi()));
             if (cevap == QMessageBox::Yes) {
                 KRGGenelVeriYoneticisi::db().getGondericiBilgileri().sil(veri_i->getId());
                 QMessageBox::information(nullptr, tr("Kayıt Silindi"), tr("Kayıt silme işlemi tamamlandı!"));
@@ -254,7 +254,7 @@ void KRGKargoListesi::listeGuncelle()
         connect(duzenlemeButonu, &QPushButton::clicked, [veri_i,this]() {
             KRGGondericiDuzenleme form;
             form.setVeri(veri_i);
-            form.setWindowTitle(tr("%1 Göndericiyi Düzenle").arg(veri_i->getId()));
+            form.setWindowTitle(tr("%1 isimli Göndericiyi Düzenle").arg(veri_i->getGonderenAdi()));
 
             if (form.exec() == QDialog::Accepted) {
                 form.getVeri();
