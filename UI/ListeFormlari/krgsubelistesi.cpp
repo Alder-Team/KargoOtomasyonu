@@ -14,7 +14,7 @@ KRGSubeListesi::KRGSubeListesi(QWidget *parent) :
     ui(new Ui::KRGSubeListesi)
 {
     ui->setupUi(this);
-    ara();
+    arama_yap();
 }
 
 KRGSubeListesi::~KRGSubeListesi()
@@ -61,6 +61,14 @@ void KRGSubeListesi::listeGuncelle()
 
 void KRGSubeListesi::ara()
 {
+    if(ui->checkBoxYazarkenAra->isChecked()){
+        arama_yap();
+    }
+}
+
+void KRGSubeListesi::arama_yap()
+{
+
     auto ekran = this->ui;
     listeSube = KRGGenelVeriYoneticisi::db().getSubeBilgileri().tumunuBul(
         [ekran](KRGSubeBilgileriYoneticisi::Ptr veri)->bool {
@@ -76,10 +84,11 @@ void KRGSubeListesi::ara()
             return true;
         });
     listeGuncelle();
+
 }
 
 
 void KRGSubeListesi::on_pushButtonAra_clicked()
 {
-    ara();
+    arama_yap();
 }

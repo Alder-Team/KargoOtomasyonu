@@ -20,10 +20,12 @@ public:
 
 private slots:
     void on_pushButtonAra_clicked();
+    void ara();
 
 private:
+    void arama_yap();
     void listeGuncelle();
-    void ara();
+
 
     Ui::KRGSubeListesi *ui;
 

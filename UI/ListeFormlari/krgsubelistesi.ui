@@ -99,5 +99,41 @@
   </layout>
  </widget>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>lineEditSubeAdiGiriniz</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>KRGSubeListesi</receiver>
+   <slot>ara()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>552</x>
+     <y>96</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1192</x>
+     <y>101</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBoxYazarkenAra</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>pushButtonAra</receiver>
+   <slot>setDisabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>820</x>
+     <y>129</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>976</x>
+     <y>126</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>ara()</slot>
+ </slots>
 </ui>

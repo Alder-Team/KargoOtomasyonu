@@ -72,6 +72,14 @@
             </item>
             <item>
              <widget class="QCheckBox" name="checkBoxYazarkenAra">
+              <property name="enabled">
+               <bool>false</bool>
+              </property>
+              <property name="font">
+               <font>
+                <strikeout>false</strikeout>
+               </font>
+              </property>
               <property name="text">
                <string>Yazarken Ara</string>
               </property>
