@@ -6,6 +6,7 @@ KRGSubeListesi::KRGSubeListesi(QWidget *parent) :
     ui(new Ui::KRGSubeListesi)
 {
     ui->setupUi(this);
+
 }
 
 KRGSubeListesi::~KRGSubeListesi()

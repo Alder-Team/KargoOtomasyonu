@@ -17,6 +17,9 @@ public:
     ~KRGKargoListesi();
 
 
+private slots:
+    void on_pushButtonAra_clicked();
+
 private:
     void listeGuncelle();
     void ara();

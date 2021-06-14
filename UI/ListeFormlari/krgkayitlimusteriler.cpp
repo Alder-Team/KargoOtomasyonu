@@ -6,6 +6,7 @@ KRGKayitliMusteriler::KRGKayitliMusteriler(QWidget *parent) :
     ui(new Ui::KRGKayitliMusteriler)
 {
     ui->setupUi(this);
+
 }
 
 KRGKayitliMusteriler::~KRGKayitliMusteriler()

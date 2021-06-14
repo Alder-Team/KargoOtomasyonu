@@ -98,9 +98,38 @@ void KRGKargoListesi::listeGuncelle()
 
 }
 
+
+
+/*
+ * Lineer Arama Algoritması yazıldı.
+ * Vakit az diye diğer algoritmalardan vazgeçildi.
+ *
+ */
+
+
+
 void KRGKargoListesi::ara()
 {
+
+    auto ekran = this->ui;
     listeKargo = KRGGenelVeriYoneticisi::db().getKargoBilgileri().tumunuBul(
-                [](KRGKargoBilgileriYoneticisi::Ptr p)->bool {return true;});
+        [ekran](KRGKargoBilgileriYoneticisi::Ptr veri)->bool {
+            if(ekran->lineEditKargoIdGiriniz->text()==""){
+                return true;
+            }
+            auto iter = QString::number(veri->getId());
+            if (ekran->lineEditKargoIdGiriniz->text()!=""){
+                if(iter != ekran->lineEditKargoIdGiriniz->text()){
+                    return false;
+                }
+            }
+            return true;
+        });
     listeGuncelle();
 }
+
+void KRGKargoListesi::on_pushButtonAra_clicked()
+{
+    ara();
+}
+
