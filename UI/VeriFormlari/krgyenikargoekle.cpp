@@ -5,14 +5,28 @@
 #include <Veri/VeriListesi/krgalicibilgileri.h>
 #include <Veri/VeriListesi/krggondericibilgileri.h>
 
+#include <Veri/krggenelveriyoneticisi.h>
+
 KRGYeniKargoEkle::KRGYeniKargoEkle(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::KRGYeniKargoEkle)
 {
+
     ui->setupUi(this);
 
     // connect(ui->dspinboxDesiYukseklik, static_cast<void(QDoubleSpinBox::*)(double)>(&QDoubleSpinBox::valueChanged), this, &KRGYeniKargoEkle::calcDesi);
     // this->calcDesi();
+    auto tumSubeler = KRGGenelVeriYoneticisi::db().getSubeBilgileri().tumunuBul(
+                [](KRGSubeBilgileriPtr){ return true;
+    });
+
+    for (const auto &sube: qAsConst(tumSubeler)) {
+        ui->comboboxAliciSube->addItem(sube->getSubeAdi());
+    }
+
+    for (const auto &sube: qAsConst(tumSubeler)) {
+        ui->comboboxGondericiSube->addItem(sube->getSubeAdi());
+    }
     connect(ui->dspinboxDesiEn, static_cast<void(QDoubleSpinBox::*)(double)>(&QDoubleSpinBox::valueChanged), this, &KRGYeniKargoEkle::desiHesapla);
     connect(ui->dspinboxDesiBoy, static_cast<void(QDoubleSpinBox::*)(double)>(&QDoubleSpinBox::valueChanged), this, &KRGYeniKargoEkle::desiHesapla);
     connect(ui->dspinboxDesiYukseklik, static_cast<void(QDoubleSpinBox::*)(double)>(&QDoubleSpinBox::valueChanged), this, &KRGYeniKargoEkle::desiHesapla);
