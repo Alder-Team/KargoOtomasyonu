@@ -309,6 +309,78 @@ void KRGKargoListesi::ara()
     listeGuncelle();
 }
 
+
+
+/*
+
+void KRGKargoListesi::ara()
+{
+
+    auto ekran = this->ui;
+    listeKargo = KRGGenelVeriYoneticisi::db().getKargoBilgileri().tumunuBul(
+        [this,ekran](KRGKargoBilgileriYoneticisi::Ptr veri)->bool {
+            if(ekran->lineEditKargoIdGiriniz->text()==""){
+                return true;
+            }
+            auto iter = QString::number(veri->getId());
+            if (ekran->lineEditKargoIdGiriniz->text()!=""){
+                if(iter != ekran->lineEditKargoIdGiriniz->text()){
+                    setAramaAliciId(veri->getAliciId());
+                    return false;
+                }
+            }
+            return true;
+        });
+    listeAlici = KRGGenelVeriYoneticisi::db().getAliciBilgileri().tumunuBul(
+        [this](KRGAliciBilgileriYoneticisi::Ptr veri)->bool{
+            qDebug() << "Alici" << veri->getId() << getAramaAliciId();
+            if (veri->getId() != getAramaAliciId()){
+                return false;
+            }
+            return true;
+        });
+
+    listeGonderici = KRGGenelVeriYoneticisi::db().getGondericiBilgileri().tumunuBul(
+        [this](KRGGondericiBilgileriYoneticisi::Ptr veri)->bool {
+            qDebug() << "Gönderici" << veri->getId() << getAramaGondericiId();
+            if(veri->getId() != getAramaGondericiId()){
+                return false;
+            }
+            return true;
+            }
+        );
+    listeGuncelle();
+}
+
+quint64 KRGKargoListesi::getAramaGondericiId() const
+{
+    return aramaGondericiId;
+}
+
+void KRGKargoListesi::setAramaGondericiId(quint64 newAramaGondericiId)
+{
+
+    if(newAramaGondericiId == aramaGondericiId)
+        return;
+    aramaGondericiId = newAramaGondericiId;
+    emit aramaGondericiIdDegisti(aramaGondericiId);
+}
+
+quint64 KRGKargoListesi::getAramaAliciId() const
+{
+    return aramaAliciId;
+}
+
+void KRGKargoListesi::setAramaAliciId(quint64 newAramaAliciId)
+{
+    if (newAramaAliciId == aramaAliciId)
+        return;
+    aramaAliciId = newAramaAliciId;
+    emit aramaAliciIdDegisti(aramaAliciId);
+}
+
+*/
+
 void KRGKargoListesi::on_pushButtonAra_clicked()
 {
     ara();
