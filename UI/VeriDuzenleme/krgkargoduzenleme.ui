@@ -1,0 +1,313 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>KRGKargoDuzenleme</class>
+ <widget class="QDialog" name="KRGKargoDuzenleme">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1200</width>
+    <height>700</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <layout class="QGridLayout" name="gridLayout_7">
+   <item row="0" column="0">
+    <layout class="QVBoxLayout" name="verticalLayout_3">
+     <item>
+      <widget class="QLabel" name="label">
+       <property name="font">
+        <font>
+         <pointsize>16</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>Kargo Düzenleme</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <layout class="QVBoxLayout" name="verticalLayout_8">
+       <item>
+        <widget class="QGroupBox" name="groupBoxOdemeTuru_2">
+         <property name="title">
+          <string>Ödeme Türü</string>
+         </property>
+         <layout class="QGridLayout" name="gridLayout_3">
+          <item row="0" column="0">
+           <layout class="QHBoxLayout" name="horizontalLayout_10" stretch="1,1">
+            <item>
+             <widget class="QRadioButton" name="radiobtnAliciOdemeli_2">
+              <property name="text">
+               <string>Alıcı Ödemeli</string>
+              </property>
+              <property name="checked">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QRadioButton" name="radiobtnGonderiOdemeli_2">
+              <property name="text">
+               <string>Gönderi Ödemeli</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <widget class="QGroupBox" name="groupBoxDesi_2">
+         <property name="title">
+          <string>Desi Hesaplama</string>
+         </property>
+         <layout class="QGridLayout" name="gridLayout_4">
+          <item row="0" column="0">
+           <layout class="QVBoxLayout" name="verticalLayout_2" stretch="1,1,1,1">
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_6" stretch="2,3">
+              <item>
+               <widget class="QLabel" name="lblDesiEn_2">
+                <property name="text">
+                 <string>En</string>
+                </property>
+                <property name="buddy">
+                 <cstring>dspinboxDesiEn</cstring>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QDoubleSpinBox" name="dspinboxDesiEn_2"/>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_12" stretch="2,3">
+              <item>
+               <widget class="QLabel" name="lblDesiBoy_2">
+                <property name="text">
+                 <string>Boy</string>
+                </property>
+                <property name="buddy">
+                 <cstring>dspinboxDesiBoy</cstring>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QDoubleSpinBox" name="dspinboxDesiBoy_2"/>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_13" stretch="2,3">
+              <item>
+               <widget class="QLabel" name="lblDesiYukseklik_2">
+                <property name="text">
+                 <string>Yükseklik</string>
+                </property>
+                <property name="buddy">
+                 <cstring>dspinboxDesiYukseklik</cstring>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QDoubleSpinBox" name="dspinboxDesiYukseklik_2"/>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_2" stretch="3,1,1">
+              <item>
+               <spacer name="horizontalSpacer_2">
+                <property name="orientation">
+                 <enum>Qt::Horizontal</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>40</width>
+                  <height>20</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+              <item>
+               <widget class="QLabel" name="lblDesiSonuctanOncekiLabel_2">
+                <property name="text">
+                 <string>Desi:</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="lblDesiSonucSayi_2">
+                <property name="text">
+                 <string>20</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <widget class="QGroupBox" name="groupBoxDetaylar_2">
+         <property name="title">
+          <string>Detaylar</string>
+         </property>
+         <layout class="QGridLayout" name="gridLayout_6">
+          <item row="0" column="0">
+           <layout class="QVBoxLayout" name="verticalLayout_9">
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_14" stretch="2,3">
+              <item>
+               <widget class="QLabel" name="lblGondericiSube_2">
+                <property name="text">
+                 <string>Gönderici Şube</string>
+                </property>
+                <property name="buddy">
+                 <cstring>comboboxGondericiSube</cstring>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QComboBox" name="comboboxGondericiSube_2"/>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_15" stretch="2,3">
+              <item>
+               <widget class="QLabel" name="lblAliciSube_2">
+                <property name="text">
+                 <string>Alıcı Şube</string>
+                </property>
+                <property name="buddy">
+                 <cstring>comboboxAliciSube</cstring>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QComboBox" name="comboboxAliciSube_2"/>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_16" stretch="2,3">
+              <item>
+               <widget class="QLabel" name="lblTarih_2">
+                <property name="text">
+                 <string>Tarih</string>
+                </property>
+                <property name="buddy">
+                 <cstring>dateEditTarih</cstring>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QDateEdit" name="dateEditTarih_2">
+                <property name="calendarPopup">
+                 <bool>false</bool>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <spacer name="verticalSpacer_2">
+              <property name="orientation">
+               <enum>Qt::Vertical</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>20</width>
+                <height>40</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <layout class="QHBoxLayout" name="horizontalLayout_17">
+       <item>
+        <spacer name="horizontalSpacer_3">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>40</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
+        <widget class="QPushButton" name="pushButtonIptal">
+         <property name="text">
+          <string>İptal</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="pushButtonKaydet">
+         <property name="text">
+          <string>Kaydet</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>pushButtonIptal</sender>
+   <signal>clicked()</signal>
+   <receiver>KRGKargoDuzenleme</receiver>
+   <slot>reject()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>1059</x>
+     <y>677</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>809</x>
+     <y>673</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButtonKaydet</sender>
+   <signal>clicked()</signal>
+   <receiver>KRGKargoDuzenleme</receiver>
+   <slot>accept()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>1130</x>
+     <y>674</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>917</x>
+     <y>657</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>

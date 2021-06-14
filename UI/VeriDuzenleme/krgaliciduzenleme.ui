@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>KRGAliciDuzenleme</class>
+ <widget class="QDialog" name="KRGAliciDuzenleme">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1200</width>
+    <height>700</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <layout class="QGridLayout" name="gridLayout">
+   <item row="0" column="0">
+    <layout class="QVBoxLayout" name="verticalLayout">
+     <item>
+      <widget class="QLabel" name="label">
+       <property name="font">
+        <font>
+         <pointsize>16</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>Alıcı Düzenleme</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <layout class="QVBoxLayout" name="verticalLayout_6">
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_17" stretch="2,3">
+         <item>
+          <widget class="QLabel" name="lblAliciAdi_2">
+           <property name="text">
+            <string>Alıcı Adı</string>
+           </property>
+           <property name="buddy">
+            <cstring>lineEditAliciAdi</cstring>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="lineEditAliciAdi_2"/>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <layout class="QVBoxLayout" name="verticalLayout_7" stretch="0,0">
+         <item>
+          <widget class="QLabel" name="lblAliciAdresi_2">
+           <property name="text">
+            <string>Alıcı Adresi</string>
+           </property>
+           <property name="buddy">
+            <cstring>plainTextEditAliciAdresi</cstring>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPlainTextEdit" name="plainTextEditAliciAdresi_2"/>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_18" stretch="2,3">
+         <item>
+          <widget class="QLabel" name="lblAliciTelefonNumarasi_2">
+           <property name="text">
+            <string>Telefon Numarası:</string>
+           </property>
+           <property name="buddy">
+            <cstring>lineEditAliciTelefonNumarasi</cstring>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="lineEditAliciTelefonNumarasi_2">
+           <property name="inputMask">
+            <string>\0 (D99) 999 99 99</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_11" stretch="2,3">
+         <item>
+          <widget class="QLabel" name="lblAliciEmail_2">
+           <property name="text">
+            <string>Email:</string>
+           </property>
+           <property name="buddy">
+            <cstring>lineEditAliciEmail</cstring>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="lineEditAliciEmail_2">
+           <property name="inputMethodHints">
+            <set>Qt::ImhEmailCharactersOnly</set>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <layout class="QHBoxLayout" name="horizontalLayout">
+       <item>
+        <spacer name="horizontalSpacer">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>40</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
+        <widget class="QPushButton" name="pushButtonIptal">
+         <property name="text">
+          <string>İptal</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="pushButtonKaydet">
+         <property name="text">
+          <string>Kaydet</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>pushButtonIptal</sender>
+   <signal>clicked()</signal>
+   <receiver>KRGAliciDuzenleme</receiver>
+   <slot>reject()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>1044</x>
+     <y>676</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>768</x>
+     <y>677</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButtonKaydet</sender>
+   <signal>clicked()</signal>
+   <receiver>KRGAliciDuzenleme</receiver>
+   <slot>accept()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>1130</x>
+     <y>674</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>882</x>
+     <y>656</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>

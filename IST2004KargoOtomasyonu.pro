@@ -12,6 +12,9 @@ SOURCES += \
     UI/ListeFormlari/krgkargolistesi.cpp \
     UI/ListeFormlari/krgkayitlimusteriler.cpp \
     UI/ListeFormlari/krgsubelistesi.cpp \
+    UI/VeriDuzenleme/krgaliciduzenleme.cpp \
+    UI/VeriDuzenleme/krggondericiduzenleme.cpp \
+    UI/VeriDuzenleme/krgkargoduzenleme.cpp \
     UI/VeriFormlari/krgsubebilgileriekle.cpp \
     UI/VeriFormlari/krgyenikargoekle.cpp \
     Veri/VeriListesi/krgalicibilgileri.cpp \
@@ -30,6 +33,9 @@ HEADERS += \
     UI/ListeFormlari/krgkargolistesi.h \
     UI/ListeFormlari/krgkayitlimusteriler.h \
     UI/ListeFormlari/krgsubelistesi.h \
+    UI/VeriDuzenleme/krgaliciduzenleme.h \
+    UI/VeriDuzenleme/krggondericiduzenleme.h \
+    UI/VeriDuzenleme/krgkargoduzenleme.h \
     UI/VeriFormlari/krgsubebilgileriekle.h \
     UI/VeriFormlari/krgyenikargoekle.h \
     Veri/VeriListesi/krgalicibilgileri.h \
@@ -49,6 +55,9 @@ FORMS += \
     UI/ListeFormlari/krgkargolistesi.ui \
     UI/ListeFormlari/krgkayitlimusteriler.ui \
     UI/ListeFormlari/krgsubelistesi.ui \
+    UI/VeriDuzenleme/krgaliciduzenleme.ui \
+    UI/VeriDuzenleme/krggondericiduzenleme.ui \
+    UI/VeriDuzenleme/krgkargoduzenleme.ui \
     UI/VeriFormlari/krgsubebilgileriekle.ui \
     UI/VeriFormlari/krgyenikargoekle.ui \
     mainwindow.ui
