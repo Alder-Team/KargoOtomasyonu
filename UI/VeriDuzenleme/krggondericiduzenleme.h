@@ -2,6 +2,7 @@
 #define KRGGONDERICIDUZENLEME_H
 
 #include <QDialog>
+#include <Veri/tanimlar.h>
 
 namespace Ui {
 class KRGGondericiDuzenleme;
@@ -15,8 +16,15 @@ public:
     explicit KRGGondericiDuzenleme(QWidget *parent = nullptr);
     ~KRGGondericiDuzenleme();
 
+    KRGGondericiBilgileriPtr getVeri() const;
+    void setVeri(const KRGGondericiBilgileriPtr &value);
+
 private:
     Ui::KRGGondericiDuzenleme *ui;
+
+    KRGGondericiBilgileriPtr veri;
+
+
 };
 
 #endif // KRGGONDERICIDUZENLEME_H

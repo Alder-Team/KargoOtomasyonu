@@ -56,7 +56,7 @@ void KRGYeniKargoEkle::setVeriKargo(const KRGKargoBilgileriPtr &value)
 
     switch (veriKargo->getOdemeTuru()) {
     case OTGondericiOdemeli:
-        ui->radiobtnAliciOdemeli->setChecked(true);
+        ui->radiobtnGonderiOdemeli->setChecked(true);
         break;
     default:
         ui->radiobtnAliciOdemeli->setChecked(true);

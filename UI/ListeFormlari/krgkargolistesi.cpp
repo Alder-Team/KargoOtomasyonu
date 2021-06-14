@@ -6,13 +6,14 @@
 #include <Veri/VeriListesi/krggondericibilgileri.h>
 #include <UI/VeriFormlari/krgyenikargoekle.h>
 #include <Veri/krggenelveriyoneticisi.h>
-
+#include <UI/VeriDuzenleme/krgaliciduzenleme.h>
+#include <UI/VeriDuzenleme/krggondericiduzenleme.h>
+#include <UI/VeriDuzenleme/krgkargoduzenleme.h>
 #include<QStringList>
 #include <QTableWidgetItem>
 #include <QDebug>
 #include <QPushButton>
 #include <QMessageBox>
-
 
 
 KRGKargoListesi::KRGKargoListesi(QWidget *parent) :
@@ -122,12 +123,12 @@ void KRGKargoListesi::listeGuncelle()
         });
 
         connect(duzenlemeButonu, &QPushButton::clicked, [veri_i,this]() {
-            KRGYeniKargoEkle form;
-            form.setVeriKargo(veri_i);
+            KRGKargoDuzenleme form;
+            form.setVeri(veri_i);
             form.setWindowTitle(tr("%1 Id'li Gönderiyi Düzenle").arg(veri_i->getId()));
 
             if (form.exec() == QDialog::Accepted) {
-                form.getVeriKargo();
+                form.getVeri();
                 this->listeGuncelle();
             }
         });
