@@ -30,6 +30,8 @@ public slots:
     void setAramaAliciId(quint64 newAramaAliciId);
     void setAramaGondericiId(quint64 newAramaGondericiId);
 
+
+
 */
 
 

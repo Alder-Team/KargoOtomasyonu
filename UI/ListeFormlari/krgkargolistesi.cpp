@@ -379,6 +379,9 @@ void KRGKargoListesi::setAramaAliciId(quint64 newAramaAliciId)
     emit aramaAliciIdDegisti(aramaAliciId);
 }
 
+
+
+
 */
 
 void KRGKargoListesi::on_pushButtonAra_clicked()
