@@ -68,7 +68,11 @@
              </widget>
             </item>
             <item>
-             <widget class="QLineEdit" name="lineEditSubeTelefonNumarasi"/>
+             <widget class="QLineEdit" name="lineEditSubeTelefonNumarasi">
+              <property name="inputMask">
+               <string>\0 (D99) 999 99 99</string>
+              </property>
+             </widget>
             </item>
            </layout>
           </item>

@@ -3,10 +3,13 @@
 
 #include <Veri/VeriListesi/krgkargobilgileri.h>
 #include <Veri/krggenelveriyoneticisi.h>
+#include <UI/VeriFormlari/krgsubebilgileriekle.h>
 
 #include<QStringList>
 #include <QTableWidgetItem>
 #include <QDebug>
+#include <QPushButton>
+#include <QMessageBox>
 
 
 KRGSubeListesi::KRGSubeListesi(QWidget *parent) :
@@ -26,10 +29,11 @@ void KRGSubeListesi::listeGuncelle()
 {
     ui->tableWidgetSubeListesi->clear();
     ui->tableWidgetSubeListesi->setRowCount(listeSube.length());
-    ui->tableWidgetSubeListesi->setColumnCount(5);
+    ui->tableWidgetSubeListesi->setColumnCount(7);
 
     QStringList basliklar;
-    basliklar << tr("Şube ID") << tr("Şube Adı") << tr("Şube Yetkilisi") << tr("Şube Telefon Numarası") << tr("Şube Adresi"); //Her birisi arasındaki uzaklık olayını anlamadım o yüzden eklemiyorum. Saygılar -Gülnur
+    basliklar << tr("Şube ID") << tr("Şube Adı") << tr("Şube Yetkilisi") << tr("Şube Telefon Numarası") << tr("Şube Adresi") << tr("Şube Silme") << tr("Şube Düzeltme");
+    //Her birisi arasındaki uzaklık olayını anlamadım o yüzden eklemiyorum. Saygılar -Gülnur
     ui->tableWidgetSubeListesi->setHorizontalHeaderLabels(basliklar);
 
 
@@ -55,6 +59,36 @@ void KRGSubeListesi::listeGuncelle()
         hucre->setText(tr("%1").arg(listeSube[i]->getSubeAdresi()));
         ui->tableWidgetSubeListesi->setItem(i,4,hucre);
 
+        QPushButton *silmeButonu = new QPushButton();
+        silmeButonu->setText(tr("Şubeyi Sil"));
+        ui->tableWidgetSubeListesi->setCellWidget(i,5,silmeButonu);
+
+
+        auto veri_i = listeSube[i];
+
+        connect(silmeButonu, &QPushButton::clicked, [veri_i, this]() {
+            auto cevap = QMessageBox::question(nullptr, tr("Silme Onayı"), tr("%1 isimli şubeyi silmek istediğinize emin misiniz?").arg(veri_i->getSubeAdi()));
+            if (cevap == QMessageBox::Yes) {
+                KRGGenelVeriYoneticisi::db().getSubeBilgileri().sil(veri_i->getId());
+                QMessageBox::information(nullptr, tr("Kayıt Silindi"), tr("Kayıt silme işlemi tamamlandı!"));
+                this->arama_yap();
+            }
+        });
+
+        QPushButton *duzeltmeButonu = new QPushButton();
+        duzeltmeButonu->setText(tr("Şubeyi Düzelt"));
+        ui->tableWidgetSubeListesi->setCellWidget(i,6,duzeltmeButonu);
+
+        connect(duzeltmeButonu, &QPushButton::clicked, [veri_i,this](){
+            KRGSubeBilgileriEkle form;
+            form.setVeri(veri_i);
+            form.setWindowTitle(tr("%1 Şubesini Düzenle").arg(veri_i->getSubeAdi()));
+
+            if (form.exec() == QDialog::Accepted) {
+                form.getVeri();
+                this->listeGuncelle();
+            }
+        });
     }
 }
 
