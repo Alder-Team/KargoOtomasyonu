@@ -169,11 +169,11 @@ void KRGKargoListesi::listeGuncelle()
         ui->tableWidgetAliciListesi->setItem(i,4,hucre);
 
         QPushButton *silmeButonu = new QPushButton();
-        silmeButonu->setText(tr("Gönderi Sil"));
+        silmeButonu->setText(tr("Alıcı Sil"));
         ui->tableWidgetAliciListesi->setCellWidget(i,5,silmeButonu);
 
         QPushButton *duzenlemeButonu = new QPushButton();
-        duzenlemeButonu->setText(tr("Gönderi Düzenleme"));
+        duzenlemeButonu->setText(tr("Alıcı Düzenleme"));
         ui->tableWidgetAliciListesi->setCellWidget(i,6,duzenlemeButonu);
 
 
@@ -232,11 +232,11 @@ void KRGKargoListesi::listeGuncelle()
         ui->tableWidgetGondericiListesi->setItem(i,4,hucre);
 
         QPushButton *silmeButonu = new QPushButton();
-        silmeButonu->setText(tr("Gönderi Sil"));
+        silmeButonu->setText(tr("Gönderici Sil"));
         ui->tableWidgetGondericiListesi->setCellWidget(i,5,silmeButonu);
 
         QPushButton *duzenlemeButonu = new QPushButton();
-        duzenlemeButonu->setText(tr("Gönderi Düzenleme"));
+        duzenlemeButonu->setText(tr("Gönderici Düzenleme"));
         ui->tableWidgetGondericiListesi->setCellWidget(i,6,duzenlemeButonu);
 
 
