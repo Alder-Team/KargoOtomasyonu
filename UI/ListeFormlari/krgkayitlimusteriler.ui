@@ -15,7 +15,7 @@
   </property>
   <layout class="QGridLayout" name="gridLayout_2">
    <item row="0" column="0">
-    <layout class="QVBoxLayout" name="verticalLayout_2">
+    <layout class="QVBoxLayout" name="verticalLayout_4">
      <item>
       <widget class="QLabel" name="lblKayitliMusteriler">
        <property name="font">
@@ -56,7 +56,24 @@
            </layout>
           </item>
           <item>
-           <layout class="QHBoxLayout" name="horizontalLayout" stretch="3,1,1">
+           <layout class="QHBoxLayout" name="horizontalLayout" stretch="1,1,6,1,2">
+            <item>
+             <widget class="QRadioButton" name="radioButtonAliciMusteriler">
+              <property name="text">
+               <string>Alıcı Müşteriler</string>
+              </property>
+              <property name="checked">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QRadioButton" name="radioButtonGondericiMusteriler">
+              <property name="text">
+               <string>Gönderici Müşteriler</string>
+              </property>
+             </widget>
+            </item>
             <item>
              <spacer name="horizontalSpacer">
               <property name="orientation">
@@ -64,8 +81,8 @@
               </property>
               <property name="sizeHint" stdset="0">
                <size>
-                <width>40</width>
-                <height>20</height>
+                <width>37</width>
+                <height>13</height>
                </size>
               </property>
              </spacer>
@@ -92,12 +109,77 @@
       </widget>
      </item>
      <item>
-      <widget class="QTableWidget" name="tableWidgetMusteriListesi"/>
+      <layout class="QHBoxLayout" name="horizontalLayout_3">
+       <item>
+        <layout class="QVBoxLayout" name="verticalLayout_3">
+         <item>
+          <widget class="QLabel" name="label">
+           <property name="text">
+            <string>Alıcı Müşteriler</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QTableWidget" name="tableWidgetAliciListesi"/>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <layout class="QVBoxLayout" name="verticalLayout_2">
+         <item>
+          <widget class="QLabel" name="label_2">
+           <property name="text">
+            <string>Gönderici Müşteriler</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QTableWidget" name="tableWidgetGondericiListesi"/>
+         </item>
+        </layout>
+       </item>
+      </layout>
      </item>
     </layout>
    </item>
   </layout>
  </widget>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>lineEditAdiSoyadi</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>KRGKayitliMusteriler</receiver>
+   <slot>ara()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>629</x>
+     <y>77</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>874</x>
+     <y>143</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBoxYazarkenAra</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>pushButtonAra</receiver>
+   <slot>setDisabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>953</x>
+     <y>121</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1021</x>
+     <y>115</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>ara()</slot>
+ </slots>
 </ui>
