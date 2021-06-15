@@ -143,7 +143,7 @@ void KRGKargoListesi::listeGuncelle()
 
 
     QStringList basliklarAlici;
-    basliklarAlici << tr("id") << tr("Alıcı Adı") << tr("Telefon Numarası") << tr("Mail") << tr("Adresi");
+    basliklarAlici << tr("id") << tr("Alıcı Adı") << tr("Telefon Numarası") << tr("Mail") << tr("Adresi") << tr("Alıcı Silme") << tr("Alıcı Düzenleme");
     ui->tableWidgetAliciListesi->setHorizontalHeaderLabels(basliklarAlici);
 
     for (int i = 0; i < listeAlici.length(); i++) {
@@ -206,7 +206,7 @@ void KRGKargoListesi::listeGuncelle()
     ui->tableWidgetGondericiListesi->setColumnCount(7);
 
     QStringList basliklarGonderici;
-    basliklarGonderici << tr("id") << tr("Gonderici Adı") << tr("Telefon Numarası") << tr("Mail") << tr("Adresi");
+    basliklarGonderici << tr("id") << tr("Gonderici Adı") << tr("Telefon Numarası") << tr("Mail") << tr("Adresi") <<tr("Gönderici silme") << tr("Gönderici düzenleme");
     ui->tableWidgetGondericiListesi->setHorizontalHeaderLabels(basliklarGonderici);
 
     for (int i = 0; i < listeGonderici.length(); i++) {
