@@ -16,12 +16,14 @@ public:
     Q_PROPERTY(Metin subeAdresi READ getSubeAdresi WRITE setSubeAdresi NOTIFY subeAdresiDegisti)
     Q_PROPERTY(Metin subeTelNo READ getSubeTelNo WRITE setSubeTelNo NOTIFY subeTelNoDegisti)
     Q_PROPERTY(Metin subeYetkilisi READ getSubeYetkilisi WRITE setSubeYetkilisi NOTIFY subeYetkilisiDegisti)
+    Q_PROPERTY(Metin subeIli READ getSubeIli WRITE setSubeIli NOTIFY subeIliDegisti)
 
     IdTuru getId() const;
     Metin getSubeAdi() const;
     Metin getSubeAdresi() const;
     Metin getSubeTelNo() const;
     Metin getSubeYetkilisi() const;
+    Metin getSubeIli() const;
 
 signals:
     void idDegisti(const IdTuru &value);
@@ -29,6 +31,7 @@ signals:
     void subeAdresiDegisti(const Metin &value);
     void subeTelNoDegisti(const Metin &value);
     void subeYetkilisiDegisti(const Metin &value);
+    void subeIliDegisti(const Metin &value);
 
 public slots:
     void setId(const IdTuru &value);
@@ -36,6 +39,7 @@ public slots:
     void setSubeAdresi(const Metin &value);
     void setSubeTelNo(const Metin &value);
     void setSubeYetkilisi(const Metin &value);
+    void setSubeIli(const Metin &value);
 
 
 private:
@@ -44,6 +48,7 @@ private:
     Metin subeAdresi;
     Metin subeTelNo;
     Metin subeYetkilisi;
+    Metin subeIli;
     // Her biri arasındaki uzaklık (eklenecek)
 
 };
