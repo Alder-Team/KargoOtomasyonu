@@ -73,9 +73,9 @@ void MainWindow::on_btnKargoEkle_clicked()
         form.getVeriKargo();
         KRGGenelVeriYoneticisi::db().getAliciBilgileri().ekle(veriAlici);
         KRGGenelVeriYoneticisi::db().getGondericiBilgileri().ekle(veriGonderici);
-        KRGGenelVeriYoneticisi::db().getKargoBilgileri().ekle(veriKargo);
-
+        KRGGenelVeriYoneticisi::db().getKargoBilgileri().ekle(veriKargo);   
     }
+    listeGuncelle();
 
 }
 
@@ -98,6 +98,7 @@ void MainWindow::on_btnSubeEkle_clicked()
         form.getVeri();
         KRGGenelVeriYoneticisi::db().getSubeBilgileri().ekle(veri);
     }
+    listeGuncelle();
 }
 
 

@@ -15,7 +15,7 @@
   </property>
   <layout class="QGridLayout" name="gridLayout_2">
    <item row="0" column="0">
-    <layout class="QVBoxLayout" name="verticalLayout_4">
+    <layout class="QVBoxLayout" name="verticalLayout_5">
      <item>
       <widget class="QLabel" name="lblKargoAra">
        <property name="font">
@@ -100,21 +100,21 @@
       </widget>
      </item>
      <item>
-      <layout class="QHBoxLayout" name="horizontalLayout_3">
+      <layout class="QVBoxLayout" name="verticalLayout_3">
        <item>
-        <layout class="QVBoxLayout" name="verticalLayout_3">
-         <item>
-          <widget class="QLabel" name="lblKargoTable">
-           <property name="text">
-            <string>Kargo</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QTableWidget" name="tableWidgetKargoListesi"/>
-         </item>
-        </layout>
+        <widget class="QLabel" name="lblKargoTable">
+         <property name="text">
+          <string>Kargo</string>
+         </property>
+        </widget>
        </item>
+       <item>
+        <widget class="QTableWidget" name="tableWidgetKargoListesi"/>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <layout class="QHBoxLayout" name="horizontalLayout_3">
        <item>
         <layout class="QVBoxLayout" name="verticalLayout_2">
          <item>
@@ -127,6 +127,10 @@
          <item>
           <widget class="QTableWidget" name="tableWidgetAliciListesi"/>
          </item>
+        </layout>
+       </item>
+       <item>
+        <layout class="QVBoxLayout" name="verticalLayout_4">
          <item>
           <widget class="QLabel" name="lblAliciTable">
            <property name="text">

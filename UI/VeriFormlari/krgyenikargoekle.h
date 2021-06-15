@@ -44,7 +44,6 @@ public slots:
 private:
     Ui::KRGYeniKargoEkle *ui;
 
-
     KRGKargoBilgileriPtr veriKargo;
     KRGGondericiBilgileriPtr veriGonderici;
     KRGAliciBilgileriPtr veriAlici;

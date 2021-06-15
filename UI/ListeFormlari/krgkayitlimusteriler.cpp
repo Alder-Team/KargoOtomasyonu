@@ -75,7 +75,7 @@ void KRGKayitliMusteriler::listeGuncelle()
             if (cevap == QMessageBox::Yes) {
                 KRGGenelVeriYoneticisi::db().getAliciBilgileri().sil(veri_i->getId());
                 QMessageBox::information(nullptr, tr("Kayıt Silindi"), tr("Kayıt silme işlemi tamamlandı!"));
-                this->ara();
+                this->arama_yap();
             }
         });
 
@@ -138,7 +138,7 @@ void KRGKayitliMusteriler::listeGuncelle()
             if (cevap == QMessageBox::Yes) {
                 KRGGenelVeriYoneticisi::db().getGondericiBilgileri().sil(veri_i->getId());
                 QMessageBox::information(nullptr, tr("Kayıt Silindi"), tr("Kayıt silme işlemi tamamlandı!"));
-                this->ara();
+                this->arama_yap();
             }
         });
 

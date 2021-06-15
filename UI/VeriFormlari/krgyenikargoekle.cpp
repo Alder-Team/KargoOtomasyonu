@@ -78,10 +78,15 @@ KRGKargoBilgileriPtr KRGYeniKargoEkle::getVeriKargo() const
 
     */
 
+    auto sonAliciId = KRGGenelVeriYoneticisi::db().getAliciBilgileri().sonuncuyuBul(
+                [](KRGAliciBilgileriYoneticisi::Ptr veri){return true;});
 
-    veriKargo->setAliciId(veriAlici->getId());;
+    auto sonGondericiId = KRGGenelVeriYoneticisi::db().getGondericiBilgileri().sonuncuyuBul(
+                [](KRGGondericiBilgileriYoneticisi::Ptr veri){return true;});
 
-    veriKargo->setGondericiId(veriGonderici->getId());
+    veriKargo->setAliciId(sonAliciId->getId() + 1);
+
+    veriKargo->setGondericiId(sonGondericiId->getId() + 1 );
 
     return veriKargo;
 }

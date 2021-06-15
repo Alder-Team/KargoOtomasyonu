@@ -33,10 +33,10 @@ void KRGKargoListesi::listeGuncelle()
 {
     ui->tableWidgetKargoListesi->clear();
     ui->tableWidgetKargoListesi->setRowCount(listeKargo.length());
-    ui->tableWidgetKargoListesi->setColumnCount(14);
+    ui->tableWidgetKargoListesi->setColumnCount(12);
 
     QStringList basliklar;
-    basliklar <<tr("ID") << tr("Alıcı İd") << tr("Gönderici Id") << tr("Tarih") << tr("Ödeme Türü") << tr("En") << tr("Boy") << tr("Yükseklik") << tr("Desi") << tr("Gönderen Şube") << tr("Alıcı Şube") << tr("Tutar") <<tr("Gönderi Silme") << tr("Gönderi Düzenleme");
+    basliklar <<tr("ID") << tr("Tarih") << tr("Ödeme Türü") << tr("En") << tr("Boy") << tr("Yükseklik") << tr("Desi") << tr("Gönderen Şube") << tr("Alıcı Şube") << tr("Tutar") <<tr("Gönderi Silme") << tr("Gönderi Düzenleme");
     ui->tableWidgetKargoListesi->setHorizontalHeaderLabels(basliklar);
 
 
@@ -48,18 +48,8 @@ void KRGKargoListesi::listeGuncelle()
         ui->tableWidgetKargoListesi->setItem(i,0,hucre);
 
         hucre = new QTableWidgetItem();
-        hucre->setText(tr("%1").arg(listeKargo[i]->getAliciId()));
-        ui->tableWidgetKargoListesi->setItem(i,1,hucre);
-
-        hucre = new QTableWidgetItem();
-        hucre->setText(tr("%1").arg(listeKargo[i]->getGondericiId()));
-        ui->tableWidgetKargoListesi->setItem(i,2,hucre);
-
-        hucre = new QTableWidgetItem();
         hucre->setText(listeKargo[i]->getKargoTarihi().toString("yyyy.MM.dd"));
-        ui->tableWidgetKargoListesi->setItem(i,3,hucre);
-
-
+        ui->tableWidgetKargoListesi->setItem(i,1,hucre);
 
         hucre = new QTableWidgetItem();
         switch (listeKargo[i]->getOdemeTuru()) {
@@ -69,46 +59,44 @@ void KRGKargoListesi::listeGuncelle()
         default:
             hucre->setText("Alıcı Ödemeli");
         }
-        ui->tableWidgetKargoListesi->setItem(i, 4, hucre);
-
-
+        ui->tableWidgetKargoListesi->setItem(i, 2, hucre);
 
         hucre = new QTableWidgetItem();
         hucre->setText(tr("%1").arg(listeKargo[i]->getKargoEn()));
-        ui->tableWidgetKargoListesi->setItem(i,5,hucre);
+        ui->tableWidgetKargoListesi->setItem(i,3,hucre);
 
         hucre = new QTableWidgetItem();
         hucre->setText(tr("%1").arg(listeKargo[i]->getKargoBoy()));
-        ui->tableWidgetKargoListesi->setItem(i,6,hucre);
+        ui->tableWidgetKargoListesi->setItem(i,4,hucre);
 
         hucre = new QTableWidgetItem();
         hucre->setText(tr("%1").arg(listeKargo[i]->getKargoYukseklik()));
-        ui->tableWidgetKargoListesi->setItem(i,7,hucre);
+        ui->tableWidgetKargoListesi->setItem(i,5,hucre);
 
         hucre = new QTableWidgetItem();
         hucre->setText(tr("%1").arg(listeKargo[i]->getKargoDesi()));
-        ui->tableWidgetKargoListesi->setItem(i,8,hucre);
+        ui->tableWidgetKargoListesi->setItem(i,6,hucre);
 
         hucre = new QTableWidgetItem();
         hucre->setText(listeKargo[i]->getGonderenSube());
-        ui->tableWidgetKargoListesi->setItem(i,9,hucre);
+        ui->tableWidgetKargoListesi->setItem(i,7,hucre);
 
         hucre = new QTableWidgetItem();
         hucre->setText(listeKargo[i]->getAliciSube());
-        ui->tableWidgetKargoListesi->setItem(i,10,hucre);
+        ui->tableWidgetKargoListesi->setItem(i,8,hucre);
 
 
         hucre = new QTableWidgetItem();
         hucre->setText(tr("%1").arg(listeKargo[i]->getKargoUcreti()));
-        ui->tableWidgetKargoListesi->setItem(i,11,hucre);
+        ui->tableWidgetKargoListesi->setItem(i,9,hucre);
 
         QPushButton *silmeButonu = new QPushButton();
         silmeButonu->setText(tr("Gönderi Sil"));
-        ui->tableWidgetKargoListesi->setCellWidget(i,12,silmeButonu);
+        ui->tableWidgetKargoListesi->setCellWidget(i,10,silmeButonu);
 
         QPushButton *duzenlemeButonu = new QPushButton();
         duzenlemeButonu->setText(tr("Gönderi Düzenleme"));
-        ui->tableWidgetKargoListesi->setCellWidget(i,13,duzenlemeButonu);
+        ui->tableWidgetKargoListesi->setCellWidget(i,11,duzenlemeButonu);
 
 
         auto veri_i = listeKargo[i];
@@ -139,42 +127,39 @@ void KRGKargoListesi::listeGuncelle()
 
     ui->tableWidgetAliciListesi->clear();
     ui->tableWidgetAliciListesi->setRowCount(listeAlici.length());
-    ui->tableWidgetAliciListesi->setColumnCount(7);
+    ui->tableWidgetAliciListesi->setColumnCount(4);
 
 
     QStringList basliklarAlici;
-    basliklarAlici << tr("id") << tr("Alıcı Adı") << tr("Telefon Numarası") << tr("Mail") << tr("Adresi") << tr("Alıcı Silme") << tr("Alıcı Düzenleme");
+    basliklarAlici << tr("Alıcı Adı") << tr("Telefon Numarası") << tr("Mail") << tr("Adresi");
     ui->tableWidgetAliciListesi->setHorizontalHeaderLabels(basliklarAlici);
 
     for (int i = 0; i < listeAlici.length(); i++) {
 
         QTableWidgetItem *hucre = new QTableWidgetItem();
-        hucre->setText(tr("%1").arg(listeAlici[i]->getId()));
+        hucre->setText(listeAlici[i]->getAliciAdi());
         ui->tableWidgetAliciListesi->setItem(i,0,hucre);
 
         hucre = new QTableWidgetItem();
-        hucre->setText(listeAlici[i]->getAliciAdi());
+        hucre->setText(listeAlici[i]->getAliciTelNo());
         ui->tableWidgetAliciListesi->setItem(i,1,hucre);
 
         hucre = new QTableWidgetItem();
-        hucre->setText(listeAlici[i]->getAliciTelNo());
+        hucre->setText(tr("%1").arg(listeAlici[i]->getAliciEmail()));
         ui->tableWidgetAliciListesi->setItem(i,2,hucre);
 
         hucre = new QTableWidgetItem();
-        hucre->setText(tr("%1").arg(listeAlici[i]->getAliciEmail()));
+        hucre->setText(tr("%1").arg(listeAlici[i]->getAliciAdresi()));
         ui->tableWidgetAliciListesi->setItem(i,3,hucre);
 
-        hucre = new QTableWidgetItem();
-        hucre->setText(tr("%1").arg(listeAlici[i]->getAliciAdresi()));
-        ui->tableWidgetAliciListesi->setItem(i,4,hucre);
-
+        /*
         QPushButton *silmeButonu = new QPushButton();
         silmeButonu->setText(tr("Alıcı Sil"));
-        ui->tableWidgetAliciListesi->setCellWidget(i,5,silmeButonu);
+        ui->tableWidgetAliciListesi->setCellWidget(i,4,silmeButonu);
 
         QPushButton *duzenlemeButonu = new QPushButton();
         duzenlemeButonu->setText(tr("Alıcı Düzenleme"));
-        ui->tableWidgetAliciListesi->setCellWidget(i,6,duzenlemeButonu);
+        ui->tableWidgetAliciListesi->setCellWidget(i,5,duzenlemeButonu);
 
 
         auto veri_i = listeAlici[i];
@@ -199,45 +184,44 @@ void KRGKargoListesi::listeGuncelle()
             }
         });
 
+
+        */
+
     }
 
     ui->tableWidgetGondericiListesi->clear();
     ui->tableWidgetGondericiListesi->setRowCount(listeGonderici.length());
-    ui->tableWidgetGondericiListesi->setColumnCount(7);
+    ui->tableWidgetGondericiListesi->setColumnCount(4);
 
     QStringList basliklarGonderici;
-    basliklarGonderici << tr("id") << tr("Gonderici Adı") << tr("Telefon Numarası") << tr("Mail") << tr("Adresi") <<tr("Gönderici silme") << tr("Gönderici düzenleme");
+    basliklarGonderici << tr("Gonderici Adı") << tr("Telefon Numarası") << tr("Mail") << tr("Adresi");
     ui->tableWidgetGondericiListesi->setHorizontalHeaderLabels(basliklarGonderici);
 
     for (int i = 0; i < listeGonderici.length(); i++) {
 
         QTableWidgetItem *hucre = new QTableWidgetItem();
-        hucre->setText(tr("%1").arg(listeGonderici[i]->getId()));
+        hucre->setText(listeGonderici[i]->getGonderenAdi());
         ui->tableWidgetGondericiListesi->setItem(i,0,hucre);
 
         hucre = new QTableWidgetItem();
-        hucre->setText(listeGonderici[i]->getGonderenAdi());
+        hucre->setText(listeGonderici[i]->getGonderenTelNo());
         ui->tableWidgetGondericiListesi->setItem(i,1,hucre);
 
         hucre = new QTableWidgetItem();
-        hucre->setText(listeGonderici[i]->getGonderenTelNo());
+        hucre->setText(tr("%1").arg(listeGonderici[i]->getGonderenEmail()));
         ui->tableWidgetGondericiListesi->setItem(i,2,hucre);
 
         hucre = new QTableWidgetItem();
-        hucre->setText(tr("%1").arg(listeGonderici[i]->getGonderenEmail()));
-        ui->tableWidgetGondericiListesi->setItem(i,3,hucre);
-
-        hucre = new QTableWidgetItem();
         hucre->setText(tr("%1").arg(listeGonderici[i]->getGonderenAdresi()));
-        ui->tableWidgetGondericiListesi->setItem(i,4,hucre);
-
+        ui->tableWidgetGondericiListesi->setItem(i,3,hucre);
+        /*
         QPushButton *silmeButonu = new QPushButton();
         silmeButonu->setText(tr("Gönderici Sil"));
-        ui->tableWidgetGondericiListesi->setCellWidget(i,5,silmeButonu);
+        ui->tableWidgetGondericiListesi->setCellWidget(i,4,silmeButonu);
 
         QPushButton *duzenlemeButonu = new QPushButton();
         duzenlemeButonu->setText(tr("Gönderici Düzenleme"));
-        ui->tableWidgetGondericiListesi->setCellWidget(i,6,duzenlemeButonu);
+        ui->tableWidgetGondericiListesi->setCellWidget(i,5,duzenlemeButonu);
 
 
         auto veri_i = listeGonderici[i];
@@ -261,7 +245,7 @@ void KRGKargoListesi::listeGuncelle()
                 this->listeGuncelle();
             }
         });
-
+        */
     }
 
 
@@ -396,9 +380,6 @@ void KRGKargoListesi::setAramaAliciId(quint64 newAramaAliciId)
     aramaAliciId = newAramaAliciId;
     emit aramaAliciIdDegisti(aramaAliciId);
 }
-
-
-
 
 
 
