@@ -124,7 +124,7 @@
                </layout>
               </item>
               <item>
-               <layout class="QHBoxLayout" name="horizontalLayout" stretch="3,1,1">
+               <layout class="QHBoxLayout" name="horizontalLayout" stretch="3,0,1">
                 <item>
                  <spacer name="horizontalSpacer">
                   <property name="orientation">
@@ -433,6 +433,13 @@
       <layout class="QHBoxLayout" name="horizontalLayout_2" stretch="0,0,6,1,1">
        <item>
         <widget class="QLabel" name="lblTutarSonucOncekiLabel">
+         <property name="font">
+          <font>
+           <pointsize>14</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
          <property name="text">
           <string>Tutar:</string>
          </property>
@@ -440,6 +447,13 @@
        </item>
        <item>
         <widget class="QLabel" name="lblTutarSonuc">
+         <property name="font">
+          <font>
+           <weight>75</weight>
+           <italic>true</italic>
+           <bold>true</bold>
+          </font>
+         </property>
          <property name="text">
           <string>20</string>
          </property>
@@ -487,8 +501,8 @@
    <slot>accept()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>808</x>
-     <y>601</y>
+     <x>1188</x>
+     <y>688</y>
     </hint>
     <hint type="destinationlabel">
      <x>582</x>
@@ -503,8 +517,8 @@
    <slot>reject()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>713</x>
-     <y>603</y>
+     <x>1045</x>
+     <y>688</y>
     </hint>
     <hint type="destinationlabel">
      <x>627</x>

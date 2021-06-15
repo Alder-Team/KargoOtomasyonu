@@ -28,8 +28,13 @@ public:
     KRGAliciBilgileriPtr getVeriAlici() const;
     void setVeriAlici(const KRGAliciBilgileriPtr &value);
 
+signals:
+    void desiDegisti(QString);
+
+
 public slots:
     void desiHesapla();
+    void tutarHesapla();
 
 
 private:

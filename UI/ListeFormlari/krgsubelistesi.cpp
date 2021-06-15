@@ -29,10 +29,10 @@ void KRGSubeListesi::listeGuncelle()
 {
     ui->tableWidgetSubeListesi->clear();
     ui->tableWidgetSubeListesi->setRowCount(listeSube.length());
-    ui->tableWidgetSubeListesi->setColumnCount(7);
+    ui->tableWidgetSubeListesi->setColumnCount(8);
 
     QStringList basliklar;
-    basliklar << tr("Şube ID") << tr("Şube Adı") << tr("Şube Yetkilisi") << tr("Şube Telefon Numarası") << tr("Şube Adresi") << tr("Şube Silme") << tr("Şube Düzeltme");
+    basliklar << tr("Şube ID") << tr("Şube Adı") << tr("Şube Yetkilisi") << tr("Şube Telefon Numarası") << tr("Şube İli") << tr("Şube Adresi") << tr("Şube Silme") << tr("Şube Düzeltme");
     //Her birisi arasındaki uzaklık olayını anlamadım o yüzden eklemiyorum. Saygılar -Gülnur
     ui->tableWidgetSubeListesi->setHorizontalHeaderLabels(basliklar);
 
@@ -56,12 +56,16 @@ void KRGSubeListesi::listeGuncelle()
         ui->tableWidgetSubeListesi->setItem(i,3,hucre);
 
         hucre = new QTableWidgetItem();
-        hucre->setText(tr("%1").arg(listeSube[i]->getSubeAdresi()));
+        hucre->setText(listeSube[i]->getSubeIli());
         ui->tableWidgetSubeListesi->setItem(i,4,hucre);
+
+        hucre = new QTableWidgetItem();
+        hucre->setText(tr("%1").arg(listeSube[i]->getSubeAdresi()));
+        ui->tableWidgetSubeListesi->setItem(i,5,hucre);
 
         QPushButton *silmeButonu = new QPushButton();
         silmeButonu->setText(tr("Şubeyi Sil"));
-        ui->tableWidgetSubeListesi->setCellWidget(i,5,silmeButonu);
+        ui->tableWidgetSubeListesi->setCellWidget(i,6,silmeButonu);
 
 
         auto veri_i = listeSube[i];
@@ -77,7 +81,7 @@ void KRGSubeListesi::listeGuncelle()
 
         QPushButton *duzeltmeButonu = new QPushButton();
         duzeltmeButonu->setText(tr("Şubeyi Düzelt"));
-        ui->tableWidgetSubeListesi->setCellWidget(i,6,duzeltmeButonu);
+        ui->tableWidgetSubeListesi->setCellWidget(i,7,duzeltmeButonu);
 
         connect(duzeltmeButonu, &QPushButton::clicked, [veri_i,this](){
             KRGSubeBilgileriEkle form;

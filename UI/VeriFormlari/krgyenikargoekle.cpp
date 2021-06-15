@@ -6,6 +6,7 @@
 #include <Veri/VeriListesi/krggondericibilgileri.h>
 
 #include <Veri/krggenelveriyoneticisi.h>
+#include <Veri/Csv/krgcsvreadclass.h>
 
 KRGYeniKargoEkle::KRGYeniKargoEkle(QWidget *parent) :
     QDialog(parent),
@@ -21,16 +22,20 @@ KRGYeniKargoEkle::KRGYeniKargoEkle(QWidget *parent) :
     });
 
     for (const auto &sube: qAsConst(tumSubeler)) {
-        ui->comboboxAliciSube->addItem(sube->getSubeAdi());
+        ui->comboboxAliciSube->addItem(tr("%1 -%2").arg(sube->getSubeAdi(), sube->getSubeIli()));
     }
 
     for (const auto &sube: qAsConst(tumSubeler)) {
-        ui->comboboxGondericiSube->addItem(sube->getSubeAdi());
+        ui->comboboxGondericiSube->addItem(tr("%1 -%2").arg(sube->getSubeAdi(), sube->getSubeIli()));
     }
+
     connect(ui->dspinboxDesiEn, static_cast<void(QDoubleSpinBox::*)(double)>(&QDoubleSpinBox::valueChanged), this, &KRGYeniKargoEkle::desiHesapla);
     connect(ui->dspinboxDesiBoy, static_cast<void(QDoubleSpinBox::*)(double)>(&QDoubleSpinBox::valueChanged), this, &KRGYeniKargoEkle::desiHesapla);
     connect(ui->dspinboxDesiYukseklik, static_cast<void(QDoubleSpinBox::*)(double)>(&QDoubleSpinBox::valueChanged), this, &KRGYeniKargoEkle::desiHesapla);
-    this->desiHesapla();
+
+    connect(ui->comboboxAliciSube, &QComboBox::currentTextChanged,this, &KRGYeniKargoEkle::tutarHesapla);
+    connect(ui->comboboxGondericiSube, &QComboBox::currentTextChanged,this, &KRGYeniKargoEkle::tutarHesapla);
+    connect(this, &KRGYeniKargoEkle::desiDegisti, this, &KRGYeniKargoEkle::tutarHesapla);
 
 }
 
@@ -54,9 +59,9 @@ KRGKargoBilgileriPtr KRGYeniKargoEkle::getVeriKargo() const
     veriKargo->setKargoDesi(ui->lblDesiSonucSayi->text().toDouble());
 
     veriKargo->setGonderenSube(ui->comboboxGondericiSube->currentText());
-    // ID alabiliriz
     veriKargo->setAliciSube(ui->comboboxAliciSube->currentText());
-
+    // veriKargo->setAliciSube(ui->comboboxAliciSube->currentData());
+    // veriKargo->setGonderenSube(ui->comboboxGondericiSube->currentData());
     veriKargo->setKargoTarihi(ui->dateEditTarih->date());
 
     veriKargo->setKargoUcreti(ui->lblTutarSonuc->text().toDouble());
@@ -81,13 +86,9 @@ void KRGYeniKargoEkle::setVeriKargo(const KRGKargoBilgileriPtr &value)
     ui->dspinboxDesiYukseklik->setValue(veriKargo->getKargoYukseklik());
     ui->lblDesiSonucSayi->setText(tr("%1").arg(veriKargo->getKargoDesi()));
 
-
-
     // Arama
-    ui->comboboxAliciSube->currentIndex(); // 3
-    ui->comboboxGondericiSube->currentIndex(); // 2
-
-
+    // ui->comboboxAliciSube->currentIndex(); // 3
+    // ui->comboboxGondericiSube->currentIndex(); // 2
 
 
     ui->comboboxGondericiSube->setCurrentText(veriKargo->getGonderenSube());
@@ -99,7 +100,6 @@ void KRGYeniKargoEkle::setVeriKargo(const KRGKargoBilgileriPtr &value)
 
 KRGGondericiBilgileriPtr KRGYeniKargoEkle::getVeriGonderici() const
 {
-
     veriGonderici->setGonderenAdi(ui->lineEditGondericiAdi->text());
     veriGonderici->setGonderenAdresi(ui->plainTextEditGondericiAdresi->toPlainText());
     veriGonderici->setGonderenEmail(ui->lineEditGondericiEmail->text());
@@ -140,5 +140,42 @@ void KRGYeniKargoEkle::desiHesapla()
 {
     auto desi = ui->dspinboxDesiBoy->value() * ui->dspinboxDesiEn->value() * ui->dspinboxDesiYukseklik->value() / 3000;
     ui->lblDesiSonucSayi->setText(QString::number(desi));
+    emit desiDegisti(QString::number(desi));
+}
+
+void KRGYeniKargoEkle::tutarHesapla()
+{
+    QStringList ilListesi;
+    ilListesi <<""<< "Adana" << "Adıyaman" << "Afyon" << "Ağrı" << "Amasya" << "Ankara"<< "Antalya"<< "Artvin"<< "Aydın"<< "Balıkesir"<< "Bilecik"<< "Bingöl"<< "Bitlis"<< "Bolu"<< "Burdur"<< "Bursa"<< "Çanakkale"<< "Çankırı"<< "Çorum"<< "Denizli"<< "Diyarbakır"<< "Edirne"<< "Elazığ"<< "Erzincan"<< "Erzurum"<< "Eskişehir"<< "Gaziantep"<< "Giresun"<< "Gümüşhane"<< "Hakkari"<< "Hatay"<< "Isparta"<< "Mersin"<< "İstanbul"<< "İzmir"<< "Kars"<< "Kastamonu"<< "Kayseri"<< "Kırklareli"<< "Kırşehir"<< "Kocaeli"<< "Konya"<< "Kütahya"<< "Malatya"<< "Manisa"<< "Kahramanmaraş"<< "Mardin"<< "Muğla"<< "Muş"<< "Nevşehir"<< "Niğde"<< "Ordu"<< "Rize"<< "Sakarya"<< "Samsun"<< "Siirt"<< "Sinop" << "Sivas"<< "Tekirdağ"<< "Tokat"<< "Trabzon"<< "Tunceli"<< "Şanlıurfa"<< "Uşak"<< "Van"<< "Yozgat"<< "Zonguldak"<< "Aksaray"<< "Bayburt"<< "Karaman" << "Kırıkkale" << "Batman"<< "Şırnak"<< "Bartın"<< "Ardahan"<< "Iğdır"<< "Yalova" << "Karabük" << "Kilis" << "Osmaniye" << "Düzce";
+    QRegExp tagExp("-");
+    KRGCsvReadClass r;
+    auto aliciSubeDetay = ui->comboboxAliciSube->currentText();
+    auto gondericiSubeDetay = ui->comboboxGondericiSube->currentText();
+    QStringList aliciSubeIl = aliciSubeDetay.split(tagExp);
+    QStringList gondericiSubeIl = gondericiSubeDetay.split(tagExp);
+
+
+
+    QList<int> plakalar;
+    for (int i = 0; i < ilListesi.length() ; i++ ) {
+        if (ilListesi[i] == aliciSubeIl[1]){
+            plakalar.append(i);
+        }
+        if (ilListesi[i] == gondericiSubeIl[1]){
+            plakalar.append(i);
+        }
+    }
+    auto mesafe = r.mesafe(plakalar[0], plakalar[1]);
+
+    if (mesafe <= 0){
+        ui->lblTutarSonuc->setText(tr("%1").arg(0));
+    }else if (mesafe < 300) {
+        ui->lblTutarSonuc->setText(tr("%1").arg(ui->lblDesiSonucSayi->text().toDouble() * 5));
+    }else if (mesafe >= 300 & mesafe < 600) {
+        ui->lblTutarSonuc->setText(tr("%1").arg(ui->lblDesiSonucSayi->text().toDouble() * 7));
+    }else{
+        ui->lblTutarSonuc->setText(tr("%1").arg(ui->lblDesiSonucSayi->text().toDouble() * 10));
+    }
+
 
 }
