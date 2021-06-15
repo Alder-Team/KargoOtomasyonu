@@ -14,6 +14,7 @@ KRGSubeBilgileriYoneticisi::Ptr KRGSubeBilgileriYoneticisi::kopyaOlustur(TemelVe
     kopya->setSubeAdresi(kaynak->getSubeAdresi());
     kopya->setSubeTelNo(kaynak->getSubeTelNo());
     kopya->setSubeYetkilisi(kaynak->getSubeYetkilisi());
+    kopya->setSubeIli(kaynak->getSubeIli());
 
 
     return kopya;
