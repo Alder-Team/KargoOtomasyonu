@@ -48,11 +48,11 @@ void KRGKargoListesi::listeGuncelle()
         ui->tableWidgetKargoListesi->setItem(i,0,hucre);
 
         hucre = new QTableWidgetItem();
-        hucre->setText(tr("%1").arg(listeKargo[i]->getKargoUcreti()));
+        hucre->setText(tr("%1").arg(listeKargo[i]->getAliciId()));
         ui->tableWidgetKargoListesi->setItem(i,1,hucre);
 
         hucre = new QTableWidgetItem();
-        hucre->setText(tr("%1").arg(listeKargo[i]->getKargoUcreti()));
+        hucre->setText(tr("%1").arg(listeKargo[i]->getGondericiId()));
         ui->tableWidgetKargoListesi->setItem(i,2,hucre);
 
         hucre = new QTableWidgetItem();
@@ -276,7 +276,7 @@ void KRGKargoListesi::listeGuncelle()
  */
 
 
-
+/*
 void KRGKargoListesi::ara()
 {
     // quint64 aramaAliciId;
@@ -309,13 +309,15 @@ void KRGKargoListesi::ara()
     listeGuncelle();
 }
 
+*/
 
 
-/*
 
 void KRGKargoListesi::ara()
 {
-
+    setAramaAliciId(999999);
+    setAramaGondericiId(999999);
+    // qDebug() << getAramaAliciId() << getAramaGondericiId();
     auto ekran = this->ui;
     listeKargo = KRGGenelVeriYoneticisi::db().getKargoBilgileri().tumunuBul(
         [this,ekran](KRGKargoBilgileriYoneticisi::Ptr veri)->bool {
@@ -325,26 +327,42 @@ void KRGKargoListesi::ara()
             auto iter = QString::number(veri->getId());
             if (ekran->lineEditKargoIdGiriniz->text()!=""){
                 if(iter != ekran->lineEditKargoIdGiriniz->text()){
-                    setAramaAliciId(veri->getAliciId());
+                    return false;
+                }
+            }
+            setAramaAliciId(veri->getAliciId());
+            setAramaGondericiId(veri->getGondericiId());
+            return true;
+        });
+    // qDebug() << 340 <<"----";
+    // qDebug() << 341 <<"getAramaAliciId()" << getAramaAliciId();
+    // qDebug() << 34 <<"----";
+    listeAlici = KRGGenelVeriYoneticisi::db().getAliciBilgileri().tumunuBul(
+        [this, ekran](KRGAliciBilgileriYoneticisi::Ptr veri)->bool{
+        // qDebug() << 344 << "Alici Bilgileri - getAramaAliciId()" << getAramaAliciId();
+        // qDebug() << 345 << "Alici Bilgileri - " << veri->getId();
+            if(ekran->lineEditKargoIdGiriniz->text()==""){
+                return true;
+            }
+            if (ekran->lineEditKargoIdGiriniz->text()!=""){
+
+                if (veri->getId() != getAramaAliciId()){
                     return false;
                 }
             }
             return true;
         });
-    listeAlici = KRGGenelVeriYoneticisi::db().getAliciBilgileri().tumunuBul(
-        [this](KRGAliciBilgileriYoneticisi::Ptr veri)->bool{
-            qDebug() << "Alici" << veri->getId() << getAramaAliciId();
-            if (veri->getId() != getAramaAliciId()){
-                return false;
-            }
-            return true;
-        });
+    // qDebug() << "----------";
 
     listeGonderici = KRGGenelVeriYoneticisi::db().getGondericiBilgileri().tumunuBul(
-        [this](KRGGondericiBilgileriYoneticisi::Ptr veri)->bool {
-            qDebug() << "Gönderici" << veri->getId() << getAramaGondericiId();
-            if(veri->getId() != getAramaGondericiId()){
-                return false;
+        [this, ekran](KRGGondericiBilgileriYoneticisi::Ptr veri)->bool {
+            if(ekran->lineEditKargoIdGiriniz->text()==""){
+                return true;
+            }
+            if (ekran->lineEditKargoIdGiriniz->text()!=""){
+                if(veri->getId() != getAramaGondericiId()){
+                    return false;
+                }
             }
             return true;
             }
@@ -382,7 +400,7 @@ void KRGKargoListesi::setAramaAliciId(quint64 newAramaAliciId)
 
 
 
-*/
+
 
 void KRGKargoListesi::on_pushButtonAra_clicked()
 {

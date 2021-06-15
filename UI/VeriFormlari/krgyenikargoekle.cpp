@@ -36,6 +36,8 @@ KRGYeniKargoEkle::KRGYeniKargoEkle(QWidget *parent) :
     connect(ui->comboboxAliciSube, &QComboBox::currentTextChanged,this, &KRGYeniKargoEkle::tutarHesapla);
     connect(ui->comboboxGondericiSube, &QComboBox::currentTextChanged,this, &KRGYeniKargoEkle::tutarHesapla);
     connect(this, &KRGYeniKargoEkle::desiDegisti, this, &KRGYeniKargoEkle::tutarHesapla);
+    this->desiHesapla();
+    this->tutarHesapla();
 
 }
 
@@ -51,20 +53,35 @@ KRGKargoBilgileriPtr KRGYeniKargoEkle::getVeriKargo() const
     } else {
         veriKargo->setOdemeTuru(OTGondericiOdemeli);
     }
-
     veriKargo->setKargoEn(ui->dspinboxDesiEn->value());
     veriKargo->setKargoBoy(ui->dspinboxDesiBoy->value());
     veriKargo->setKargoYukseklik(ui->dspinboxDesiYukseklik->value());
-
     veriKargo->setKargoDesi(ui->lblDesiSonucSayi->text().toDouble());
 
     veriKargo->setGonderenSube(ui->comboboxGondericiSube->currentText());
     veriKargo->setAliciSube(ui->comboboxAliciSube->currentText());
     // veriKargo->setAliciSube(ui->comboboxAliciSube->currentData());
     // veriKargo->setGonderenSube(ui->comboboxGondericiSube->currentData());
-    veriKargo->setKargoTarihi(ui->dateEditTarih->date());
 
+    veriKargo->setKargoTarihi(ui->dateEditTarih->date());
     veriKargo->setKargoUcreti(ui->lblTutarSonuc->text().toDouble());
+
+    // Bu satırlar çok önemli
+    /*
+    KRGAliciBilgileriYoneticisi::VeriListesi listeAlici;
+    listeAlici = KRGGenelVeriYoneticisi::db().getAliciBilgileri().tumunuBul(
+                [this](KRGAliciBilgileriYoneticisi::Ptr veri)->bool{
+
+                    return true;
+                }
+            );
+
+    */
+
+
+    veriKargo->setAliciId(veriAlici->getId());;
+
+    veriKargo->setGondericiId(veriGonderici->getId());
 
     return veriKargo;
 }
@@ -72,7 +89,6 @@ KRGKargoBilgileriPtr KRGYeniKargoEkle::getVeriKargo() const
 void KRGYeniKargoEkle::setVeriKargo(const KRGKargoBilgileriPtr &value)
 {
     veriKargo = value;
-
     switch (veriKargo->getOdemeTuru()) {
     case OTGondericiOdemeli:
         ui->radiobtnGonderiOdemeli->setChecked(true);
@@ -80,20 +96,16 @@ void KRGYeniKargoEkle::setVeriKargo(const KRGKargoBilgileriPtr &value)
     default:
         ui->radiobtnAliciOdemeli->setChecked(true);
     }
-
     ui->dspinboxDesiEn->setValue(veriKargo->getKargoEn());
     ui->dspinboxDesiBoy->setValue(veriKargo->getKargoBoy());
     ui->dspinboxDesiYukseklik->setValue(veriKargo->getKargoYukseklik());
     ui->lblDesiSonucSayi->setText(tr("%1").arg(veriKargo->getKargoDesi()));
 
     // Arama
-    // ui->comboboxAliciSube->currentIndex(); // 3
-    // ui->comboboxGondericiSube->currentIndex(); // 2
-
-
+    // ui->comboboxAliciSube->currentIndex();
+    // ui->comboboxGondericiSube->currentIndex();
     ui->comboboxGondericiSube->setCurrentText(veriKargo->getGonderenSube());
     ui->comboboxAliciSube->setCurrentText(veriKargo->getAliciSube());
-
     ui->dateEditTarih->setDate(veriKargo->getKargoTarihi());
     ui->lblTutarSonuc->setText(tr("%1").arg(veriKargo->getKargoUcreti()));
 }
@@ -114,7 +126,6 @@ void KRGYeniKargoEkle::setVeriGonderici(const KRGGondericiBilgileriPtr &value)
     ui->plainTextEditGondericiAdresi->setPlainText(veriGonderici->getGonderenAdresi());
     ui->lineEditGondericiEmail->setText(veriGonderici->getGonderenEmail());
     ui->lineEditGondericiTelefonNumarasi->setText(veriGonderici->getGonderenTelNo());
-
 }
 
 
@@ -124,6 +135,7 @@ KRGAliciBilgileriPtr KRGYeniKargoEkle::getVeriAlici() const
     veriAlici->setAliciAdresi(ui->plainTextEditAliciAdresi->toPlainText());
     veriAlici->setAliciEmail(ui->lineEditAliciEmail->text());
     veriAlici->setAliciTelNo(ui->lineEditAliciTelefonNumarasi->text());
+    qDebug() << 129 << "veriAlici->getId" << veriAlici->getId();
     return veriAlici;
 }
 
@@ -176,6 +188,4 @@ void KRGYeniKargoEkle::tutarHesapla()
     }else{
         ui->lblTutarSonuc->setText(tr("%1").arg(ui->lblDesiSonucSayi->text().toDouble() * 10));
     }
-
-
 }

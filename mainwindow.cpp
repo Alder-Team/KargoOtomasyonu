@@ -56,21 +56,25 @@ MainWindow::~MainWindow()
 void MainWindow::on_btnKargoEkle_clicked()
 {
     KRGYeniKargoEkle form;
-    auto veriKargo = KRGGenelVeriYoneticisi::db().getKargoBilgileri().yeni();
+
     auto veriAlici = KRGGenelVeriYoneticisi::db().getAliciBilgileri().yeni();
     auto veriGonderici = KRGGenelVeriYoneticisi::db().getGondericiBilgileri().yeni();
+    auto veriKargo = KRGGenelVeriYoneticisi::db().getKargoBilgileri().yeni();
 
-    form.setVeriKargo(veriKargo);
+    qDebug() << veriAlici->getId();
+
     form.setVeriAlici(veriAlici);
     form.setVeriGonderici(veriGonderici);
+    form.setVeriKargo(veriKargo);
 
     if (form.exec() == QDialog::Accepted) {
-        form.getVeriKargo();
         form.getVeriAlici();
         form.getVeriGonderici();
-        KRGGenelVeriYoneticisi::db().getKargoBilgileri().ekle(veriKargo);
+        form.getVeriKargo();
         KRGGenelVeriYoneticisi::db().getAliciBilgileri().ekle(veriAlici);
         KRGGenelVeriYoneticisi::db().getGondericiBilgileri().ekle(veriGonderici);
+        KRGGenelVeriYoneticisi::db().getKargoBilgileri().ekle(veriKargo);
+
     }
 
 }

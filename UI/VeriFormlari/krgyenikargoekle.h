@@ -28,6 +28,10 @@ public:
     KRGAliciBilgileriPtr getVeriAlici() const;
     void setVeriAlici(const KRGAliciBilgileriPtr &value);
 
+    const QList<QString> &getAliciIdListesi() const;
+    void setAliciIdListesi(const QList<QString> &newAliciIdListesi);
+
+
 signals:
     void desiDegisti(QString);
 
@@ -39,6 +43,7 @@ public slots:
 
 private:
     Ui::KRGYeniKargoEkle *ui;
+
 
     KRGKargoBilgileriPtr veriKargo;
     KRGGondericiBilgileriPtr veriGonderici;
