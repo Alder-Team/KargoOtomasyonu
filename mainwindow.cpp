@@ -6,6 +6,7 @@
 #include <UI/ListeFormlari/krgkargolistesi.h>
 #include <UI/ListeFormlari/krgkayitlimusteriler.h>
 #include <Veri/krggenelveriyoneticisi.h>
+#include <Veri/VeriListesi/krgkargobilgileri.h>
 
 #include <QDir>
 #include <QFile>
@@ -32,6 +33,7 @@ MainWindow::MainWindow(QWidget *parent)
             dosya.close();
         }
     }
+    ara();
 }
 
 MainWindow::~MainWindow()
@@ -106,4 +108,61 @@ void MainWindow::on_btnKayitliMusteriler_clicked()
 {
     KRGKayitliMusteriler form;
     form.exec();
+}
+
+void MainWindow::listeGuncelle()
+{
+    ui->tableWidget->clear();
+    ui->tableWidget->setRowCount(liste.length());
+    ui->tableWidget->setColumnCount(7);
+
+    QStringList basliklar;
+    basliklar <<tr("ID") << tr("Tarih") << tr("Ödeme Türü") << tr("Desi") << tr("Tutar")<< tr("Gönderen Şube") << tr("Alıcı Şube")  ;
+    ui->tableWidget->setHorizontalHeaderLabels(basliklar);
+
+
+    for (int i = 0; i < liste.length(); i++) {
+
+
+        QTableWidgetItem *hucre = new QTableWidgetItem();
+        hucre->setText(tr("%1").arg(liste[i]->getId()));
+        ui->tableWidget->setItem(i,0,hucre);
+
+        hucre = new QTableWidgetItem();
+        hucre->setText(liste[i]->getKargoTarihi().toString("yyyy.MM.dd"));
+        ui->tableWidget->setItem(i,1,hucre);
+
+        hucre = new QTableWidgetItem();
+        switch (liste[i]->getOdemeTuru()) {
+        case OTGondericiOdemeli:
+            hucre->setText("Gönderici Ödemeli");
+            break;
+        default:
+            hucre->setText("Alıcı Ödemeli");
+        }
+        ui->tableWidget->setItem(i, 2, hucre);
+
+        hucre = new QTableWidgetItem();
+        hucre->setText(tr("%1").arg(liste[i]->getKargoDesi()));
+        ui->tableWidget->setItem(i,3,hucre);
+
+        hucre = new QTableWidgetItem();
+        hucre->setText(tr("%1").arg(liste[i]->getKargoUcreti()));
+        ui->tableWidget->setItem(i,4,hucre);
+
+        hucre = new QTableWidgetItem();
+        hucre->setText(liste[i]->getGonderenSube());
+        ui->tableWidget->setItem(i,5,hucre);
+
+        hucre = new QTableWidgetItem();
+        hucre->setText(liste[i]->getAliciSube());
+        ui->tableWidget->setItem(i,6,hucre);
+
+    }
+}
+
+void MainWindow::ara()
+{
+    liste = KRGGenelVeriYoneticisi::db().getKargoBilgileri().tumunuBul([](KRGKargoBilgileriYoneticisi::Ptr p)->bool {return true;});
+    listeGuncelle();
 }
