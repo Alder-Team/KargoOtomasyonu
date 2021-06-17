@@ -59,21 +59,21 @@ tabidir.)
 
 #### Check-List
 
-[x] Gönderiler sisteme kaydedilebilmelidir.
+-[x] Gönderiler sisteme kaydedilebilmelidir.
 
-[x] Her gönderinin desi türünden hesabı yapılabilmelidir Gönderi fiyatı desi üzerinden yapılacaktır.
+-[x] Her gönderinin desi türünden hesabı yapılabilmelidir Gönderi fiyatı desi üzerinden yapılacaktır.
 
-[x] Desi hesabı hacim üzerinden yapılabiliyor.
+-[x] Desi hesabı hacim üzerinden yapılabiliyor.
 
-[] Normalde sadece hacim ile hesaplanır fakat firma ağırlık ile hesaplama mekanizması da istemektedir.
+-[] Normalde sadece hacim ile hesaplanır fakat firma ağırlık ile hesaplama mekanizması da istemektedir.
 
-[x] Gönderilerin ödemesine göre 2 farklı tür olabilir! (Alici Ödemeli , Gönderici Ödemeli)
+-[x] Gönderilerin ödemesine göre 2 farklı tür olabilir! (Alici Ödemeli , Gönderici Ödemeli)
 
-[x] Firma Hizmet verdiği illeri (şubelerini girebilmelidir.
+-[x] Firma Hizmet verdiği illeri (şubelerini girebilmelidir.
 
-[x] Firma Hizmet verdiği illerin mesafelerini yazılıma girebilmelidir. **Karayolları Genel Müdürlüğündeki iller arasındaki mesafe veritabanı kullanıldı.** 
+-[x] Firma Hizmet verdiği illerin mesafelerini yazılıma girebilmelidir. **Karayolları Genel Müdürlüğündeki iller arasındaki mesafe veritabanı kullanıldı.** 
 
-[x] Firma gönderdiği adresleri kaydetmek istemektedir. Bu sebeple, gönderici veya alıcı adına göre gönderi esnasında kayıt yapılabilmelidir.
+-[x] Firma gönderdiği adresleri kaydetmek istemektedir. Bu sebeple, gönderici veya alıcı adına göre gönderi esnasında kayıt yapılabilmelidir.
 
 ### Bilinen Sorunlar
 
