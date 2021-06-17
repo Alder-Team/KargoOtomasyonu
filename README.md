@@ -65,7 +65,7 @@ tabidir.)
 
 - [x] Desi hesabı hacim üzerinden yapılabiliyor.
 
-- [] Normalde sadece hacim ile hesaplanır fakat firma ağırlık ile hesaplama mekanizması da istemektedir.
+- [ ] Normalde sadece hacim ile hesaplanır fakat firma ağırlık ile hesaplama mekanizması da istemektedir.
 
 - [x] Gönderilerin ödemesine göre 2 farklı tür olabilir! (Alici Ödemeli , Gönderici Ödemeli)
 
