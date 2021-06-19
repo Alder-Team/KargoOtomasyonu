@@ -78,15 +78,21 @@ KRGKargoBilgileriPtr KRGYeniKargoEkle::getVeriKargo() const
 
     */
 
-    auto sonAliciId = KRGGenelVeriYoneticisi::db().getAliciBilgileri().sonuncuyuBul(
-                [](KRGAliciBilgileriYoneticisi::Ptr veri){return true;});
 
-    auto sonGondericiId = KRGGenelVeriYoneticisi::db().getGondericiBilgileri().sonuncuyuBul(
-                [](KRGGondericiBilgileriYoneticisi::Ptr veri){return true;});
+    try {
+        auto sonAliciId = KRGGenelVeriYoneticisi::db().getAliciBilgileri().sonuncuyuBul(
+                    [](KRGAliciBilgileriYoneticisi::Ptr veri){return true;});
 
-    veriKargo->setAliciId(sonAliciId->getId() + 1);
+        auto sonGondericiId = KRGGenelVeriYoneticisi::db().getGondericiBilgileri().sonuncuyuBul(
+                    [](KRGGondericiBilgileriYoneticisi::Ptr veri){return true;});
 
-    veriKargo->setGondericiId(sonGondericiId->getId() + 1 );
+        veriKargo->setAliciId(sonAliciId->getId() + 1);
+
+        veriKargo->setGondericiId(sonGondericiId->getId() + 1 );
+    } catch (...) {
+        qDebug() << "~libc++abi: terminating with uncaught exception of type QString~ hatası yakalıyorduk düzelmektemedik.";
+    }
+
 
     return veriKargo;
 }
@@ -162,35 +168,41 @@ void KRGYeniKargoEkle::desiHesapla()
 
 void KRGYeniKargoEkle::tutarHesapla()
 {
+
     QStringList ilListesi;
     ilListesi <<""<< "Adana" << "Adıyaman" << "Afyon" << "Ağrı" << "Amasya" << "Ankara"<< "Antalya"<< "Artvin"<< "Aydın"<< "Balıkesir"<< "Bilecik"<< "Bingöl"<< "Bitlis"<< "Bolu"<< "Burdur"<< "Bursa"<< "Çanakkale"<< "Çankırı"<< "Çorum"<< "Denizli"<< "Diyarbakır"<< "Edirne"<< "Elazığ"<< "Erzincan"<< "Erzurum"<< "Eskişehir"<< "Gaziantep"<< "Giresun"<< "Gümüşhane"<< "Hakkari"<< "Hatay"<< "Isparta"<< "Mersin"<< "İstanbul"<< "İzmir"<< "Kars"<< "Kastamonu"<< "Kayseri"<< "Kırklareli"<< "Kırşehir"<< "Kocaeli"<< "Konya"<< "Kütahya"<< "Malatya"<< "Manisa"<< "Kahramanmaraş"<< "Mardin"<< "Muğla"<< "Muş"<< "Nevşehir"<< "Niğde"<< "Ordu"<< "Rize"<< "Sakarya"<< "Samsun"<< "Siirt"<< "Sinop" << "Sivas"<< "Tekirdağ"<< "Tokat"<< "Trabzon"<< "Tunceli"<< "Şanlıurfa"<< "Uşak"<< "Van"<< "Yozgat"<< "Zonguldak"<< "Aksaray"<< "Bayburt"<< "Karaman" << "Kırıkkale" << "Batman"<< "Şırnak"<< "Bartın"<< "Ardahan"<< "Iğdır"<< "Yalova" << "Karabük" << "Kilis" << "Osmaniye" << "Düzce";
     QRegExp tagExp("-");
     KRGCsvReadClass r;
+
     auto aliciSubeDetay = ui->comboboxAliciSube->currentText();
     auto gondericiSubeDetay = ui->comboboxGondericiSube->currentText();
-    QStringList aliciSubeIl = aliciSubeDetay.split(tagExp);
-    QStringList gondericiSubeIl = gondericiSubeDetay.split(tagExp);
+
+    if(!aliciSubeDetay.isEmpty() && !gondericiSubeDetay.isEmpty()){
+        QStringList aliciSubeIl = aliciSubeDetay.split(tagExp);
+        QStringList gondericiSubeIl = gondericiSubeDetay.split(tagExp);
 
 
 
-    QList<int> plakalar;
-    for (int i = 0; i < ilListesi.length() ; i++ ) {
-        if (ilListesi[i] == aliciSubeIl[1]){
-            plakalar.append(i);
+        QList<int> plakalar;
+        for (int i = 0; i < ilListesi.length() ; i++ ) {
+            if (ilListesi[i] == aliciSubeIl[1]){
+                plakalar.append(i);
+            }
+            if (ilListesi[i] == gondericiSubeIl[1]){
+                plakalar.append(i);
+            }
         }
-        if (ilListesi[i] == gondericiSubeIl[1]){
-            plakalar.append(i);
-        }
-    }
-    auto mesafe = r.mesafe(plakalar[0], plakalar[1]);
+        auto mesafe = r.mesafe(plakalar[0], plakalar[1]);
 
-    if (mesafe <= 0){
-        ui->lblTutarSonuc->setText(tr("%1").arg(0));
-    }else if (mesafe < 300) {
-        ui->lblTutarSonuc->setText(tr("%1").arg(ui->lblDesiSonucSayi->text().toDouble() * 5));
-    }else if (mesafe >= 300 & mesafe < 600) {
-        ui->lblTutarSonuc->setText(tr("%1").arg(ui->lblDesiSonucSayi->text().toDouble() * 7));
-    }else{
-        ui->lblTutarSonuc->setText(tr("%1").arg(ui->lblDesiSonucSayi->text().toDouble() * 10));
+        if (mesafe <= 0){
+            ui->lblTutarSonuc->setText(tr("%1").arg(0));
+        }else if (mesafe < 300) {
+            ui->lblTutarSonuc->setText(tr("%1").arg(ui->lblDesiSonucSayi->text().toDouble() * 5));
+        }else if (mesafe >= 300 & mesafe < 600) {
+            ui->lblTutarSonuc->setText(tr("%1").arg(ui->lblDesiSonucSayi->text().toDouble() * 7));
+        }else{
+            ui->lblTutarSonuc->setText(tr("%1").arg(ui->lblDesiSonucSayi->text().toDouble() * 10));
+        }
+
     }
 }
