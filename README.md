@@ -9,8 +9,9 @@ Hızlı erişim:
         - Check-List
     - [Şube Ekleme](#Şube-Ekleme)
     - [Kargo Ekleme](#Kargo-Ekleme)
--
-
+    - [Kargo Tutarlarların Hesaplanması](#Kargo-Tutarlarların-Hesaplanması)
+- [Yazılımı geliştirirken kullandığımız araçlar ve diller](#Yazılımı-geliştirirken-kullandığımız-araçlar-ve-diller)
+- [Teşekkürler](#Teşekkürler)
 
 ---
 
@@ -104,25 +105,28 @@ Bu ekranda KGM'den çektiğimiz iller arası uzaklık tablosunu kullanmak için 
 
 
 
-
 ### Kargo Tutarlarların Hesaplanması
 
 Elimizde 24x30x26 ebatlarında bir kolimiz olduğunu düşünelim. Kargo tutarını hesaplamak için önce desiyi hesaplamamız gereklidir. 
 
 `Desi = En x Boy x Yükseklik / 3000`
 
-formülünden  yararlanarak desi hesaplanır. Örneğimizdeki kolinin desisi 6.24 gelmekte. 
+formülünden  yararlanarak desi hesaplanır. Örneğimizdeki kolinin desisi **6.24** gelmekte. 
 
-Kargoları ücretlendirmek için yolların mesafelerini bölge
+| Aralık (Km) | Çarpan |
+|-------------|--------|
+|   0-300     |    5   |
+| 300-600     |    7   |
+| 600-        |    10  |
 
+|                     | Km   | Çarpan | Desi | Tutar |
+|---------------------|------|--------|------|-------|
+|Adıyaman - Gaziantep | 150  |    5   | 6.24 |  3120 |
+|Aksaray - Adıyaman   | 580  |    7   | 6.24 |  4368 |
+|Çorum - İstanbul     | 614  |    10  | 6.24 |  6240 |
+|Trabzon - İstanbul   | 1248 |    10  | 6.24 |  6240 |
 
-https://www.kgm.gov.tr/Sayfalar/KGM/SiteTr/Root/Uzakliklar.aspx
-
-Çorum - İstanbul 614
-
-Adıyaman - Gaziantep 150 km
-
-Trabzon - İstanbul 1248 km
+[KGM iller arası uzaklaklık tıklayın.](https://www.kgm.gov.tr/Sayfalar/KGM/SiteTr/Root/Uzakliklar.aspx)
 
 ---
 
@@ -139,12 +143,13 @@ Trabzon - İstanbul 1248 km
   
 ## Yazılımı geliştiren kişiler
 
-- Gülnur Ögür / [GitHub](https://github.com/gulnurogur "Gülnur Ögür Github Profili"), [Linkedin]()
-- Hüseyin Mutlu / [GitHub](https://github.com/huseyin5 "Hüseyin Mutlu Github Profili"), [Linkedin]()
-- Ali Eren Ekinci /[GitHub](https://github.com/alierenekinci "Ali Eren Ekinci Github Profili"), [Linkedin]()
+- Gülnur Ögür 395237 / [GitHub](https://github.com/gulnurogur "Gülnur Ögür Github Profili"), [Linkedin]()
+- Hüseyin Mutlu 395273 / [GitHub](https://github.com/huseyin5 "Hüseyin Mutlu Github Profili"), [Linkedin]()
+- Ali Eren Ekinci 395262 / [GitHub](https://github.com/alierenekinci "Ali Eren Ekinci Github Profili"), [Linkedin]()
 
 
 ## Teşekkürler
 - Dr.Öğr.Üyesi TOLGA BERBER - Karadeniz Teknik Üniversitesi Fen Fakültesi İstatistik ve Bilgisayar Bilimleri Bölümü /[Avesis](https://avesis.ktu.edu.tr/tberber), [Linkedin](https://www.linkedin.com/in/tolga-berber-606b2218/)
 - Ozan Hanedan / [GitHub](https://github.com/ohanedan), [Linkedin](https://www.linkedin.com/in/ozanhanedan/)
-
+- Ahmet Çağatay / [GitHub](https://github.com/ahmetcagatay), [Linkedin](https://www.linkedin.com/in/ahmet-çağatay-61b2281aa/)
+- Deniz Nazari / [GitHub](https://github.com/DenizNazari)
