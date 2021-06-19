@@ -80,7 +80,7 @@ tabidir.)
 ### Bilinen Sorunlar
 
 **Kritik:**
-- [x] Program ilk çalıştığında eğer şube eklenmediyse Kargo ekle ekranı çöküyor. 
+- ~~Program ilk çalıştığında eğer şube eklenmediyse Kargo ekle ekranı çöküyor.~~ Çok fazla test edemedik.
 - Bazen anlamsız şekilde çöküyor.
 
 **Normal**
@@ -140,7 +140,7 @@ KGM iller arası uzaklaklık için [tıklayın](https://www.kgm.gov.tr/Sayfalar/
 
 İndirdiğimiz excel dosyasını numbers üzerinden düzenledik. Ve Python ile uygun hale getirdik. 
 
-Python Kodları için [tıklayın](doc/doc-ipynb).
+Python kodları için [tıklayın](doc/doc-ipynb).
 
 ---
 
