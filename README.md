@@ -165,5 +165,6 @@ Python kodları için [tıklayın](doc/doc-ipynb).
 ## Teşekkürler
 - Dr.Öğr.Üyesi TOLGA BERBER - Karadeniz Teknik Üniversitesi Fen Fakültesi İstatistik ve Bilgisayar Bilimleri Bölümü /[Avesis](https://avesis.ktu.edu.tr/tberber), [Linkedin](https://www.linkedin.com/in/tolga-berber-606b2218/)
 - Ozan Hanedan / [GitHub](https://github.com/ohanedan), [Linkedin](https://www.linkedin.com/in/ozanhanedan/)
+- Oğuzhan İnan / [Github](https://github.com/oguzhaninan), [Linkedin](https://www.linkedin.com/in/oguzhaninan/?originalSubdomain=tr)
 - Ahmet Çağatay / [GitHub](https://github.com/ahmetcagatay), [Linkedin](https://www.linkedin.com/in/ahmet-çağatay-61b2281aa/)
 - Deniz Nazari / [GitHub](https://github.com/DenizNazari)
