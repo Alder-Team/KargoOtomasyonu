@@ -168,3 +168,4 @@ Python kodları için [tıklayın](doc/doc-ipynb).
 - Oğuzhan İnan / [Github](https://github.com/oguzhaninan), [Linkedin](https://www.linkedin.com/in/oguzhaninan/?originalSubdomain=tr)
 - Ahmet Çağatay / [GitHub](https://github.com/ahmetcagatay), [Linkedin](https://www.linkedin.com/in/ahmet-çağatay-61b2281aa/)
 - Deniz Nazari / [GitHub](https://github.com/DenizNazari)
+- Mahmud Ferzeli / [Github](https://github.com/mahmudfrzl), [Linkedin](https://www.linkedin.com/in/mahmud-ferzeli-4078b020b/)
