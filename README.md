@@ -1,4 +1,4 @@
-# Kargo Firma Otomasyonu
+# Kargo Otomasyonu
 
 ![](doc/doc-images/img-0001-girisekrani.png)
 
